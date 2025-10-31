@@ -1,0 +1,11 @@
+import unittest
+#import coverage
+import mybmi
+class TestBMI(unittest.TestCase):
+    def testPrintResult(self):
+        self.assertEqual(mybmi.computeBMI(230,1.50), -1)
+        self.assertEqual(mybmi.computeBMI(45,300), -1)
+        self.assertEqual(mybmi.computeBMI(45,1.70), 15.57)
+        self.assertEqual(mybmi.computeBMI(65,1.70), 22.49)
+        self.assertEqual(mybmi.computeBMI(75,1.70), 25.95)
+        self.assertEqual(mybmi.computeBMI(100,1.70), 34.6)
