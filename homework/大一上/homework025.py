@@ -21,9 +21,7 @@ def isthreekind(card:list)->bool:
 def isstraight(card:list)->bool:
     point = compute(card)
     point.sort()
-    if set(point) == {1,10,11,12,13}:
-        return True
-    elif all(b-a==1 for a,b in zip(point,point[1:])):
+    if all(b-a==1 or b-a==9 for a,b in zip(point,point[1:])):
         return True
     return False
     
