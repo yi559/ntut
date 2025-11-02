@@ -1,6 +1,6 @@
 def main():
     course = {}
-    cheak = True
+    check = True
     week = ["1","2","3","4","5"]
     time = ["1","2","3","4","5","6","7","8","9","a","b","c"]
     
@@ -31,9 +31,9 @@ def main():
             chongtang = set(data[i]) & set(data[j])
 
             for x in chongtang:
-                cheak = False
+                check = False
                 print(f"{id[i]},{id[j]},{x}")
 
-    if cheak:
+    if check:
         print("correct")
 main()
