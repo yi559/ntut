@@ -50,7 +50,7 @@ def main():
     n = int(input())
     flip = input()
     angle = 0
-
+    
     for x in flip:
         if x == "R":
             angle +=1

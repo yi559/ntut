@@ -13,12 +13,12 @@ def main():
                 
                 if data[i][j] == "Ai":
                     column = [data[r][j] for r in range(5)]
-                    if column.count("__") < 4:#--------------
+                    if column.count("__") < 4:
                             new_data[i][j] = "Cn"
                             change[i][j] = True
 
                 elif data[i][j] == "Cn":
-                    if i != 0 and data[i-1][j] != "__":#--------------
+                    if i != 0 and data[i-1][j] != "__":
                         new_data[i][j] = "Hy"
                         change[i][j] = True
 
@@ -30,7 +30,7 @@ def main():
                     for dx,dy in direction:
                         nx,ny = i+dx,j+dy
                         if 0 <= nx < 5 and 0 <= ny < 5:
-                            if data[nx][ny] != "__":#--------------
+                            if data[nx][ny] != "__":
                                 neighber += 1
                             else:
                                 space.append((nx,ny))
@@ -41,7 +41,7 @@ def main():
                         change[i][j] = True
                         
                 elif data[i][j] == "Na":
-                    if j != 4 and data[i][j+1] == "__":#--------------
+                    if j != 4 and data[i][j+1] == "__":
                         new_data[i][j+1] = "Qx"
                         change[i][j+1] = True
                         
