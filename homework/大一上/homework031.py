@@ -99,12 +99,11 @@ def main():
     outputs = []
 
     for _ in range(N):
-        s = input().rstrip("\n")
+        s = input()
         outputs.append(bracket_check_and_eval(s))
 
     for res in outputs:
         print(res)
-
 
 if __name__ == "__main__":
     main()
