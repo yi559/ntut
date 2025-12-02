@@ -5,36 +5,36 @@ def distribute(data, carnumber, goodstotal) -> bool:
     if totalwaight % carnumber != 0:
         return False
 
-    avg = totalwaight // carnumber # 每節車廂總重
+    avg = totalwaight / carnumber # 每節車廂總重
     nowwaight = [0] * carnumber # 每節車廂目前重量
-    goodcount = [0] * carnumber # 每節車廂目前放幾個貨物
+    goodscount = [0] * carnumber # 每節車廂目前放幾個貨物
 
-    return put(data, 0, carnumber, avg, goodcount, nowwaight, goodstotal)
+    return put(data, 0, carnumber, avg, goodscount, nowwaight, goodstotal)
 
-def put(data, idx, carnumber, avg, goodcount, nowwaight, goodstotal):
+def put(data, idx, carnumber, avg, goodscount, nowwaight, goodstotal):
     if idx == len(data):
         return True
 
     for c in range(carnumber):
-        if nowwaight[c] + data[idx] <= avg and goodcount[c] + 1 <= goodstotal:
+        if nowwaight[c] + data[idx] <= avg and goodscount[c] + 1 <= goodstotal:
             nowwaight[c] += data[idx]
-            goodcount[c] += 1
+            goodscount[c] += 1
 
-            if put(data, idx + 1, carnumber, avg, goodcount, nowwaight, goodstotal):
+            if put(data, idx + 1, carnumber, avg, goodscount, nowwaight, goodstotal):
                 return True
 
             nowwaight[c] -= data[idx]
-            goodcount[c] -= 1
+            goodscount[c] -= 1
 
     return False
 
 def main():
-    dataS = input().strip()
+    dataS = input()
     carnumber = int(input())
     goodstotal = int(input())
 
-    if (1 <= len(dataS) <= 50) and (1 <= carnumber <= 50) and (1 <= goodstotal <= 50) and (all('A' <= ch <= 'Z' for ch in dataS)) and (len(dataS) <= carnumber * goodstotal):
-        if distribute(dataS, carnumber, goodstotal):
+    if (1 <= len(dataS) <= 50) and (1 <= carnumber <= 50) and (1 <= goodstotal <= 50) and (all('A' <= ch <= 'Z' for ch in dataS)):
+        if distribute(dataS, carnumber, goodstotal) and dataS <= carnumber * goodstotal:
             print("ok")
         else:
             print("fail")
