@@ -17,7 +17,6 @@ def solve(data: str, idx: int):
 
     return results
 
-
 def main():
     data = input()
     target = int(input())
