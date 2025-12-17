@@ -1,18 +1,18 @@
-def gen(chars, length):
-    # 1. 基本情況：
-    if length == 1:
-        return [c for c in chars]
+name = input("請輸入姓名:")
+hight = int(input("請輸入身高:")) / 100
+waight = int(input("請輸入體重:"))
 
-    # 2. 遞迴呼叫：先求長度 length-1 的所有組合
-    smaller = gen(chars, length - 1)
+bmi = waight / (hight * hight)
 
-    result = []
-
-    # 3. 組合結果：把每個字元加到 smaller 前面
-    for ch in chars:
-        for s in smaller:
-            result.append(ch + s)
-
-    return result
-
-print(gen("abc",2))
+if bmi < 18.5:
+    print(f"您的姓名{name}，您的BMI: {bmi:.2f}，體重過輕，請注意健康")
+elif 18.5 <= bmi < 24:
+    print(f"您的姓名{name}，您的BMI: {bmi:.2f}，體重正常")
+elif 24 <= bmi < 27:
+    print(f"您的姓名{name}，您的BMI: {bmi:.2f}，體重過重，請注意健康")
+elif 27 <= bmi < 30:
+    print(f"您的姓名{name}，您的BMI: {bmi:.2f}，輕度肥胖，請注意健康")
+elif 30 <= bmi < 35:
+    print(f"您的姓名{name}，您的BMI: {bmi:.2f}，中度肥胖，請注意健康")
+elif bmi >= 35:
+    print(f"您的姓名{name}，您的BMI: {bmi:.2f}，重度肥胖，請注意健康")

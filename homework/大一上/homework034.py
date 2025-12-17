@@ -33,8 +33,8 @@ def main():
     carnumber = int(input())
     goodstotal = int(input())
 
-    if (1 <= len(dataS) <= 10) and (1 <= carnumber <= 50) and (1 <= goodstotal <= 50) and (all('A' <= ch <= 'Z' for ch in dataS)):
-        if distribute(dataS, carnumber, goodstotal):
+    if (1 <= len(dataS) <= 10) and (1 <= carnumber <= 5) and (1 <= goodstotal <= 10) and (all('A' <= ch <= 'Z' for ch in dataS)):
+        if distribute(dataS, carnumber, goodstotal) and len(dataS) <= carnumber * goodstotal:
             print("ok")
         else:
             print("fail")
