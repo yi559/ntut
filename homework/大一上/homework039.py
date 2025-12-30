@@ -16,7 +16,6 @@ def enter(cur, data, m, total_weight, total_value, visited):
 
     return max(v1, v2)
 
-
 def main():
     n, first = input().split()
     m = int(input())
@@ -27,6 +26,5 @@ def main():
         data[idx] = (int(v), int(w), y, z)
 
     print(enter(first, data, m, 0, 0, set()))
-
 
 main()
