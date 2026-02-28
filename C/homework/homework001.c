@@ -21,8 +21,8 @@ int main(void){
             printf("\n%.1f", x2);
         }
     }else{
-        A = (-b)/(2*a);
-        B = fabs(sqrt(abs(d))/(2*a));
+        A = (-b)/(2.0*a);
+        B = fabs(sqrt(abs(d))/(2.0*a));
         printf("%.1f+%.1fi", A,B);
         printf("\n%.1f-%.1fi", A,B);
     }
