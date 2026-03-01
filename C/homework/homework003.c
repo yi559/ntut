@@ -9,7 +9,7 @@ int main(void){
     scanf(" %c", &e1);
     scanf(" %c", &e2);
     
-    S2 = S1 | (1<<e1)
+    
 
     return 0;
 }
