@@ -1,0 +1,3 @@
+/mnt/c/Users/hsuyi/Program/C/test/build/CMakeFiles/run_tests.dir
+/mnt/c/Users/hsuyi/Program/C/test/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/hsuyi/Program/C/test/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++  --coverage -O0 CMakeFiles/run_tests.dir/homework008.c.o CMakeFiles/run_tests.dir/test_homework008.cpp.o -o run_tests  -lgcov /usr/lib/x86_64-linux-gnu/libgtest.a /usr/lib/x86_64-linux-gnu/libgtest_main.a -lpthread /usr/lib/x86_64-linux-gnu/libgtest.a 
