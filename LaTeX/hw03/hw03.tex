@@ -1,0 +1,163 @@
+\documentclass[sigconf]{acmart}
+
+%% 刪除ACM Reference Format信息
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\usepackage{xeCJK}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{algorithm,algorithmic}
+\usepackage{color}  
+\usepackage{xcolor}
+%\definecolor{shadecolor}{named}{Gray}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+\usepackage{ulem}
+\usepackage{listings}
+\usepackage{verbatim}
+
+%% Font
+\CJKfontspec{Noto Serif CJK TC} %思源宋體
+
+%% ---------- Structured Answer Macro ----------
+%% Usage: \answer{<id>}{<your answer>}
+%% If the answer is empty, an underline blank is shown.
+\newcommand{\answer}[2]{%
+  \if\relax\detokenize{#2}\relax
+    \underline{\mbox{請作答}}%
+  \else
+    \textcolor{blue}{#2}%
+  \fi
+}
+
+
+%% ----------
+\begin{document}
+
+\title{114學年度第二學期~離散數學HW03}
+
+\author{班級：\underline{資工一}、學號：\underline{111590007}、姓名：\underline{徐羿}}
+\orcid{}
+\affiliation{%
+  \institution{}
+  \city{}
+  \country{}
+}
+
+\maketitle
+
+
+
+%% ----- 作業繳交說明 -----
+\section{題目}
+\subsection{作業繳交說明}
+\begin{shaded}
+\begin{itemize}
+    \item[-] 從 overleaf 下載 hw03.zip
+    \item[-] 從 overleaf 下載 hw03.pdf
+    \item[-] 建立一個新檔案夾，命名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_111590XXX_姓名_HW03\end{verbatim}
+    \item[-] \color{black}放入 hw03.zip
+    \item[-] 放入 hw03.pdf
+    \item[-] 將此檔案夾，壓縮成 zip 檔,檔名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_111590XXX_姓名_HW03.zip\end{verbatim}
+    \item[-] \color{black}將此壓縮檔，上傳到北科 i 學園 PLUS
+    \item[-] Do not share your homework with any living creatures.
+    \item[-] 作業遲交以零分計。
+\end{itemize}
+\end{shaded}
+
+%% ----- Question -----
+\subsection{題號}
+\begin{shaded}
+\begin{itemize}
+	%\item[-] page 214, chapter 3.1 Exercises 24
+        \item[-] page 226, chapter 3.2 Example 9
+	\item[-] page 228, chapter 3.2 Exercises 2
+	\item[-] page 241, chapter 3.3 Exercises 2
+\end{itemize}
+\end{shaded}
+
+%% ----- Problem -----
+\section{作答}
+
+% \subsection{page 214, chapter 3.1 Exercises 24}
+% \begin{shaded}
+%     Describe an algorithm that determines whether a function from a finite set to another finite set is one-to-one.
+% \end{shaded}
+% \begin{algorithm}[H]
+%     \algsetup{linenosize=\tiny}
+%     \scriptsize
+%     \begin{algorithmic}[1]
+%         \FOR{$i : = 1$ to $m$}
+%         \STATE {$hit(b_i) := 0$}
+%         \ENDFOR
+%         \STATE {$one\_one := \mathbf{true}$}
+%         \FOR{$j : = 1$ to $n$}
+%         \IF{$hit(f(a_j)) = 0$}
+%         \STATE {$hit( f(a_j) ) := $ \underline{~~請作答~~}}
+%         \ELSE
+%         \STATE{$one\_one := \underline{~~請作答~~}$}
+%         \ENDIF
+%         \ENDFOR
+%         \RETURN \underline{~~請作答~~}
+%     \end{algorithmic}
+%     \caption{\footnotesize \newline procedure $one\_one$($f$ : function,$a_1,a_2,...,a_n,b_1,b_2,...,b_m$): integers)}
+%     \label{alg:seq}
+% \end{algorithm}
+
+\subsection{page 228, chapter 3.2 Exercises 9}
+\begin{shaded}
+    Give a big-$O$ estimate for $f(n) = 3n \log(n!) + (n^2 + 3) \log n$, where n is a positive integer.
+\end{shaded}
+\answer{3.2.9a}{}
+
+
+\subsection{page 228, chapter 3.2 Exercises 2}
+\begin{shaded}
+    Determine whether each of these functions is $O(x^2)$.
+    \begin{enumerate}[label=(\alph*)]
+    	\item $f(x) = 17x + 11$
+    	\item $f(x) = x^2 + 1000$
+    	\item $f(x) = x log x$
+    	\item $f(x) = x^4 / 2$
+    	\item $f(x) = 2^x$
+    	\item $f(x) = \lfloor x \rfloor \cdot \lceil x \rceil$
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+	\item Yes, $C = 18, k = 11$.
+	\item \answer{3.2.2b}{}
+	\item \answer{3.2.2c}{}
+	\item \answer{3.2.2d}{}
+	\item \answer{3.2.2e}{}
+	\item \answer{3.2.2f}{}
+\end{enumerate}
+
+
+\subsection{page 241, chapter 3.3 Exercises 2}
+\begin{shaded}
+    Give a big-O estimate for the number additions used in this segment of an algorithm.
+    \begin{lstlisting}[language={python}]
+        t := 0
+        for i := 1 to n
+            for j := 1 to n
+                t := t + i + j
+    \end{lstlisting}
+\end{shaded}
+The statement $t := t + i + j$ is executed \answer{3.3.2a}{} times, so the number of operations is $O(\answer{3.3.2b}{})$.
+
+
+\clearpage
+
+\vspace{20cm}
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.

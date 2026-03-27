@@ -1,0 +1,294 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage{xeCJK}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{algorithm,algorithmic}
+\usepackage{color}  
+\usepackage{xcolor}
+%\definecolor{shadecolor}{named}{Gray}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+\usepackage{ulem}
+\usepackage{amsmath}
+
+%% Font
+\CJKfontspec{Noto Serif CJK TC} %思源宋體
+
+%% ---------- Structured Answer Macro ----------
+%% Usage: \answer{<id>}{<your answer>}
+%% If the answer is empty, an underline blank is shown.
+\newcommand{\answer}[2]{%
+  \if\relax\detokenize{#2}\relax
+    \underline{\mbox{請作答}}%
+  \else
+    \textcolor{blue}{#2}%
+  \fi
+}
+
+
+%% ----------
+\begin{document}
+
+\title{114學年度第二學期~離散數學HW01}
+
+\author{班級：\underline{資工一}、學號：\underline{114590007}、姓名：\underline{徐羿}}
+\orcid{}
+\affiliation{%
+  \institution{}
+  \city{}
+  \country{}
+}
+
+%% 刪除ACM Reference Format信息
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\maketitle
+
+
+%% ----- 作業繳交說明 -----
+\section{題目}
+\subsection{作業繳交說明}
+\begin{shaded}
+\begin{itemize}
+    \item[-] 從 overleaf 下載 hw01.zip
+    \item[-] 從 overleaf 下載 hw01.pdf
+    \item[-] 建立一個新檔案夾，命名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590XXX_姓名_HW01\end{verbatim}\color{black}
+    \item[-] 放入 hw01.zip
+    \item[-] 放入 hw01.pdf
+    \item[-] 將此檔案夾，壓縮成 zip 檔,檔名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590XXX_姓名_HW01.zip\end{verbatim}\color{black}
+    \item[-] 將此壓縮檔，上傳到北科 i 學園 PLUS
+    \item[-] Do not share your homework with any living creatures.
+    \item[-] 作業遲交以零分計。
+\end{itemize}
+\end{shaded}
+
+%% ----- Question -----
+\subsection{題號}
+\begin{shaded}
+\begin{itemize}
+    \item[-] page 16, chapter 1.1 Exercises 34(f)
+    \item[-] page 24, chapter 1.2 Exercises 8
+    \item[-] page 38, chapter 1.3 Exercises 10(c)
+    \item[-] page 58, chapter 1.4 Exercises 28
+    \item[-] page 58, chapter 1.4 Exercises 30
+    \item[-] page 71, chapter 1.5 Exercises 26
+    \item[-] page 71, chapter 1.5 Exercises 32(c)
+    %\item[-] page 82, chapter 1.6 Exercises 6
+    %\item[-] page 96, chapter 1.7 Exercises 30
+    %\item[-] page 113, chapter 1.8 Exercises 6
+\end{itemize}
+\end{shaded}
+
+%% ----- Problem -----
+\section{作答}
+
+\subsection{page 16, chapter 1.1 Exercises 34(f)}
+\begin{shaded}
+    Construct a truth table for each of these compound propositions.
+    \begin{eqnarray*}
+    	(p \leftrightarrow q) \oplus (p \leftrightarrow \neg q)
+    \end{eqnarray*}
+\end{shaded}  
+\begin{table}[h]
+	\centering
+	\caption{Truth Table for the Compound Propositions}
+	\label{t1}
+	\begin{tabular}{c|c|c|c|c|c}
+    	\hline
+    	 $p$ & $q$ & $\neg q$ & $(p \leftrightarrow q)$ & $(p \leftrightarrow \neg q)$ & $ (p \leftrightarrow q) \oplus (p \leftrightarrow \neg q)$  \\ \hline
+    	 T  & T & \answer{1.1.34f.TT.nq}{F} & \answer{1.1.34f.TT.iff_q}{T} & \answer{1.1.34f.TT.iff_nq}{F} & \answer{1.1.34f.TT.xor}{T} \\ 
+    	 T  & F & \answer{1.1.34f.TF.nq}{T} & \answer{1.1.34f.TF.iff_q}{F} & \answer{1.1.34f.TF.iff_nq}{T} & \answer{1.1.34f.TF.xor}{T} \\ 
+    	 F  & T & \answer{1.1.34f.FT.nq}{F} & \answer{1.1.34f.FT.iff_q}{F} & \answer{1.1.34f.FT.iff_nq}{T} & \answer{1.1.34f.FT.xor}{T} \\ 
+    	 F  & F & \answer{1.1.34f.FF.nq}{T} & \answer{1.1.34f.FF.iff_q}{T} & \answer{1.1.34f.FF.iff_nq}{F} & \answer{1.1.34f.FF.xor}{T} \\ 
+    	\hline
+	\end{tabular}
+\end{table}
+
+\subsection{page 24, chapter 1.2 Exercises 8}
+\begin{shaded}
+    Express these system specifications using the propositions \textit{p}: “The user enters a valid password,” \textit{q}: “Access is granted,” and \textit{r}: “The user has paid the subscription fee” and logical connectives (including negations).
+    \begin{enumerate}[label=(\alph*)]
+        \item “The user has paid the subscription fee, but does not
+        enter a valid password.”
+        \item “Access is granted whenever the user has paid the
+        subscription fee and enters a valid password.”
+        \item “Access is denied if the user has not paid the subscription fee.”
+        \item “If the user has not entered a valid password but has
+        paid the subscription fee, then access is granted.”
+    \end{enumerate}
+\end{shaded}  
+\begin{enumerate}[label=(\alph*)]
+	\item $r \land \neg p$
+	\item \answer{1.2.8b}{$(r \land p) \rightarrow q$}
+	\item \answer{1.2.8c}{$\neg r\rightarrow \neg q$}
+	\item \answer{1.2.8d}{$(\neg p \land r)\rightarrow q$}
+\end{enumerate}
+
+\subsection{page 38, chapter 1.3 Exercises 10(c)}
+\begin{shaded}
+    For each of these compound propositions, use the conditional-disjunction equivalence (Example 3) to find an equivalent compound proposition that does not involve conditionals.
+    \begin{eqnarray*}
+    	(p \rightarrow \neg q) \rightarrow (\neg p \rightarrow q)
+    \end{eqnarray*}
+\end{shaded}  
+\begin{align*}
+	(p \rightarrow \neg q) \rightarrow (\neg p \rightarrow q) 
+	& \equiv & \neg (p \rightarrow \neg q) \lor (\neg p \rightarrow q ) \tag{a} \\ 
+    & \equiv & \answer{1.3.10c.b}{\neg(\neg p \lor \neg q) \lor (\neg(\neg p) \lor q)} \tag{b} \\  
+	  & \equiv & \answer{1.3.10c.c}{(p \land q) \lor (p \lor q)} \tag{c}\\
+	  & \equiv & \answer{1.3.10c.d}{((p \land q) \lor p) \lor q} \tag{d}\\ 
+	  & \equiv & \answer{1.3.10c.e}{p \lor q} \tag{e}
+\end{align*}
+\begin{enumerate}[label=(\alph*)]
+    \item by the condition-disjunction equivalence
+	\item by the condition-disjunction equivalence
+	\item by the double negation and DeMorgan's laws
+	\item by the associative law
+	\item by the absorbtion laws
+\end{enumerate}
+
+\subsection{page 58, chapter 1.4 Exercises 28}
+\begin{shaded}
+    Translate each of these statements into logical expressions using predicates, quantifiers, and logical connectives.
+    \begin{enumerate}[label=(\alph*)]
+        \item Something is not in the correct place.
+        \item All tools are in the correct place and are in excellent
+        condition.
+        \item Everything is in the correct place and in excellent
+        condition.
+        \item Nothing is in the correct place and is in excellent condition.
+        \item One of your tools is not in the correct place, but it is
+        in excellent condition.
+    \end{enumerate}
+\end{shaded}  
+let $R(x)$ be “$x$ is in the correct place,”\\
+let $E(x)$ be “$x$ is in excellent condition,”\\
+let $T(x)$ be “$x$ is a [or your] tool,”\\ and let the domain of discourse be all things.
+\begin{enumerate}[label=(\alph*)]
+	\item $\exists x ~ \neg R(x)$
+	\item \answer{1.4.28b}{$\forall x\ (T(x) \rightarrow (R(x) \land E(x)))$}
+	\item \answer{1.4.28c}{$\forall x\ (R(x) \land E(x))$}
+	\item \answer{1.4.28d}{$\forall x\ \neg(R(x) \land E(x))$}
+	\item \answer{1.4.28e}{$\exists x\ (T(x) \land \neg R(x) \land E(x))$}
+\end{enumerate}
+
+\subsection{page 58, chapter 1.4 Exercises 30}
+\begin{shaded}
+    Suppose the domain of the propositional function \textit{P}(x, y) consists of pairs x and y, where x is 1, 2, or 3 and y is 1, 2, or 3. Write out these propositions using disjunctions and conjunctions.
+    \begin{enumerate}[label=(\alph*)]
+        \item $\exists x ~ P(x,3)$
+        \item $\forall y ~ P(1,y)$
+        \item $\exists y ~ \neg P(2,y)$
+        \item $\forall x ~ \neg P(x,2)$
+    \end{enumerate}
+\end{shaded} 
+\begin{enumerate}[label=(\alph*)]
+	\item$ P(1,3) \vee P(2,3) \vee P(3,3) $
+	\item \answer{1.4.30b}{$P(1,1) \wedge P(1,2) \wedge P(1,3)$}
+	\item \answer{1.4.30c}{$\neg P(2,1) \vee \neg P(2,2) \vee \neg P(2,3)$} 
+	\item \answer{1.4.30d}{$\neg P(1,2) \wedge \neg P(2,2) \wedge \neg P(3,2)$}
+\end{enumerate}
+
+\subsection{page 71, chapter 1.5 Exercises 26}
+\begin{shaded}
+    Let $Q(x, y)$ be the statement $“x + y = x - y.”$ If the domain for both variables consists of all integers, what are the truth values?
+    \begin{enumerate}[label=(\alph*)]
+        \item $Q(1,1)$
+        \item $Q(2,0)$
+        \item $\forall y Q(1,y)$
+        \item $\exists x Q(x,2)$
+        \item $\exists x \exists y Q(x,y)$
+        \item $\forall x \exists y Q(x,y)$
+        \item $\exists y \forall x Q(x,y)$
+        \item $\forall y \exists x Q(x,y)$
+        \item $\forall x \forall y Q(x,y)$
+    \end{enumerate}
+\end{shaded} 
+\begin{enumerate}[label=(\alph*)]
+	\item F
+	\item \answer{1.5.26b}{T}
+	\item \answer{1.5.26c}{F}
+	\item \answer{1.5.26d}{F}
+	\item \answer{1.5.26e}{T}
+	\item \answer{1.5.26f}{T}
+	\item \answer{1.5.26g}{T}
+	\item \answer{1.5.26h}{F}
+	\item \answer{1.5.26i}{F}
+\end{enumerate}
+
+\subsection{page 71, chapter 1.5 Exercises 32(c)}
+\begin{shaded}
+    Express the negations of each of these statements so that all negation symbols immediately precede predicates.
+    \begin{eqnarray*}
+    	\exists x \exists y (Q(x,y) \leftrightarrow Q(y,x))
+    \end{eqnarray*}
+\end{shaded} 
+\begin{eqnarray*}
+	\neg \exists x \exists y (Q(x,y) \leftrightarrow Q(y,x)) & \equiv & \forall x \neg \exists y
+	(Q(x,y) \leftrightarrow Q(y,x)) \\
+	& \equiv & \answer{1.5.32c.step2}{\forall x \forall y \neg (Q(x,y) \leftrightarrow Q(y,x))} \\
+	& \equiv & \answer{1.5.32c.step3}{\forall x \forall y (Q(x,y) \leftrightarrow \neg Q(y,x))}
+\end{eqnarray*}
+
+%\subsection{page 82, chapter 1.6 Exercises 6}
+%\begin{shaded}
+    %Use rules of inference to show that the hypotheses “If it does not rain or if it is not foggy, then the sailing race will be held and the lifesaving demonstration will go on,” “If the sailing race is held, then the trophy will be awarded,” and “The trophy was not awarded” imply the conclusion “It rained.”
+%\end{shaded} 
+%let $r$ be the proposition "It rains," \\
+%let $f$ be the proposition "It is foggy," \\
+%let $s$ be the proposition "The sailing race will be held," \\
+%let $l$ be the proposition "The life saving demonstration will go on," \\
+%let $t$ be the proposition "The trophy will be awarded." 
+%\begin{table}[h]
+	%\centering
+	%\begin{tabular}{|c|l|l|}
+    	%\hline
+    	% \underline{~~請作答~~}後，記得移除 \text{\underline{~~請作答~~}} 。
+    % Step & 推導                 & Reason \\ \hline
+    	%1 & $ \neg t $           & Hypothesis \\
+    	%2 & \underline{~~請作答~~}  & Hypothesis \\
+    	%3 & $ \neg s $       & Modus tollens using (1) and (2) \\
+    	%4 & $ (\neg r \lor \neg f) \rightarrow (s \land l)$ & Hypothesis \\
+    	%5 & \underline{~~請作答~~}  & Contrapositive of (4) \\
+    	%6 & \underline{~~請作答~~}  & De Morgan's law and double negative \\
+    	%7 & \underline{~~請作答~~}  & Addition, using (3) \\
+    	%8 & \underline{~~請作答~~}  & Modus ponens using (6) and (7) \\
+    	%9 & \underline{~~請作答~~}  & Simplification using (8) \\ \hline
+	%\end{tabular}
+%\end{table}
+
+% \subsection{page 96, chapter 1.7 Exercises 30}
+% \begin{shaded}
+%     Prove that $m^2 = n^2$ if and only if $m = n$ or $m$ = −$n$.
+% \end{shaded}
+% For the ``if" part, there are two cases.\\
+% If $m = n$, \underline{~~請作答~~}\\
+% If $m = -n$, \underline{~~請作答~~}\\
+% For the ``only if" part, we suppose that $m^2 = n^2$.\\
+% \underline{~~請作答~~}
+
+% \subsection{page 113, chapter 1.8 Exercises 6}
+% \begin{shaded}
+%     Use a proof by cases to show that min($a$, min($b$, $c$)) = min(min($a$, $b$), $c$) whenever $a$, $b$, and $c$ are real numbers.
+% \end{shaded}
+% Case 1: If a is smallest.\\
+% \underline{~~請作答~~}\\
+% Case 2: If b is smallest.\\
+% \underline{~~請作答~~}\\ 
+% Case 3: If c is smallest.\\
+% \underline{~~請作答~~}\\
+
+%\vspace{20cm}
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.
