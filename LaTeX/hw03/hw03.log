@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  27 MAR 2026 19:02
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  28 MAR 2026 16:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2056,7 +2056,7 @@ LaTeX Font Info:    Font shape `TU/LinLibertine(1)/m/n' will be
 LaTeX Font Info:    Font shape `TU/LinLibertine(1)/m/n' will be
 (Font)              scaled to size 5.4pt on input line 116.
 
-Underfull \vbox (badness 4328) has occurred while \output is active []
+Underfull \vbox (badness 6758) has occurred while \output is active []
 
  (C:\Users\hsuyi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
@@ -2081,10 +2081,10 @@ Package rerunfilecheck Info: File `hw03.out' has not changed.
 Here is how much of TeX's memory you used:
  36317 strings out of 402983
  706939 string characters out of 5448482
- 1427166 words of memory out of 5000000
+ 1426352 words of memory out of 5000000
  64449 multiletter control sequences out of 15000+600000
  637715 words of font info for 163 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
  105i,11n,131p,1035b,32888s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw03.xdv (1 page, 37940 bytes).
+Output written on hw03.xdv (1 page, 38544 bytes).

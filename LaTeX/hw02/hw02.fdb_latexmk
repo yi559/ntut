@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1774609311.97778 "hw02.xdv" "hw02.pdf" "hw02" 1774609312.37452 0
-  "hw02.xdv" 1774609311 91612 755d32bd1808a9dd7e921e25c2912508 "xelatex"
+["xdvipdfmx"] 1774688571.72266 "hw02.xdv" "hw02.pdf" "hw02" 1774688572.12699 0
+  "hw02.xdv" 1774688571 91612 65ea7830792ddb5a4861e9d06857ce56 "xelatex"
   (generated)
   "hw02.pdf"
   (rewritten before read)
-["xelatex"] 1774609309.4601 "c:/Users/hsuyi/Program/LaTeX/hw02/hw02.tex" "hw02.xdv" "hw02" 1774609312.36946 0
+["xelatex"] 1774688569.23419 "c:/Users/hsuyi/Program/LaTeX/hw02/hw02.tex" "hw02.xdv" "hw02" 1774688572.1232 0
   "C:/Users/hsuyi/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1774606397 27177068 26a6eec27171298b08ccf3e3a4b8124c ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136743454 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -139,11 +139,11 @@
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJK.cfg" 1659726270 408 7369c27beaa819c5f46de3795b22ee3e ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJK.sty" 1659726270 183137 ed372550124703b2b73cbcc0b47cb20f ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJKfntef.sty" 1659726270 39577 b470f8a1dbecc9c45c9bf05ca7db9188 ""
-  "c:/Users/hsuyi/Program/LaTeX/hw02/hw02.tex" 1774606081 10130 195e052e092d9f197acadff1f643e643 ""
-  "hw02.aux" 1774609311 2075 73c66745170a9260a2d77e8aee76ce9a "xelatex"
-  "hw02.log" 1774609311 97685 437c9e54a6c79e7251793616c2a0573a "xelatex"
-  "hw02.out" 1774609311 2737 5a2ffa0cfeb0b5e276b2b88b70f2c252 "xelatex"
-  "hw02.tex" 1774606081 10130 195e052e092d9f197acadff1f643e643 ""
+  "c:/Users/hsuyi/Program/LaTeX/hw02/hw02.tex" 1774688568 10130 4bc7c68e3eb2b4f523fb797663c6844b ""
+  "hw02.aux" 1774688571 2075 73c66745170a9260a2d77e8aee76ce9a "xelatex"
+  "hw02.log" 1774688571 97685 6647293122d541e6c1739155fbeb854b "xelatex"
+  "hw02.out" 1774688571 2737 5a2ffa0cfeb0b5e276b2b88b70f2c252 "xelatex"
+  "hw02.tex" 1774688568 10130 4bc7c68e3eb2b4f523fb797663c6844b ""
   (generated)
   "hw02.aux"
   "hw02.log"
