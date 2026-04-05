@@ -1,4 +1,5 @@
 {
     "python.REPL.enableREPLSmartSend": false,
-    "cmake.sourceDirectory": "C:/Users/hsuyi/Program/C/test"
+    "cmake.sourceDirectory": "C:/Users/hsuyi/Program/C/test",
+    "C_Cpp.errorSquiggles": "disabled"
 }

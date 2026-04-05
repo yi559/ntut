@@ -85,12 +85,167 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void reverse(char* str) {
+    int len = strlen(str), i = 0, j = len - 1;
+    char temp;
+
+    while (i < j) {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+
+        i++;
+        j--;
+    }
+}
+
+int compare(char s1[], char s2[]) {
+    int len1 = strlen(s1);
+    int len2 = strlen(s2);
+    if (len1 > len2) return 1;
+    if (len1 < len2) return -1;
+    return strcmp(s1, s2);
+}
+
+void adder(char s1[], char s2[], char ans[]) {
+    int i = strlen(s1) - 1;
+    int j = strlen(s2) - 1;
+    int carry = 0;
+    int k = 0;
+
+    while (i >= 0 || j >= 0 || carry > 0) {
+        int n1 = (i >= 0) ? s1[i] - '0' : 0;
+        int n2 = (j >= 0) ? s2[j] - '0' : 0;
+
+        int sum = n1 + n2 + carry;
+        ans[k++] = (sum % 10) + '0';
+        carry = sum / 10;
+
+        i--;
+        j--;
+    }
+    ans[k] = '\0';
+    reverse(ans);
+}
+
+void subtractor(char s1[], char s2[], char ans[]){
+    int i = strlen(s1) - 1;
+    int j = strlen(s2) - 1;
+    int borrow = 0;
+    int k = 0;
+
+    while(i >= 0){
+        int n1 = s1[i] - '0';
+        int n2 = (j >= 0) ? s2[j] - '0' : 0;
+
+        int sub = n1 - n2 - borrow;
+
+        if (sub < 0){
+            sub += 10;
+            borrow = 1; 
+        }else{
+            borrow = 0;
+        }
+
+        ans[k++] = sub + '0';
+        i--;
+        j--;
+    }
+    
+    while (k > 1 && ans[k - 1] == '0') {
+        k--;
+    }
+
+    ans[k] = '\0';
+    reverse(ans);
+}
+
+void multiplier(char s1[], char s2[], char ans[]){
+    int len1 = strlen(s1);
+    int len2 = strlen(s2);
+    int res[205] = {0};
+
+    for (int i = len1 - 1; i >= 0; i--) {
+        for (int j = len2 - 1; j >= 0; j--) {
+            int mul = (s1[i] - '0') * (s2[j] - '0');
+            res[i + j + 1] += mul;
+        }
+    }
+
+    int k = len1 + len2 - 1;
+    for (int i = k; i > 0; i--) {
+        res[i - 1] += res[i] / 10;
+        res[i] %= 10;
+    }
+
+    int start = 0, idx = 0;
+    while (start < k && res[start] == 0) start++;
+    while (start <= k) {
+        ans[idx++] = res[start++] + '0';
+    }
+    ans[idx] = '\0';
+}
 
 int main(void){
-    char num1[100], num2[100];
+    char num1[105], num2[105], addans[200], subans[200], mulans[10000];
     scanf("%s", num1);
     scanf(" %s", num2);
-
     
+    int neg1 = (num1[0] == '-');
+    int neg2 = (num2[0] == '-');
+    
+    char *abs1 = neg1 ? num1 + 1 : num1;
+    char *abs2 = neg2 ? num2 + 1 : num2;
+    
+    int cmp = compare(abs1, abs2);
+
+    if (neg1 == neg2) {
+        adder(abs1, abs2, addans);
+        if (neg1 && strcmp(addans, "0") != 0) printf("-");
+        printf("%s\n", addans);
+    } else {
+        if (cmp == 0) {
+            printf("0\n");
+        } else if (cmp > 0) {
+            subtractor(abs1, abs2, addans);
+            if (neg1) printf("-");
+            printf("%s\n", addans);
+        } else {
+            subtractor(abs2, abs1, addans);
+            if (neg2) printf("-");
+            printf("%s\n", addans);
+        }
+    }
+
+    int sub_neg2 = !neg2;
+    
+    if (neg1 == sub_neg2) {
+        adder(abs1, abs2, subans);
+        if (neg1 && strcmp(subans, "0") != 0) printf("-");
+        printf("%s\n", subans);
+    } else {
+        if (cmp == 0) {
+            printf("0\n");
+        } else if (cmp > 0) {
+            subtractor(abs1, abs2, subans);
+            if (neg1) printf("-");
+            printf("%s\n", subans);
+        } else {
+            subtractor(abs2, abs1, subans);
+            if (sub_neg2) printf("-");
+            printf("%s\n", subans);
+        }
+    }
+
+    multiplier(abs1, abs2, mulans);
+    
+    if (neg1 != neg2 && strcmp(mulans, "0") != 0) {
+        printf("-");
+    }
+    printf("%s\n", mulans);
+
     return 0;
 }
