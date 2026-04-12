@@ -73,8 +73,171 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main(void){
+#define MAX_LEN 500
+
+void clean_leading_zeros(char *s) {
+    int len = strlen(s);
+    int i = 0;
+    while (i < len - 1 && s[i] == '0') {
+        i++;
+    }
+    if (i > 0) {
+        memmove(s, s + i, len - i + 1);
+    }
+}
+
+void append_char(char *s, char c) {
+    int len = strlen(s);
+    if (len == 1 && s[0] == '0') {
+        s[0] = c;
+        s[1] = '\0';
+    } else {
+        s[len] = c;
+        s[len + 1] = '\0';
+    }
+}
+
+int cmp_abs(const char *a, const char *b) {
+    int len_a = strlen(a);
+    int len_b = strlen(b);
+    if (len_a > len_b) return 1;
+    if (len_a < len_b) return -1;
+    return strcmp(a, b);
+}
+
+void subtractor(const char *a, const char *b, char *res) {
+    int len_a = strlen(a);
+    int len_b = strlen(b);
+    int borrow = 0, k = 0;
+    char temp[MAX_LEN];
+
+    for (int i = 0; i < len_a; i++) {
+        int na = a[len_a - 1 - i] - '0';
+        int nb = (i < len_b) ? b[len_b - 1 - i] - '0' : 0;
+        int diff = na - nb - borrow;
+        if (diff < 0) {
+            diff += 10;
+            borrow = 1;
+        } else {
+            borrow = 0;
+        }
+        temp[k++] = diff + '0';
+    }
+    
+    while (k > 1 && temp[k - 1] == '0') {
+        k--;
+    }
+    temp[k] = '\0';
+
+    for (int i = 0; i < k; i++) {
+        res[i] = temp[k - 1 - i];
+    }
+    res[k] = '\0';
+}
+
+void do_divide(const char *n1, const char *n2) {
+    int is_neg1 = (n1[0] == '-');
+    int is_neg2 = (n2[0] == '-');
+    int out_neg = is_neg1 ^ is_neg2;
+
+    const char *p1 = is_neg1 ? n1 + 1 : n1;
+    const char *p2 = is_neg2 ? n2 + 1 : n2;
+
+    if (strcmp(p1, "0") == 0) {
+        printf("0\n");
+        return;
+    }
+
+    char B_mult[10][MAX_LEN];
+    strcpy(B_mult[0], "0");
+    for (int i = 1; i <= 9; i++) {
+        int carry = 0, k = 0;
+        int len_p2 = strlen(p2);
+        char temp[MAX_LEN];
+        for (int j = len_p2 - 1; j >= 0; j--) {
+            int prod = (p2[j] - '0') * i + carry;
+            temp[k++] = (prod % 10) + '0';
+            carry = prod / 10;
+        }
+        if (carry) temp[k++] = carry + '0';
+        
+        for (int j = 0; j < k; j++) B_mult[i][j] = temp[k - 1 - j];
+        B_mult[i][k] = '\0';
+    }
+
+    char current_rem[MAX_LEN] = "0";
+    char int_ans[MAX_LEN] = "";
+    int int_ans_len = 0;
+
+    for (int i = 0; p1[i] != '\0'; i++) {
+        append_char(current_rem, p1[i]);
+        
+        int d = 9;
+        while (d > 0 && cmp_abs(current_rem, B_mult[d]) < 0) {
+            d--;
+        }
+        
+        int_ans[int_ans_len++] = d + '0';
+        int_ans[int_ans_len] = '\0';
+        
+        char next_rem[MAX_LEN];
+        subtractor(current_rem, B_mult[d], next_rem);
+        strcpy(current_rem, next_rem);
+    }
+    
+    clean_leading_zeros(int_ans);
+    if (int_ans_len == 0 || int_ans[0] == '\0') {
+        strcpy(int_ans, "0");
+    }
+
+    char dec_ans[MAX_LEN] = "";
+    int dec_ans_len = 0;
+    
+    for (int i = 0; i < 100; i++) {
+        if (strcmp(current_rem, "0") == 0) {
+            break;
+        }
+        
+        append_char(current_rem, '0');
+        
+        int d = 9;
+        while (d > 0 && cmp_abs(current_rem, B_mult[d]) < 0) {
+            d--;
+        }
+        
+        dec_ans[dec_ans_len++] = d + '0';
+        dec_ans[dec_ans_len] = '\0';
+        
+        char next_rem[MAX_LEN];
+        subtractor(current_rem, B_mult[d], next_rem);
+        strcpy(current_rem, next_rem);
+    }
+
+    while (dec_ans_len > 0 && dec_ans[dec_ans_len - 1] == '0') {
+        dec_ans[--dec_ans_len] = '\0';
+    }
+
+    if (strcmp(int_ans, "0") == 0 && dec_ans_len == 0) {
+        out_neg = 0;
+    }
+
+    if (out_neg) printf("-");
+    printf("%s", int_ans);
+    if (dec_ans_len > 0) {
+        printf(".%s", dec_ans);
+    }
+    printf("\n");
+}
+
+int main(void) {
+    char num1[MAX_LEN], num2[MAX_LEN];
+
+    if (scanf("%s", num1) == 1 && scanf("%s", num2) == 1) {
+        do_divide(num1, num2);
+    }
 
     return 0;
 }
