@@ -79,6 +79,92 @@ m=3，整數序列為{ 1 2 3 1 2 3 3 }，
 
 int main(void){
     int m;
+    int seq[30]; 
+    int n = 0;   
     
+    if (scanf("%d", &m) != 1) return 0;
+    
+    while (getchar() != '\n'); 
+    
+    char buffer[256];
+    if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+        int offset = 0;
+        int chars_read;
+        
+        while (sscanf(buffer + offset, "%d%n", &seq[n], &chars_read) == 1) {
+            n++;
+            offset += chars_read;
+        }
+    }
+    
+    int valid_seqs[30][15]; 
+    int valid_count = 0;    
+    
+    for (int i = 0; i <= n - m; i++) {
+        int counts[10] = {0}; 
+        int is_valid = 1;
+        
+        for (int j = 0; j < m; j++) {
+            if (counts[seq[i + j]] > 0) {
+                is_valid = 0; 
+                break;
+            }
+            counts[seq[i + j]]++;
+        }
+        
+        if (is_valid) {
+            for (int j = 0; j < m; j++) {
+                valid_seqs[valid_count][j] = seq[i + j];
+            }
+            valid_count++;
+        }
+    }
+    
+    for (int i = 0; i < valid_count - 1; i++) {
+        for (int j = 0; j < valid_count - 1 - i; j++) {
+            int cmp = 0;
+            for (int k = 0; k < m; k++) {
+                if (valid_seqs[j][k] != valid_seqs[j+1][k]) {
+                    cmp = valid_seqs[j][k] - valid_seqs[j+1][k];
+                    break;
+                }
+            }
+            
+            if (cmp > 0) {
+                for (int k = 0; k < m; k++) {
+                    int temp = valid_seqs[j][k];
+                    valid_seqs[j][k] = valid_seqs[j+1][k];
+                    valid_seqs[j+1][k] = temp;
+                }
+            }
+        }
+    }
+    
+    printf("%d\n", valid_count);
+    
+    if (valid_count > 0) {
+        for (int k = 0; k < m; k++) {
+            printf("%d%s", valid_seqs[0][k], (k == m - 1) ? "" : " ");
+        }
+        printf("\n");
+        
+        for (int i = 1; i < valid_count; i++) {
+            int is_duplicate = 1;
+            for (int k = 0; k < m; k++) {
+                if (valid_seqs[i][k] != valid_seqs[i-1][k]) {
+                    is_duplicate = 0;
+                    break;
+                }
+            }
+            
+            if (!is_duplicate) {
+                for (int k = 0; k < m; k++) {
+                    printf("%d%s", valid_seqs[i][k], (k == m - 1) ? "" : " ");
+                }
+                printf("\n");
+            }
+        }
+    }
+
     return 0;
 }
