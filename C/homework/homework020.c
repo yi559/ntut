@@ -216,8 +216,57 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-int main(void){
+typedef struct {
+    int a;
+    int b;
+} Pair;
 
+int compare(const void *p1, const void *p2) {
+    Pair *pair1 = (Pair *)p1;
+    Pair *pair2 = (Pair *)p2;
+    
+    if (pair1->a != pair2->a) {
+        return pair1->a - pair2->a;
+    } else {
+        return pair1->b - pair2->b;
+    }
+}
+
+int main() {
+    int n;
+    if (scanf("%d", &n) != 1) return 0;
+    
+    int A[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &A[i]);
+    }
+    
+    Pair inversions[5000];
+    int count = 0;
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (A[i] > A[j]) {
+                inversions[count].a = A[i];
+                inversions[count].b = A[j];
+                count++;
+            }
+        }
+    }
+    
+    if (count == 0) {
+        printf("0\n");
+    } else {
+        qsort(inversions, count, sizeof(Pair), compare);
+        
+        for (int i = 0; i < count; i++) {
+            if (i == 0 || inversions[i].a != inversions[i-1].a || inversions[i].b != inversions[i-1].b) {
+                printf("(%d,%d)\n", inversions[i].a, inversions[i].b);
+            }
+        }
+    }
+    
     return 0;
 }
