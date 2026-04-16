@@ -141,3 +141,114 @@ B1 L1 F1 R1 B1
 Tie
 0 0
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void rotateFront(int *dice, char *direction){
+    int times = atoi(direction + 1);
+
+    if (direction[0] == 'F') {
+        times = times % 4;
+    } 
+    else if (direction[0] == 'B') {
+        times = (times % 4) * 3; 
+    } 
+    else {
+        return;
+    }
+
+    while(times > 0){
+        int temp = dice[0];
+        dice[0] = dice[5];
+        dice[5] = dice[1];
+        dice[1] = dice[4];
+        dice[4] = temp;
+        times--;
+    }
+}
+
+void rotateLeft(int *dice, char *direction){
+    int times = atoi(direction + 1);
+
+    if (direction[0] == 'L') {
+        times = times % 4;
+    } 
+    else if (direction[0] == 'R') {
+        times = (times % 4) * 3; 
+    } 
+    else {
+        return;
+    }
+
+    while(times > 0){
+        int temp = dice[0];
+        dice[0] = dice[3];
+        dice[3] = dice[1];
+        dice[1] = dice[2];
+        dice[2] = temp;
+        times--;
+    }
+}
+
+int getScore(int *p){
+        if (p[0] == p[1] && p[1] == p[2]) {
+            return p[0] * 2;
+        }
+        if (p[0] == p[1]) return p[2];
+        if (p[1] == p[2]) return p[0];
+        if (p[0] == p[2]) return p[1];
+        return 0;
+}
+
+int main(void){
+    int data, scrollTimes = 0;
+    int A_dice[3][6],B_dice[3][6];
+
+
+    for (int i=0 ; i<3 ; i++){
+        for (int j=0 ; j<6 ; j++){
+            scanf("%d", &data);
+            A_dice[i][j] = data;
+            B_dice[i][j] = data;
+        }
+    }
+
+    scanf("%d", &scrollTimes);
+    char scrollDirection[5];
+
+    for (int i=0 ; i<3 ; i++){
+        for (int j=0 ; j<scrollTimes ; j++){
+            scanf("%s", scrollDirection);
+
+            //處理轉向 A_dice
+            if (scrollDirection[0] == 'F' || scrollDirection[0] == 'B')rotateFront(A_dice[i], scrollDirection);
+            if (scrollDirection[0] == 'L' || scrollDirection[0] == 'R')rotateLeft(A_dice[i], scrollDirection);
+            
+        }
+    }
+    
+    for (int i=0 ; i<3 ; i++){
+        for (int j=0 ; j<scrollTimes ; j++){
+            scanf("%s", scrollDirection);
+
+            //處理轉向 B_dice
+            if (scrollDirection[0] == 'F' || scrollDirection[0] == 'B')rotateFront(B_dice[i], scrollDirection);
+            if (scrollDirection[0] == 'L' || scrollDirection[0] == 'R')rotateLeft(B_dice[i], scrollDirection);
+        }
+    }
+
+    int A_tops[3] = {A_dice[0][0], A_dice[1][0], A_dice[2][0]};
+    int B_tops[3] = {B_dice[0][0], B_dice[1][0], B_dice[2][0]};
+
+    int scoreA = getScore(A_tops);
+    int scoreB = getScore(B_tops);
+
+    if (scoreA > scoreB) printf("A win\n");
+    else if (scoreB > scoreA) printf("B win\n");
+    else printf("Tie\n");
+
+    printf("%d %d\n", scoreA, scoreB);
+
+    return 0;
+}

@@ -260,3 +260,56 @@ all white
 7,5
 7,7
 */
+
+#include <stdio.h>
+#include <string.h>
+
+void solve(int r, int c, int size, int img[8][8], const char *S, int *pos) {
+    char token = S[(*pos)++]; 
+
+    if (token == '0') {
+        return;
+    } 
+    else if (token == '1') {
+        for (int i = r; i < r + size; i++) {
+            for (int j = c; j < c + size; j++) {
+                img[i][j] = 1;
+            }
+        }
+    } 
+    else if (token == '2') {
+        int half = size / 2;
+        solve(r, c, half, img, S, pos);
+        solve(r, c + half, half, img, S, pos);
+        solve(r + half, c, half, img, S, pos);
+        solve(r + half, c + half, half, img, S, pos);
+    }
+}
+
+int main() {
+    char S[101];
+    int N;
+    int img[8][8] = {0};
+    int pos = 0;
+
+    if (scanf("%100s", S) == EOF) return 0;
+    if (scanf("%d", &N) == EOF) return 0;
+
+    solve(0, 0, N, img, S, &pos);
+
+    int hasBlack = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (img[i][j] == 1) {
+                printf("%d,%d\n", i, j);
+                hasBlack = 1;
+            }
+        }
+    }
+
+    if (!hasBlack) {
+        printf("all white\n");
+    }
+
+    return 0;
+}

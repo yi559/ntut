@@ -155,3 +155,74 @@ a = [3, 5, 8, 15, 23]
 10 6
 11 10
 */
+
+#include <stdio.h>
+
+void selectionSort(int n, int arr[]) {
+    int sel[15];
+    for(int k=0; k<n; k++) sel[k] = arr[k];
+
+    int comp = 0, move = 0;
+    for (int i = 0; i < n - 1; i++) {
+        int min_idx = i;
+        for (int j = i + 1; j < n; j++) {
+            comp++;
+            if (sel[j] < sel[min_idx]) {
+                min_idx = j;
+            }
+        }
+        if (min_idx != i) {
+            int temp = sel[i];
+            sel[i] = sel[min_idx];
+            sel[min_idx] = temp;
+            move += 3;
+        }
+    }
+    printf("%d %d\n", comp, move);
+}
+
+void insertionSort(int n, int arr[]) {
+    int ins[15];
+    for(int k=0; k<n; k++) ins[k] = arr[k];
+
+    int comp = 0, move = 0;
+    for (int i = 1; i < n; i++) {
+        int target = ins[i];
+        move++;
+        int j = i;
+        
+        while (1) {
+            comp++;
+            if (j > 0) {
+                comp++;
+                if (ins[j - 1] > target) {
+                    ins[j] = ins[j - 1];
+                    move++;
+                    j--;
+                } else {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+        ins[j] = target;
+        move++;
+    }
+    printf("%d %d\n", comp, move);
+}
+
+int main() {
+    int n;
+    int data[15];
+
+    if (scanf("%d", &n) != 1) return 0;
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &data[i]);
+    }
+
+    selectionSort(n, data);
+    insertionSort(n, data);
+
+    return 0;
+}
