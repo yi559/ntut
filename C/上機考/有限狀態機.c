@@ -137,3 +137,85 @@ string
 string
 
 */
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int check_int(char *s) {
+    int len = strlen(s);
+    if (len < 1 || len > 50) return 0;
+    int i = 0;
+    if (s[i] == '-') {
+        i++;
+        if (i == len) return 0;
+    }
+    if (s[i] == '0') {
+        return (i == len - 1);
+    }
+    if (!isdigit(s[i])) return 0;
+    for (i = i + 1; i < len; i++) {
+        if (!isdigit(s[i])) return 0;
+    }
+    return 1;
+}
+
+int check_float(char *s) {
+    int len = strlen(s);
+    if (len < 3 || len > 50) return 0;
+    int state = 0;
+    for (int i = 0; i < len; i++) {
+        char c = s[i];
+        if (state == 0) {
+            if (c == '-') state = 1;
+            else if (c == '0') state = 2;
+            else if (isdigit(c)) state = 3;
+            else return 0;
+        } else if (state == 1) {
+            if (c == '0') state = 2;
+            else if (isdigit(c)) state = 3;
+            else return 0;
+        } else if (state == 2) {
+            if (c == '.') state = 4;
+            else return 0;
+        } else if (state == 3) {
+            if (c == '.') state = 4;
+            else if (isdigit(c)) state = 3;
+            else return 0;
+        } else if (state == 4) {
+            if (isdigit(c)) state = 5;
+            else return 0;
+        } else if (state == 5) {
+            if (isdigit(c)) state = 5;
+            else return 0;
+        }
+    }
+    return (state == 5);
+}
+
+int check_variable(char *s) {
+    int len = strlen(s);
+    if (len < 1 || len > 10) return 0;
+    if (!(isalpha(s[0]) || s[0] == '_')) return 0;
+    for (int i = 1; i < len; i++) {
+        if (!(isalnum(s[i]) || s[i] == '_')) return 0;
+    }
+    return 1;
+}
+
+int main(void) {
+    int n;
+    char s[1024];
+    if (scanf("%d", &n) != 1) return 0;
+    getchar();
+    while (n--) {
+        if (fgets(s, sizeof(s), stdin) == NULL) break;
+        s[strcspn(s, "\r\n")] = 0;
+        if (strlen(s) == 0) continue;
+        if (check_int(s)) printf("integer\n");
+        else if (check_float(s)) printf("float\n");
+        else if (check_variable(s)) printf("variable\n");
+        else printf("string\n");
+    }
+    return 0;
+}
