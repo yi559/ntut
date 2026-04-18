@@ -66,3 +66,95 @@ y = -3
 y = 10
 y = 8
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int gcd(int a, int b) {
+    a = abs(a);
+    b = abs(b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+void calculateEquation(int x1, int y1, int x2, int y2, int *m_num, int *m_den, int *b_num, int *b_den) {
+    *m_num = y1 - y2;
+    *m_den = x1 - x2;
+    
+    *b_num = x2 * y1 - x1 * y2;
+    *b_den = x2 - x1;
+
+    if (*m_den != 0) {
+        int g = gcd(*m_num, *m_den);
+        *m_num /= g;
+        *m_den /= g;
+        if (*m_den < 0) {
+            *m_num = -(*m_num);
+            *m_den = -(*m_den);
+        }
+    }
+
+    if (*b_den != 0) {
+        int g = gcd(*b_num, *b_den);
+        *b_num /= g;
+        *b_den /= g;
+        if (*b_den < 0) {
+            *b_num = -(*b_num);
+            *b_den = -(*b_den);
+        }
+    }
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    while (n--) {
+        int x1, y1, x2, y2;
+        scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+
+        int m_num, m_den, b_num, b_den;
+        
+        calculateEquation(x1, y1, x2, y2, &m_num, &m_den, &b_num, &b_den);
+
+        printf("y = ");
+
+        if (m_num == 0) {
+            if (b_num == 0) {
+                printf("0\n");
+            } else {
+                if (b_den == 1) printf("%d\n", b_num);
+                else printf("%d/%d\n", b_num, b_den);
+            }
+        } else {
+            if (m_num == 1 && m_den == 1) {
+                printf("x");
+            } else if (m_num == -1 && m_den == 1) {
+                printf("-x");
+            } else {
+                if (m_den == 1) printf("%dx", m_num);
+                else printf("%d/%dx", m_num, m_den);
+            }
+            
+            if (b_num != 0) {
+                if (b_num > 0) {
+                    printf(" + ");
+                    if (b_den == 1) printf("%d\n", b_num);
+                    else printf("%d/%d\n", b_num, b_den);
+                } else {
+                    printf(" - ");
+                    if (b_den == 1) printf("%d\n", -b_num);
+                    else printf("%d/%d\n", -b_num, b_den);
+                }
+            } else {
+                printf("\n");
+            }
+        }
+    }
+
+    return 0;
+}
