@@ -100,3 +100,24 @@ error
 -1/6
 5/6
 */
+
+#include <stdio.h>
+
+void trans(char *fraction){
+    
+}
+
+int main(void){
+    char first[20],second[20],oper;
+    char conti = 'y';
+
+    while(conti != 'n'){
+        scanf("%s", first);
+        scanf(" %c", &oper);
+        scanf(" %s", second);
+        scanf(" %c", &conti);
+
+
+    }
+    return 0;
+}

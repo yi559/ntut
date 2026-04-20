@@ -259,3 +259,57 @@ all white
 7,5
 7,7
 */
+
+#include <stdio.h>
+
+void dfs(char *data, int *pos, int mark[8][8], int r, int c, int size){
+    char current = data[(*pos)++];
+
+    if (current == '0'){
+        return;
+    }else if (current == '1'){
+        for (int i=r ; i<r+size ; i++){
+            for (int j=c ; j<c+size ; j++){
+                mark[i][j] = 1;
+            }
+        }
+    }else if (current == '2'){
+        int h=size/2;
+        dfs(data,pos,mark,r,c,h);
+        dfs(data,pos,mark,r,c+h,h);
+        dfs(data,pos,mark,r+h,c,h);
+        dfs(data,pos,mark,r+h,c+h,h);
+    }
+}
+
+int main(void){
+    char data[101];
+    int n=0, mark[8][8];;
+
+    scanf("%s %d", data, &n);
+
+    for (int i=0 ; i<n ; i++){
+        for (int j=0 ; j<n ; j++){
+            mark[i][j] = 0;
+        }
+    }
+
+    int pos=0;
+    int found = 0;
+    dfs(data,&pos,mark,0,0,n);
+    
+    for (int i=0 ; i<n ; i++){
+        for (int j=0 ; j<n ; j++){
+            if (mark[i][j] == 1){
+                printf("%d,%d\n", i,j);
+                found = 1;
+            }
+        }
+    }
+
+    if (!found) {
+        printf("all white\n");
+    }
+
+    return 0;
+}
