@@ -102,22 +102,115 @@ error
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void trans(char *fraction){
-    
+long long gcd(long long a, long long b) {
+    a = llabs(a);
+    b = llabs(b);
+    while (b) {
+        a %= b;
+        long long temp = a;
+        a = b;
+        b = temp;
+    }
+    return a;
 }
 
-int main(void){
-    char first[20],second[20],oper;
-    char conti = 'y';
+typedef struct {
+    long long num;
+    long long den;
+    int is_error;
+} Fraction;
 
-    while(conti != 'n'){
-        scanf("%s", first);
-        scanf(" %c", &oper);
-        scanf(" %s", second);
-        scanf(" %c", &conti);
-
-
+Fraction parse_fraction(char *s) {
+    Fraction f = {0, 1, 0};
+    long long a, b, c;
+    
+    if (sscanf(s, "%lld(%lld/%lld)", &a, &b, &c) == 3) {
+        if (c == 0) { f.is_error = 1; return f; }
+        if (a < 0) f.num = a * c - b;
+        else f.num = a * c + b;
+        f.den = c;
+    } else if (sscanf(s, "%lld/%lld", &b, &c) == 2) {
+        if (c == 0) { f.is_error = 1; return f; }
+        f.num = b;
+        f.den = c;
+    } else {
+        f.num = atoll(s);
+        f.den = 1;
     }
+    return f;
+}
+
+void print_fraction(Fraction f) {
+    if (f.is_error || f.den == 0) {
+        printf("error\n");
+        return;
+    }
+    if (f.num == 0) {
+        printf("0\n");
+        return;
+    }
+
+    long long common = gcd(f.num, f.den);
+    f.num /= common;
+    f.den /= common;
+
+    if (f.den < 0) {
+        f.num = -f.num;
+        f.den = -f.den;
+    }
+
+    long long integer_part = f.num / f.den;
+    long long remainder_num = llabs(f.num % f.den);
+
+    if (remainder_num == 0) {
+        printf("%lld\n", integer_part);
+    } else {
+        if (integer_part == 0) {
+            if (f.num < 0) printf("-");
+            printf("%lld/%lld\n", remainder_num, f.den);
+        } else {
+            printf("%lld(%lld/%lld)\n", integer_part, remainder_num, f.den);
+        }
+    }
+}
+
+int main() {
+    char s1[100], op[2], s2[100], cont[2];
+    
+    while (1) {
+        if (scanf("%s %s %s %s", s1, op, s2, cont) != 4) break;
+
+        Fraction f1 = parse_fraction(s1);
+        Fraction f2 = parse_fraction(s2);
+        Fraction res = {0, 1, 0};
+
+        if (f1.is_error || f2.is_error) {
+            res.is_error = 1;
+        } else {
+            if (op[0] == '+') {
+                res.num = f1.num * f2.den + f2.num * f1.den;
+                res.den = f1.den * f2.den;
+            } else if (op[0] == '-') {
+                res.num = f1.num * f2.den - f2.num * f1.den;
+                res.den = f1.den * f2.den;
+            } else if (op[0] == '*') {
+                res.num = f1.num * f2.num;
+                res.den = f1.den * f2.den;
+            } else if (op[0] == '/') {
+                if (f2.num == 0) res.is_error = 1;
+                else {
+                    res.num = f1.num * f2.den;
+                    res.den = f1.den * f2.num;
+                }
+            }
+        }
+
+        print_fraction(res);
+        if (cont[0] == 'n') break;
+    }
+
     return 0;
 }
