@@ -56,3 +56,83 @@
 輸出:
 404
 */
+
+#include <stdio.h>
+
+int find_next(int r_size, int c_size, int data[10][10], int mark[10][10], int *cur_i, int *cur_j, int step) {
+    int dr[] = {-1, 1, 0, 0};
+    int dc[] = {0, 0, -1, 1};
+    
+    int target_i = -1, target_j = -1;
+    int best_val;
+
+    if (step % 2 == 1) best_val = 1e9;
+    else best_val = -1e9;
+
+    for (int k = 0; k < 4; k++) {
+        int ni = *cur_i + dr[k];
+        int nj = *cur_j + dc[k];
+
+        if (ni >= 0 && ni < r_size && nj >= 0 && nj < c_size && mark[ni][nj] == 0) {
+            if (step % 2 == 1) {
+                if (data[ni][nj] < best_val) {
+                    best_val = data[ni][nj];
+                    target_i = ni; target_j = nj;
+                }
+            } else {
+                if (data[ni][nj] > best_val) {
+                    best_val = data[ni][nj];
+                    target_i = ni; target_j = nj;
+                }
+            }
+        }
+    }
+
+    if (target_i == -1) return -1; 
+
+    *cur_i = target_i;
+    *cur_j = target_j;
+    mark[target_i][target_j] = 1;
+    return best_val;
+}
+
+int main(void){
+    int r=0,c=0;
+
+    scanf("%d %d", &r,&c);
+
+    int data[10][10], mark[10][10];
+    for (int i=0 ; i<r ; i++){
+        for (int j=0 ; j<c ; j++){
+            scanf("%d", &data[i][j]);
+            mark[i][j] = 0;
+        }
+    }
+
+    int min_index_i=0,min_index_j=0;
+
+    for (int i=0 ; i<r ; i++){
+        for (int j=0 ; j<c ; j++){
+            if (data[i][j] < data[min_index_i][min_index_j]){
+                min_index_i = i;
+                min_index_j = j;
+            }
+        }
+    }
+
+    int total = data[min_index_i][min_index_j];
+    mark[min_index_i][min_index_j] = 1;
+
+    int step = 1;
+    while (1) {
+        int next_weight = find_next(r, c, data, mark, &min_index_i, &min_index_j, step);
+        
+        if (next_weight == -1) break;
+
+        total += next_weight;
+        step++;
+    }
+
+    printf("%d\n", total);
+    return 0;
+}
