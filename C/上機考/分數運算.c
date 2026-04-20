@@ -156,7 +156,7 @@ void print_fraction(Fraction f) {
     long long common = gcd(f.num, f.den);
     f.num /= common;
     f.den /= common;
-
+ 
     if (f.den < 0) {
         f.num = -f.num;
         f.den = -f.den;
