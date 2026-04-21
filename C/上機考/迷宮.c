@@ -101,18 +101,13 @@ int main(void){
 
     scanf("%d %d", &r,&c);
 
+    int min_index_i=0,min_index_j=0;
     int data[10][10], mark[10][10];
     for (int i=0 ; i<r ; i++){
         for (int j=0 ; j<c ; j++){
             scanf("%d", &data[i][j]);
             mark[i][j] = 0;
-        }
-    }
 
-    int min_index_i=0,min_index_j=0;
-
-    for (int i=0 ; i<r ; i++){
-        for (int j=0 ; j<c ; j++){
             if (data[i][j] < data[min_index_i][min_index_j]){
                 min_index_i = i;
                 min_index_j = j;
