@@ -1,0 +1,268 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage{xeCJK}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{algorithm,algorithmic}
+%\definecolor{shadecolor}{named}{Gray}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+\usepackage{verbatim}
+\usepackage{ulem}
+
+%% Font
+\CJKfontspec{Noto Serif CJK TC} %思源宋體
+
+
+%% ---------- Structured Answer Macro ----------
+\usepackage{xcolor}
+\newcommand{\answer}[2]{%
+  \if\relax\detokenize{#2}\relax
+    \underline{\mbox{請作答}}%
+  \else
+    \textcolor{blue}{#2}%
+  \fi
+}
+
+%% ----------
+\begin{document}
+
+\title{114學年度第二學期~離散數學HW04}
+
+\author{班級：\underline{資工一}、學號：\underline{114590007}、姓名：\underline{徐羿}}
+\orcid{}
+\affiliation{%
+  \institution{}
+  \city{}
+  \country{}
+}
+
+%% 刪除ACM Reference Format信息
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\maketitle
+
+%% ----- 作業繳交說明 -----
+\section{題目}
+\subsection{作業繳交說明}
+\begin{shaded}
+\begin{itemize}
+    \item[-] 從 overleaf 下載 hw04.zip
+    \item[-] 從 overleaf 下載 hw04.pdf
+    \item[-] 建立一個新檔案夾，命名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590XXX_姓名_HW04\end{verbatim}
+    \item[-] \color{black}放入 hw04.zip
+    \item[-] 放入 hw04.pdf
+    \item[-] 將此檔案夾，壓縮成 zip 檔,檔名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590XXX_姓名_HW04.zip\end{verbatim}
+    \item[-] \color{black}將此壓縮檔，上傳到北科 i 學園 PLUS
+    \item[-] Do not share your homework with any living creatures.
+    \item[-] 作業遲交以零分計。
+\end{itemize}
+\end{shaded}
+
+
+%% ----- Question -----
+\subsection{題號}
+\begin{shaded}
+\begin{itemize}
+        \item[-] page 258, chapter 4.1 Exercise 17
+	\item[-] page 259, chapter 4.1 Exercise 30
+	%\item[-] page 269, chapter 4.2 Exercise 4
+	\item[-] page 290, chapter 4.3 Exercise 40(c)
+	\item[-] page 301, chapter 4.4 Exercise 6(b)
+        \item[-] page 301, chapter 4.4 Exercise 9
+	\item[-] page 301, chapter 4.4 Exercise 20	
+        \item[-] page 302, chapter 4.4 Exercise 38(a)
+	%\item[-] page 308, chapter 4.5 Exercise 2
+	%\item[-] page 323, chapter 4.6 Example 26
+\end{itemize}
+\end{shaded}
+
+
+%% ----- Problem -----
+\section{作答}
+\subsection{page 259, chapter 4.1 Exercise 17}
+\begin{shaded}
+    Suppose that a and b are integers, $a \equiv 4$ (mod 13), and $b \equiv 9 $(mod 13). Find the integer $c$ with $0 \le c \le 12$ such that
+    \begin{enumerate}[label=(\alph*)]
+        \item $c \equiv 9a$ (mod 13).
+    	\item $c \equiv 11b$ (mod 13).
+    	\item $c \equiv a+b$ (mod 13).
+        \item $c \equiv 2a+3b$ (mod 13).
+        \item $c \equiv a^2+b^2$ (mod 13).
+        \item $c \equiv a^3-b^3$ (mod 13).
+	\item \answer{4.1.17a}{}
+
+	
+\end{enumerate}
+\end{shaded}  
+\begin{enumerate}[label=(\alph*)]
+	\item $10$
+	\item \answer{4.1.17b}{}
+	\item \answer{4.1.17c}{}
+	\item \answer{4.1.17d}{}
+	\item \answer{4.1.17e}{}
+	\item \answer{4.1.17f}{}
+\end{enumerate}
+
+\subsection{page 259, chapter 4.1 Exercise 30}
+\begin{shaded}
+    Find the integer $a$ such that
+    \begin{enumerate}[label=(\alph*)]
+    	\item $a \equiv 43$ (mod 23) and $-22 \leq a \leq 0.$
+    	\item $a \equiv 17$ (mod 29) and $-14 \leq a \leq 14.$
+    	\item $a \equiv -11$ (mod 21) and $90 \leq a \leq 110.$
+    \end{enumerate}
+\end{shaded}  
+\begin{enumerate}[label=(\alph*)]
+	\item $a = 43-46 = -3$
+	\item \answer{4.1.30b}{}
+	\item \answer{4.1.30c}{}
+\end{enumerate}
+
+% \subsection{page 269, chapter 4.2 Exercise 4}
+% \begin{shaded}
+%     Convert the binary expansion of each of these integers to a decimal expansion.
+%     \begin{enumerate}[label=(\alph*)]
+%     	\item $(1~1011)_2$
+%     	\item $(10~1011~0101)_2$
+%     	\item $(11~1011~1110)_2$
+%     	\item $(111~1100~0001~1111)_2$
+%     \end{enumerate}
+% \end{shaded}  
+% \begin{enumerate}[label=(\alph*)]
+% 	\item $27$
+% 	\item \uline{~~請作答~~}
+% 	\item \uline{~~請作答~~}
+% 	\item \uline{~~請作答~~}
+% \end{enumerate}
+
+\subsection{page 290, chapter 4.3 Exercise 40(c)}
+\begin{shaded}
+    Using the method followed in Example 17, express the greatest common divisor of each of these pairs of integers as a linear combination of these integers.   
+    \begin{eqnarray*}
+        35, 78
+    \end{eqnarray*}
+\end{shaded}  
+The calculation of the greatest common divisor takes several steps:
+\begin{eqnarray*}
+    78 & = & 2 \cdot 35 + 8 \\
+    35 & = & 4 \cdot 8 + 3 \\
+    \answer{4.3.40a}{} & = & \answer{4.3.40b}{} \\
+	\answer{4.3.40c}{} & = & \answer{4.3.40d}{}
+\end{eqnarray*}
+Then we need to work our way back up
+\begin{eqnarray*}
+    1 & = & 3 - 2 \\
+    ~ & = & 3 - (8 - 2 \cdot 3)  =  3 \cdot 3 - 8 \\
+    ~ & = & 3 \cdot (\answer{4.3.40e}{} - 4 \cdot 8) -8 =  3 \cdot 35 - 13 \cdot 8 \\
+    ~ & = & 3 \cdot 35 - 13 \cdot (\answer{4.3.40f}{})  =  29 \cdot 35 - 13 \cdot \answer{4.3.40g}{}
+\end{eqnarray*}
+
+\subsection{page 301, chapter 4.4 Exercise 6(b)}
+\begin{shaded}
+    Find an inverse of a modulo m for each of these pairs of relatively prime integers using the method followed in Example 2.
+    \begin{center}
+        $a$ = 34, $m$ = 89
+    \end{center}
+\end{shaded}  
+First we go through the Euclidean algorithm computation that\\
+$gcd(34, 89) = 1$ :
+\begin{eqnarray*}
+    89 & = & 2 \cdot 34 + 21 \\
+    34 & = & 1 \cdot 21 + 13  \\
+    21 & = & \answer{4.4.6a}{}\\
+    13 & = & \answer{4.4.6b}{}\\
+     8 & = & \answer{4.4.6c}{}\\
+     5 & = & \answer{4.4.6d}{}\\
+     3 & = & \answer{4.4.6e}{}
+\end{eqnarray*}
+Then we reverse our steps and write 1 as the desired linear combination:
+\begin{eqnarray*}
+    1 & = & 3 - 2 \\
+    ~ & = & 3 - (5 - 3) = 2 \cdot 3 - 5  \\
+    ~ & = & \answer{4.4.6f}{}\\
+    ~ & = & \answer{4.4.6g}{}\\
+    ~ & = & \answer{4.4.6h}{}\\
+    ~ & = & \answer{4.4.6i}{}\\
+    ~ & = & \answer{4.4.6j}{}\\
+\end{eqnarray*}
+Thus s = -34, so an inverse of 34 modulo 89 is -34, which can also be written as 55.
+
+\subsection{page 301, chapter 4.4 Exercise 9}
+\begin{shaded}
+    Solve the congruence $4x \equiv 5$ (mod 9) using the inverse of 4
+modulo 9.
+\end{shaded}  
+To solve the congruence, the multiplicative inverse of 4 modulo 9 is determined to be 7.
+Multiplying both sides of the congruence by 7 and simplifying gives the solution $x \equiv \answer{4.4.9a}{}$ (mod 9).
+
+\subsection{page 301, chapter 4.4 Exercise 20}
+\begin{shaded}
+    Use the construction in the proof of the Chinese remainder theorem to find all solutions to the system of congruences $x$ ≡ 2 (mod 3), $x$ ≡ 1 (mod 4), and $x$ ≡ 3 (mod 5).
+\end{shaded}  
+The answer will be unique modulo $3 \cdot 4 \cdot 5 = 60$.\\
+$a_1 = 2, m_1 = \answer{4.4.20a}{}$\\ 
+$a_2 = 1, m_2 = \answer{4.4.20b}{}$\\ 
+$a_3 = 3, m_3 = \answer{4.4.20c}{}$\\ 
+$m = m_1 \cdot m_2 \cdot m_3 = 60$ \\
+$M_1 = \answer{4.4.20d}{}$, $M_2 = \answer{4.4.20e}{}$, $M_3 = \answer{4.4.20f}{}$\\
+Then we need to find inverses $y_i$ of $M_i$ modulo $m_i$\\
+$y_1 = \answer{4.4.20g}{}$, $y_2 = \answer{4.4.20h}{}$, $y_3 = \answer{4.4.20i}{}$\\
+$ x =  a_1 M_1 y_1 + a_2 M_2 y_2 + a_3 M_3 y_3 = \answer{4.4.20j}{} \equiv \answer{4.4.20k}{} \pmod{\answer{4.4.20l}{}}$\\
+So the solutions are all integers of the form $53 + 60k$, where $k$ is an integer.
+
+\subsection{page 302, chapter 4.4 Exercise 38(a)}
+\begin{shaded}
+    Use Fermat's little theorem to compute $3^{302}$ mod 5,
+$3^{302}$ mod 7, and $3^{302}$ mod 11.
+\end{shaded}  
+By Fermat's little theorem we know that $3^4 \equiv 1$ (mod 5); therefore $3^{300} = (3^4)^{75} \equiv 1^{75} \equiv 1$ (mod 5), and so $3^{302} = 3^2 \cdot 3^{300} \equiv 9 \cdot 1 = 9$ (mod 5), so $3^{302}$ mod 5 = \answer{4.4.38a}{}.\\
+Similarly, $3^6 \equiv 1$ (mod 7); therefore $3^{300} = (3^6)^{50} \equiv 1$ (mod 5), and so $3^{302} = 3^2 \cdot 3^{300} \equiv 9$ (mod 7), so $3^{302}$ mod 7 = \answer{4.4.38b}{}.\\
+Finally, $3^{10} \equiv 1$ (mod 11); \answer{4.4.38c}{}.
+
+
+% \subsection{page 308, chapter 4.5 Exercise 2}
+% \begin{shaded}
+%     Which memory locations are assigned by the hashing function $h(k) = k$ \textbf{mod} 101 to the records of insurance company customers with these Social Security numbers?
+%     \begin{enumerate}[label=(\alph*)]
+%     	\item $104578690$
+%     	\item $432222187$
+%     	\item $372201919$
+%     	\item $501338753$
+%     \end{enumerate}
+% \end{shaded} 
+% \begin{enumerate}[label=(\alph*)]
+% 	\item $58$
+% 	\item \uline{~~請作答~~}
+% 	\item \uline{~~請作答~~}
+% 	\item \uline{~~請作答~~}
+% \end{enumerate}
+
+
+% \subsection{page 323, chapter 4.6 Example 26}
+% \begin{shaded}
+%     What is the original message encrypted using the RSA system with $n$ = 53 ⋅ 61 and $e$ = 17 if the encrypted message is 3185 2038 2460 2550? (To decrypt, first find the decryption exponent $d$, which is the inverse of $e$ = 17 modulo 52 ⋅ 60.)
+% \end{shaded} 
+% First we find, the inverse of $e = 17~modulo~52 \cdot 60$. \\
+% A computer algebra system tells us that $d = \uline{~~請作答~~}$.\\
+% Next we compute $c^d \pmod{n}$ for each of the four given numbers:\\ 
+% $3185^{2753} \pmod{3233} = \uline{~~請作答~~}$ (which are the letters SQ),\\
+% $2038^{2753} \pmod{3233} = \uline{~~請作答~~}$ (which are the letters UI),\\
+% $2460^{2753} \pmod{3233} = \uline{~~請作答~~}$ (which are the letters RR), and \\
+% $2550^{2753} \pmod{3233} = \uline{~~請作答~~}$ (which are the letters EL).\\
+% The message is \uline{~~請作答~~}.
+
+
+\clearpage
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.
