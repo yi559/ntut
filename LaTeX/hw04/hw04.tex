@@ -104,11 +104,11 @@
 \end{shaded}  
 \begin{enumerate}[label=(\alph*)]
 	\item $10$
-	\item \answer{4.1.17b}{}
-	\item \answer{4.1.17c}{}
-	\item \answer{4.1.17d}{}
-	\item \answer{4.1.17e}{}
-	\item \answer{4.1.17f}{}
+	\item \answer{4.1.17b}{$8$}
+	\item \answer{4.1.17c}{$0$}
+	\item \answer{4.1.17d}{$9$}
+	\item \answer{4.1.17e}{$6$}
+	\item \answer{4.1.17f}{$11$}
 \end{enumerate}
 
 \subsection{page 259, chapter 4.1 Exercise 30}
@@ -122,8 +122,8 @@
 \end{shaded}  
 \begin{enumerate}[label=(\alph*)]
 	\item $a = 43-46 = -3$
-	\item \answer{4.1.30b}{}
-	\item \answer{4.1.30c}{}
+	\item \answer{4.1.30b}{$a = 29 * -1 + 17 = -12$}
+	\item \answer{4.1.30c}{$a = 21 * 5 - 11 = 94$}
 \end{enumerate}
 
 % \subsection{page 269, chapter 4.2 Exercise 4}
@@ -154,15 +154,15 @@ The calculation of the greatest common divisor takes several steps:
 \begin{eqnarray*}
     78 & = & 2 \cdot 35 + 8 \\
     35 & = & 4 \cdot 8 + 3 \\
-    \answer{4.3.40a}{} & = & \answer{4.3.40b}{} \\
-	\answer{4.3.40c}{} & = & \answer{4.3.40d}{}
+    \answer{4.3.40a}{8} & = & \answer{4.3.40b}{2 \cdot 3 + 2} \\
+	\answer{4.3.40c}{3} & = & \answer{4.3.40d}{1 \cdot 2 + 1}
 \end{eqnarray*}
 Then we need to work our way back up
 \begin{eqnarray*}
     1 & = & 3 - 2 \\
     ~ & = & 3 - (8 - 2 \cdot 3)  =  3 \cdot 3 - 8 \\
-    ~ & = & 3 \cdot (\answer{4.3.40e}{} - 4 \cdot 8) -8 =  3 \cdot 35 - 13 \cdot 8 \\
-    ~ & = & 3 \cdot 35 - 13 \cdot (\answer{4.3.40f}{})  =  29 \cdot 35 - 13 \cdot \answer{4.3.40g}{}
+    ~ & = & 3 \cdot (\answer{4.3.40e}{35} - 4 \cdot 8) -8 =  3 \cdot 35 - 13 \cdot 8 \\
+    ~ & = & 3 \cdot 35 - 13 \cdot (\answer{4.3.40f}{78 - 2 \cdot 35})  =  29 \cdot 35 - 13 \cdot \answer{4.3.40g}{78}
 \end{eqnarray*}
 
 \subsection{page 301, chapter 4.4 Exercise 6(b)}
@@ -177,21 +177,21 @@ $gcd(34, 89) = 1$ :
 \begin{eqnarray*}
     89 & = & 2 \cdot 34 + 21 \\
     34 & = & 1 \cdot 21 + 13  \\
-    21 & = & \answer{4.4.6a}{}\\
-    13 & = & \answer{4.4.6b}{}\\
-     8 & = & \answer{4.4.6c}{}\\
-     5 & = & \answer{4.4.6d}{}\\
-     3 & = & \answer{4.4.6e}{}
+    21 & = & \answer{4.4.6a}{1 \cdot 13 + 8}\\
+    13 & = & \answer{4.4.6b}{1 \cdot 8 + 5}\\
+     8 & = & \answer{4.4.6c}{1 \cdot 5 + 3}\\
+     5 & = & \answer{4.4.6d}{1 \cdot 3 + 2}\\
+     3 & = & \answer{4.4.6e}{1 \cdot 2 + 1}
 \end{eqnarray*}
 Then we reverse our steps and write 1 as the desired linear combination:
 \begin{eqnarray*}
     1 & = & 3 - 2 \\
     ~ & = & 3 - (5 - 3) = 2 \cdot 3 - 5  \\
-    ~ & = & \answer{4.4.6f}{}\\
-    ~ & = & \answer{4.4.6g}{}\\
-    ~ & = & \answer{4.4.6h}{}\\
-    ~ & = & \answer{4.4.6i}{}\\
-    ~ & = & \answer{4.4.6j}{}\\
+    ~ & = & \answer{4.4.6f}{2 \cdot (8 - 1 \cdot 5) - 5 = 2 \cdot 8 - 3 \cdot 5}\\
+    ~ & = & \answer{4.4.6g}{2 \cdot 8 - 3 \cdot (13 - 1 \cdot 8) = 5 \cdot 8 - 3 \cdot 13}\\
+    ~ & = & \answer{4.4.6h}{5 \cdot (21 - 1 \cdot 13) - 3 \cdot 13 = 5 \cdot 21 - 8 \cdot 13}\\
+    ~ & = & \answer{4.4.6i}{5 \cdot 21 - 8 \cdot (34 - 1 \cdot 21) = 13 \cdot 21 - 8 \cdot 34}\\
+    ~ & = & \answer{4.4.6j}{13 \cdot (89 - 2 \cdot 34) - 8\cdot 34 = 13 \cdot 89 - 34 \cdot 34}\\
 \end{eqnarray*}
 Thus s = -34, so an inverse of 34 modulo 89 is -34, which can also be written as 55.
 
@@ -201,21 +201,21 @@ Thus s = -34, so an inverse of 34 modulo 89 is -34, which can also be written as
 modulo 9.
 \end{shaded}  
 To solve the congruence, the multiplicative inverse of 4 modulo 9 is determined to be 7.
-Multiplying both sides of the congruence by 7 and simplifying gives the solution $x \equiv \answer{4.4.9a}{}$ (mod 9).
+Multiplying both sides of the congruence by 7 and simplifying gives the solution $x \equiv \answer{4.4.9a}{8}$ (mod 9).
 
 \subsection{page 301, chapter 4.4 Exercise 20}
 \begin{shaded}
     Use the construction in the proof of the Chinese remainder theorem to find all solutions to the system of congruences $x$ ≡ 2 (mod 3), $x$ ≡ 1 (mod 4), and $x$ ≡ 3 (mod 5).
 \end{shaded}  
 The answer will be unique modulo $3 \cdot 4 \cdot 5 = 60$.\\
-$a_1 = 2, m_1 = \answer{4.4.20a}{}$\\ 
-$a_2 = 1, m_2 = \answer{4.4.20b}{}$\\ 
-$a_3 = 3, m_3 = \answer{4.4.20c}{}$\\ 
+$a_1 = 2, m_1 = \answer{4.4.20a}{3}$\\ 
+$a_2 = 1, m_2 = \answer{4.4.20b}{4}$\\ 
+$a_3 = 3, m_3 = \answer{4.4.20c}{5}$\\ 
 $m = m_1 \cdot m_2 \cdot m_3 = 60$ \\
-$M_1 = \answer{4.4.20d}{}$, $M_2 = \answer{4.4.20e}{}$, $M_3 = \answer{4.4.20f}{}$\\
+$M_1 = \answer{4.4.20d}{20}$, $M_2 = \answer{4.4.20e}{15}$, $M_3 = \answer{4.4.20f}{12}$\\
 Then we need to find inverses $y_i$ of $M_i$ modulo $m_i$\\
-$y_1 = \answer{4.4.20g}{}$, $y_2 = \answer{4.4.20h}{}$, $y_3 = \answer{4.4.20i}{}$\\
-$ x =  a_1 M_1 y_1 + a_2 M_2 y_2 + a_3 M_3 y_3 = \answer{4.4.20j}{} \equiv \answer{4.4.20k}{} \pmod{\answer{4.4.20l}{}}$\\
+$y_1 = \answer{4.4.20g}{22}$, $y_2 = \answer{4.4.20h}{3}$, $y_3 = \answer{4.4.20i}{3}$\\
+$ x =  a_1 M_1 y_1 + a_2 M_2 y_2 + a_3 M_3 y_3 = \answer{4.4.20j}{233} \equiv \answer{4.4.20k}{53} \pmod{\answer{4.4.20l}{60}}$\\
 So the solutions are all integers of the form $53 + 60k$, where $k$ is an integer.
 
 \subsection{page 302, chapter 4.4 Exercise 38(a)}
@@ -223,9 +223,9 @@ So the solutions are all integers of the form $53 + 60k$, where $k$ is an intege
     Use Fermat's little theorem to compute $3^{302}$ mod 5,
 $3^{302}$ mod 7, and $3^{302}$ mod 11.
 \end{shaded}  
-By Fermat's little theorem we know that $3^4 \equiv 1$ (mod 5); therefore $3^{300} = (3^4)^{75} \equiv 1^{75} \equiv 1$ (mod 5), and so $3^{302} = 3^2 \cdot 3^{300} \equiv 9 \cdot 1 = 9$ (mod 5), so $3^{302}$ mod 5 = \answer{4.4.38a}{}.\\
-Similarly, $3^6 \equiv 1$ (mod 7); therefore $3^{300} = (3^6)^{50} \equiv 1$ (mod 5), and so $3^{302} = 3^2 \cdot 3^{300} \equiv 9$ (mod 7), so $3^{302}$ mod 7 = \answer{4.4.38b}{}.\\
-Finally, $3^{10} \equiv 1$ (mod 11); \answer{4.4.38c}{}.
+By Fermat's little theorem we know that $3^4 \equiv 1$ (mod 5); therefore $3^{300} = (3^4)^{75} \equiv 1^{75} \equiv 1$ (mod 5), and so $3^{302} = 3^2 \cdot 3^{300} \equiv 9 \cdot 1 = 9$ (mod 5), so $3^{302}$ mod 5 = \answer{4.4.38a}{4}.\\
+Similarly, $3^6 \equiv 1$ (mod 7); therefore $3^{300} = (3^6)^{50} \equiv 1$ (mod 5), and so $3^{302} = 3^2 \cdot 3^{300} \equiv 9$ (mod 7), so $3^{302}$ mod 7 = \answer{4.4.38b}{2}.\\
+Finally, $3^{10} \equiv 1$ (mod 11); \answer{4.4.38c}{therefore $3 ^ {300} = (3 ^ {10}) ^ {30} \equiv 1$(mod 11),and so $3 ^ {302} = 3 ^ 2 \cdot 3 ^ {300} \equiv 9$(mod 11),so $3 ^ {302}$ mod 11 = 9}.
 
 
 % \subsection{page 308, chapter 4.5 Exercise 2}

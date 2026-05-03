@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1777300684.70706 "hw04.xdv" "hw04.pdf" "hw04" 1777300685.1509 0
-  "hw04.xdv" 1777300684 67048 d79f8172ef5018d4a00fa314520deb61 "xelatex"
+["xdvipdfmx"] 1777799733.10587 "hw04.xdv" "hw04.pdf" "hw04" 1777799733.65091 0
+  "hw04.xdv" 1777799732 70748 791d19ff0035469b61c2b59dd8b8b5e3 "xelatex"
   (generated)
   "hw04.pdf"
   (rewritten before read)
-["xelatex"] 1777300682.0055 "c:/Users/hsuyi/Program/LaTeX/hw04/hw04.tex" "hw04.xdv" "hw04" 1777300685.14653 0
+["xelatex"] 1777799729.68761 "c:/Users/hsuyi/Program/LaTeX/hw04/hw04.tex" "hw04.xdv" "hw04" 1777799733.64685 0
   "C:/Users/hsuyi/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1774606397 27177068 26a6eec27171298b08ccf3e3a4b8124c ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136743454 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -141,11 +141,11 @@
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJK.cfg" 1659726270 408 7369c27beaa819c5f46de3795b22ee3e ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJK.sty" 1659726270 183137 ed372550124703b2b73cbcc0b47cb20f ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJKfntef.sty" 1659726270 39577 b470f8a1dbecc9c45c9bf05ca7db9188 ""
-  "c:/Users/hsuyi/Program/LaTeX/hw04/hw04.tex" 1777300682 9702 cb6fbaa417164da538d80f93db373d2b ""
-  "hw04.aux" 1777300684 1797 d06452a46500416c19f4dc1b7f1181bb "xelatex"
-  "hw04.log" 1777300684 98284 b52e0884e28f373b5361a13556c1723b "xelatex"
-  "hw04.out" 1777300684 2243 c0c4cb711db0bcae2b5a0776f9184e41 "xelatex"
-  "hw04.tex" 1777300682 9702 cb6fbaa417164da538d80f93db373d2b ""
+  "c:/Users/hsuyi/Program/LaTeX/hw04/hw04.tex" 1777799729 10351 d40e633ba9344c6d1600bdac5b3d6afc ""
+  "hw04.aux" 1777799732 1797 d06452a46500416c19f4dc1b7f1181bb "xelatex"
+  "hw04.log" 1777799732 98138 2f67709a1fa2a26c864fefb20aa79fb8 "xelatex"
+  "hw04.out" 1777799732 2243 c0c4cb711db0bcae2b5a0776f9184e41 "xelatex"
+  "hw04.tex" 1777799729 10351 d40e633ba9344c6d1600bdac5b3d6afc ""
   (generated)
   "hw04.aux"
   "hw04.log"
