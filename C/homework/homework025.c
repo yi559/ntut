@@ -54,3 +54,52 @@ answer=3595.23632027
 輸出:
 answer=40877.34284979
 */
+
+#include <stdio.h>
+#include <math.h>
+
+double a;
+
+double area(double (*f)(double x), double p, double q, int n){
+    double h = (q-p) / n, t=0;
+
+    for (int i=1 ; i<n ; i++){
+        t += f(p+i*h);
+    }
+
+    return (h/2.0) * (f(p) + f(q) + 2.0 * t);
+}
+
+double f1(double x){
+    return (sqrt((a) + (x) * (x)));
+}
+
+double f2(double x){
+    return (((a) * (x) * (x) * (x) + 7 * (x)) / sqrt((a) + (x)));
+}
+
+int main(void){
+    int inst, err, total=0, n=2;
+    double p, q, lastans=0.0, newans=0.0;
+    
+    scanf("%d %lf %lf %lf %d", &inst, &a, &p, &q, &err);
+    if (inst == 1){
+        newans = area(f1,p,q,n);
+        while (n == 2 || fabs(newans - lastans) >= pow(10, -err)){
+            lastans = newans;
+            n *= 2;
+            newans = area(f1,p,q,n);
+        }
+        
+    }else{
+        newans = area(f2,p,q,n);
+        while (n == 2 || fabs(newans - lastans) >= pow(10, -err)){
+            lastans = newans;
+            n *= 2;
+            newans = area(f2,p,q,n);
+        }
+    }
+
+    printf("answer=%.8lf\n", newans);
+    return 0;
+}

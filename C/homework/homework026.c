@@ -84,3 +84,18 @@ Let's go, move go! move going. they can't go? move gone gone.
 Let's going. they can't gone gone.
 gone. gone go? can't they going. go! go, Let's
 */
+
+#include <stdio.h>
+
+void subst(char *article, char *p, char *q, int *mark){
+
+}
+
+int main(void){
+    char article[200], p[50], q[50];
+    int mark[200];
+    scanf("%s %s %s", article, p, q);
+    
+    
+    return 0;
+}

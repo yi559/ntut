@@ -104,3 +104,80 @@
 35 1
 80 1
 */
+
+#include <stdio.h>
+
+int main(void){
+    int dice[10][10];
+
+    for (int i=0 ; i<100 ; i++){
+        scanf("%d", &dice[i / 10][i % 10]);
+    }
+
+    int dr[4] = {0, 1, 1, 1};
+    int dc[4] = {1, 0, 1, -1};
+    
+    typedef struct {
+        int pos;
+        int count;
+    }result;
+    
+    result res_list[100];
+    int idx = 0;
+
+    for (int i=0 ; i<10 ; i++){
+        for (int j=0 ; j<10 ; j++){
+            if (dice[i][j] == 0){
+                int count_lines = 0;
+
+                for (int k=0 ; k<4 ; k++){
+                    int plus_side = 0;
+                    int now_row = dr[k] + i;
+                    int now_col = dc[k] + j;
+                    while(now_row>=0 && now_row<10 && now_col>=0 && now_col<10 && dice[now_row][now_col] != 0){
+                        plus_side += 1;
+                        now_row += dr[k];
+                        now_col += dc[k];
+                    }
+
+                    int minus_side = 0;
+                    now_row = i - dr[k];
+                    now_col = j - dc[k];
+                    while(now_row>=0 && now_row<10 && now_col>=0 && now_col<10 && dice[now_row][now_col] != 0){
+                        minus_side += 1;
+                        now_row -= dr[k];
+                        now_col -= dc[k];
+                    }
+
+                    int total_len = plus_side + minus_side + 1;
+                    if (total_len == 5) count_lines += 1;
+                }
+
+                if (count_lines > 0){
+                    res_list[idx].pos = i*10+j;
+                    res_list[idx].count = count_lines;
+                    idx += 1;
+                }
+            }
+        }
+    }
+
+    result temp;
+    for (int a = 0; a < idx - 1; a++) {
+        for (int b = 0; b < idx - 1 - a; b++) {
+            
+            if (res_list[b].count < res_list[b+1].count || 
+            (res_list[b].count == res_list[b+1].count && res_list[b].pos > res_list[b+1].pos)) {
+                
+                temp = res_list[b];
+                res_list[b] = res_list[b+1];
+                res_list[b+1] = temp;
+            }
+        }
+    }
+
+    for (int i=0 ; i<idx ; i++){
+        printf("%02d %d\n", res_list[i].pos, res_list[i].count);
+    }
+    return 0;
+}
