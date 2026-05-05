@@ -1,0 +1,167 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage{xeCJK}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{algorithm,algorithmic}
+\usepackage{color}  
+%\definecolor{shadecolor}{named}{Gray}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+\usepackage{ulem}
+
+%% Font
+\CJKfontspec{Noto Serif CJK TC} %思源宋體
+\usepackage{xcolor}
+\newcommand{\answer}[2]{%
+  \if\relax\detokenize{#2}\relax
+    \underline{\mbox{請作答}}%
+  \else
+    \textcolor{blue}{#2}%
+  \fi
+}
+
+%% ----------
+\begin{document}
+
+\title{114學年度第二學期~離散數學HW05}
+
+\author{班級：\underline{資工一}、學號：\underline{114590XXX}、姓名：\underline{蘇東坡}}
+\orcid{}
+\affiliation{%
+  \institution{}
+  \city{}
+  \country{}
+}
+
+
+%% 刪除ACM Reference Format信息
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\maketitle
+
+%% ----- 作業繳交說明 -----
+\section{題目}
+\subsection{作業繳交說明}
+\begin{shaded}
+\begin{itemize}
+    \item[-] 從 overleaf 下載 hw05.zip
+    \item[-] 從 overleaf 下載 hw05.pdf
+    \item[-] 建立一個新檔案夾，命名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW05\end{verbatim}
+    \item[-] \color{black}放入 hw05.zip
+    \item[-] 放入 hw05.pdf
+    \item[-] 將此檔案夾，壓縮成 zip 檔,檔名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW05.zip\end{verbatim}
+    \item[-] \color{black}將此壓縮檔，上傳到北科 i 學園 PLUS
+    \item[-] Do not share your homework with any living creatures.
+    \item[-] 作業遲交以零分計。
+\end{itemize}
+\end{shaded}
+
+%% ----- Question -----
+\subsection{題號}
+\begin{shaded}
+    \begin{itemize}
+	\item[-] page 350, chapter 5.1 Exercise 6
+    \item[-] page 351, chapter 5.1 Exercise 18
+	% \item[-] page 363, chapter 5.2 Exercise 6
+    %\item[-] page 363, chapter 5.2 Exercise 6(b)
+    %\item[-] page 363, chapter 5.2 Exercise 6(c) 
+    %\item[-] page 379, chapter 5.3 Exercise 26 
+	%\item[-] page 391, chapter 5.4 Exercise 8
+\end{itemize}
+\end{shaded}
+
+%% ----- Problem -----
+\section{作答}
+\subsection{page 350, chapter 5.1 Exercise 6}
+\begin{shaded}
+    Prove that $1 \cdot 1! + 2 \cdot 2! + ... + n \cdot n! = (n + 1)! - 1$ whenever n is a positive integer.
+\end{shaded}  
+Prove ~~~$1 \cdot 1! + 2 \cdot 2! + ... + n \cdot n! = (n + 1)! - 1$ \\
+For all $n \geq 1 $, $ P(n) = (n + 1)! - 1 $ \\
+Basis step:\\
+$n = 1$, $ P(1) $ is true, since ~~~ $ 1 \cdot 1! = (1 + 1)! - 1 = (2)! - 1 $ \\
+Inductive step:\\
+Inductive hypothesis, assume $ P(k) $ holds for an arbitrary positive integer $k$. ~~~  $1 \cdot 1! + 2 \cdot 2! + ... + k \cdot k! = (k + 1)! - 1 $\\
+Add $ (k + 1) \cdot (k + 1)!$ to both sides of the equation in $ P(k) $, we obtain
+\begin{eqnarray*}
+1 \cdot 1!  + ... + k \cdot k! + (k + 1) · (k + 1)!  & = & (k + 1)! - 1 + (k + 1) · (k + 1)!\\
+~ & = & (k + 1)!(\answer{5.1.6a}{}) - 1 \\
+~ & = & \answer{5.1.6b}{}
+\end{eqnarray*}
+By mathematical induction, $ P(n) $ is true for all integer $n$ with $n \geq 1 $.
+
+\subsection{page 351, chapter 5.1 Exercise 18}
+\begin{shaded}
+    Let $P(n)$ be the statement that $n! < n^n$, where $n$ is an integer greater than 1.
+    \begin{enumerate}[label=(\alph*)]
+    	\item What is the statement $P(2)$?
+    	\item Show that $P(2)$ is true, completing the basis step of a proof by mathematical induction that $P(n)$ is true for all integers n greater than 1.
+    	\item What is the inductive hypothesis of a proof by mathematical induction that $P(n)$ is true for all integers $n$ greater than 1?
+        \item What do you need to prove in the inductive step of a proof by mathematical induction that $P(n)$ is true for all integers $n$ greater than 1?
+        \item Complete the inductive step of a proof by mathematical induction that $P(n)$ is true for all integers $n$ greater than 1.
+        \item Explain why these steps show that this inequality is true whenever $n$ is an integer greater than 1.
+    \end{enumerate}
+\end{shaded}  
+\begin{enumerate}[label=(\alph*)]
+	\item Plugging in $n = \answer{5.1.18a}{}$, we see that $P(2)$ is the statement $2! < 2^2$.
+	\item Since $2! = \answer{5.1.18a}{}$, this is the true statement $2 < 4$.
+	\item The inductive hypothesis is the statement that \answer{5.1.18c}{}.
+    \item For the inductive step, we want to show for each $k \ge 2$ that $P(k)$ implies \answer{5.1.18d}{}. In other words, we want to show that assuming the inductive hypothesis (see part (c)) we can prove that \answer{5.1.18e}{}.
+    \item $(k+1)! = \answer{5.1.18f}{} < \answer{5.1.18g}{} < \answer{5.1.18h}{} = (k + 1)^{k+1}$
+    \item We have completed both the basis step and the inductive step, so by the principle of mathematical induction, the statement is true for every positive integer $n$ greater than 1.
+\end{enumerate}
+
+% \subsection{page 363, chapter 5.2 Exercise 6(a)}
+% \begin{shaded}
+%     Determine which amounts of postage can be formed using just 3-cent and 10-cent stamps.
+% \end{shaded}  
+% We can form the following amounts of postage as indicated:\\
+% $ 3 = 3$\\
+% $ 6 = 3 + 3$\\
+% $ 9 = 3 + 3 + 3$\\
+% $10 = 10$\\
+% $12 = 3 + 3 + 3 + 3$\\
+% $13 = 10 + 3$\\
+% $15 = 3 + 3 + 3 + 3 + 3$\\
+% $16 = 10 + 3 + 3$\\
+% $18 = 3 + 3 + 3 + 3 + 3 + 3$\\
+% $19 = 10 + 3 + 3 + 3$\\
+% $20 = 10 + 10$\\
+% By having considered all the combinations, we know that the gaps in this list cannot be filled.\\ We claim that we can form all amounts of postage greater than or equal to \uline{~~請作答~~} cents using just 3-cent and 10-cent stamps.
+    
+% \subsection{page 363, chapter 5.2 Exercise 6(b)}
+% \begin{shaded}
+%     Prove your answer to (a) using the principle of mathematical induction. Be sure to state explicitly your inductive hypothesis in the inductive step.
+% \end{shaded}
+% Let $P(n)$ be the statement that we can form n cents of postage using just 3-cent and 10-cent stamps. We want to prove that $P(n)$ is true for all $n \geq 18$.\\
+% Basis step:\\
+% $n = 18 = 3 + 3 + 3 + 3 + 3 + 3$. \\
+% Inductive step:\\
+% Assume that we can form $k$ cents of postage (the inductive hypothesis); we will show how to form $k + 1$ cents of postage. If the $k$ cents included two 10-cent stamps, then replace them by \uline{~~請作答~~} 3-cent stamps (7 · 3 = 2 · 10 + 1).\\
+% Otherwise, $k$ cents was formed either from just 3-cent stamps, or from one 10-cent stamp and $k-10$ cents in 3-cent stamps. Because $k \geq 18$, there must be at least \uline{~~請作答~~} 3-cent stamps involved in either case. Replace \uline{~~請作答~~} 3-cent stamps by \uline{~~請作答~~} 10-cent stamp, and we have formed $k + 1$ cents in postage (10 = 3 · 3 + 1).
+
+% \subsection{page 363, chapter 5.2 Exercise 6(c)}
+% \begin{shaded}
+%     Prove your answer to (a) using strong induction. How does the inductive hypothesis in this proof differ from that in the inductive hypothesis for a proof using mathematical induction?
+% \end{shaded}
+% Let $P(n)$ be the statement that we can form n cents of postage using just 3-cent and 10-cent stamps. We want to prove that $P(n)$ is true for all $n \geq 18$. \\
+% Basis step:\\ To prove that $P(n)$ is true for all $n \geq 18$, we note for the basis step that from part (a), $P(n)$ is true for $n = 18, 19, 20$. \\
+% Inductive step:\\ Assume the inductive hypothesis, that $P(j)$ is true for all $j$ with $18 \leq j \leq k$ , where $k$ is a fixed integer greater than or equal to 20. We want to show that $P(k + 1)$ is true. Because $k - 2 \geq 18$, we know that $P(k - 2)$ is true, that is, that we can form $k - 2$ cents of postage. Put one more \uline{~~請作答~~}-cent stamp on the envelope, and we have formed $k + 1$ cents of postage, as desired.\\
+% In this proof our inductive hypothesis included all values between 18 and $k$ inclusive, and that enabled us to jump back three steps to a value for which we knew how to form the desired postage.
+
+
+
+\clearpage
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.

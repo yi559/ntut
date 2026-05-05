@@ -1,0 +1,260 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage{xeCJK}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{algorithm,algorithmic}
+\usepackage{color}  
+%\definecolor{shadecolor}{named}{Gray}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+\usepackage{ulem}
+\usepackage{amsmath}
+
+%% Font
+\CJKfontspec{Noto Serif CJK TC} %思源宋體
+
+%% ----------
+\newcommand{\answer}[2]{%
+  \if\relax\detokenize{#2}\relax
+    \underline{\mbox{請作答}}%
+  \else
+    \textcolor{blue}{#2}%
+  \fi
+}
+
+
+\begin{document}
+
+\title{114學年度第二學期~離散數學HW08}
+
+\author{班級：\underline{資工一}、學號：\underline{114590XXX}、姓名：\underline{蘇東坡}}
+\orcid{}
+\affiliation{%
+  \institution{}
+  \city{}
+  \country{}
+}
+
+%% 刪除ACM Reference Format信息
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\maketitle
+
+
+%% ----- 作業繳交說明 -----
+\section{題目}
+\subsection{作業繳交說明}
+\begin{shaded}
+\begin{itemize}
+    \item[-] 從 overleaf 下載 hw08.zip
+    \item[-] 從 overleaf 下載 hw08.pdf
+    \item[-] 建立一個新檔案夾，命名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW08\end{verbatim}
+    \item[-] \color{black}放入 hw08.zip
+    \item[-] 放入 hw08.pdf
+    \item[-] 將此檔案夾，壓縮成 zip 檔,檔名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW08.zip\end{verbatim}
+    \item[-] \color{black}將此壓縮檔，上傳到北科 i 學園 PLUS
+    \item[-] Do not share your homework with any living creatures.
+    \item[-] 作業遲交以零分計。
+\end{itemize}
+\end{shaded}
+
+%% ----- Question -----
+\subsection{題號}
+\begin{shaded}
+\begin{itemize}
+    \item[-] page 552, chapter 8.2 Exercise 26
+    \item[-] page 552, chapter 8.2 Exercise 28
+    \item[-] page 552, chapter 8.2 Exercise 30
+    \item[-] page 552, chapter 8.2 Exercise 32
+    \item[-] page 575, chapter 8.4 Exercise 4
+    \item[-] page 576, chapter 8.4 Exercise 16
+    \item[-] page 576, chapter 8.4 Exercise 18
+    \item[-] page 576, chapter 8.4 Exercise 24
+    \item[-] page 577, chapter 8.4 Exercise 34
+    \item[-] page 577, chapter 8.4 Exercise 36
+\end{itemize}
+\end{shaded}
+
+%% ----- Problem -----
+\section{作答}
+
+\subsection{page 552, chapter 8.2 Exercise 26}
+\begin{shaded}
+    What is the general form of the particular solution guaranteed to exist by Theorem 6 of the linear non-homogeneous recurrence relation $a_n = 6a_{n-1} - 12a_{n-2} + 8a_{n-3} + F(n)$ if
+    \begin{enumerate}[label=(\alph*)]
+        \item $F(n) = n^2$ ?
+        \item $F(n) = 2^n$ ?
+        \item $F(n) = n2^n$ ?
+        \item $F(n) = (-2)^n$ ?
+        \item $F(n) = n^22^n$ ?
+        \item $F(n) = n^3(-2)^n$ ?
+        \item $F(n) = 3$ ?
+    \end{enumerate}
+\end{shaded}
+We need to use Theorem 6, and so we need to find the roots of the characteristic polynomial of the associated homogeneous recurrence relation. The characteristic equation is $r^3 - 6r^2 + 12r - 8 = 0$, use $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$, r = 2 is the only root, and it has multiplicity 3. 
+\begin{enumerate}[label=(\alph*)]
+        \item In the notation of Theorem 6, s = 1 here. Since 1 is not a root of the characteristic polynomial of the associated homogeneous recurrence relation, Theorem 6 tells us that the particular solution will be of the form \answer{8.2.26a}{$p_2n^2 + p_1n + p_0$}.
+        \item Since 2 is a root with multiplicity 3 of the characteristic polynomial of the associated homogeneous recurrence relation, Theorem 6 tells us that the particular solution will be of the form \answer{8.2.26b}{}.
+        \item Since 2 is a root with multiplicity 3 of the characteristic polynomial of the associated homogeneous
+        recurrence relation, Theorem 6 tells us that the particular solution will be of the form \answer{8.2.26c}{}.
+        \item Since -2 is not a root of the characteristic polynomial of the associated homogeneous recurrence relation, Theorem 6 tells us that the particular solution will be of the form \answer{8.2.26d}{}.
+        \item Since 2 is a root with multiplicity 3 of the characteristic polynomial of the associated homogeneous recurrence relation, Theorem 6 tells us that the particular solution will be of the form \answer{8.2.26e}{}.
+        \item Since -2 is not a root of the characteristic polynomial of the associated homogeneous recurrence relation, Theorem 6 tells us that the particular solution will be of the form \answer{8.2.26f}{}.
+        \item Since 1 is not a root of the characteristic polynomial of the associated homogeneous recurrence relation, Theorem 6 tells us that the particular solution will be of the form \answer{8.2.26g}{}. In the notation of Theorem 6, s = 1 here.
+\end{enumerate}
+
+
+\subsection{page 552, chapter 8.2 Exercise 28}
+\begin{shaded}
+    \begin{enumerate}[label=(\alph*)]
+        \item Find all solutions of the recurrence relation $a_n = 2a_{n-1} + 2n^2$.
+        \item Find the solution of the recurrence relation in part (a) with initial condition $a_1 = 4$.
+    \end{enumerate}
+\end{shaded}
+可以參考課本第548頁的Example 10 and 11
+\begin{enumerate}[label=(\alph*)]
+        \item The associated homogeneous recurrence relation is \\
+        $a_n = 2a_{n-1}$. We easily solve it to obtain $a_n^{(h)} = \alpha2^n$. Next we need a particular solution to the given recurrence relation. By Theorem 6 we want to look for a function of the form $a_n = p_2n^2 + p_1n + p_0$. (Note that s = 1 here, and 1 is not a root of the characteristic polynomial.) We plug this into our recurrence relation and obtain $p_2n^2 + p_1n + p_0 = 2(p_2(n-1)^2 + p_1(n-1) + p_0) + 2n^2$. We rewrite this by grouping terms with equal powers of n, obtaining $(-p_2-2)n^2 + (4p_2-p_1)n + (-2p_2 + 2p_1-p_0) = 0$. In order for this equation to be true for all n, we must have $p_2 = -2$, $4p_2 = p_1$, and $-2p_2 + 2p_1 - p_0 = 0$. This tells us that $p_1 = -8$ and $p_0 = -12$. Therefore the particular solution we seek is $a_n^{(p)} = -2n^2 - 8n - 12$. So the general solution is the sum of the homogeneous solution and this particular solution, namely $a_n = \answer{8.2.28a}{}$.
+        \item We plug the initial condition into our solution from part(a) to obtain $4 = a_1 = 2\alpha - 2 - 8 - 12$. This tells us that $\alpha = \answer{8.2.28b}{}$. So the solution is $a_n = 13\cdot2^n - 2n^2 - 8n - 12$.
+\end{enumerate}
+
+
+\subsection{page 552, chapter 8.2 Exercise 30}
+\begin{shaded}
+    \begin{enumerate}[label=(\alph*)]
+        \item Find all solutions of the recurrence relation $a_n = -5a_{n-1} - 6a_{n-2} + 42 \cdot 4n$.
+        \item Find the solution of this recurrence relation with $a_1 = 56$ and $a_2 = 278$.
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+        \item The associated homogeneous recurrence relation is \\
+        $a_n = -5a_{n-1} - 6a_{n-2}$. To solve it we find the characteristic equation $r^2 + 5r + 6 = 0$, find that $r = -2$ and $r = -3$ are its solutions, and therefore obtain the homogeneous solution $a_n^{(h)} = \alpha(-2)^n + \beta(-3)^n$. Next we need a particular solution to the given recurrence relation. By Theorem 6 we want to look for a function of the form $a_n = c\cdot4^n$. We plug this into our recurrence relation and obtain $c\cdot4^n = -5c\cdot4^{n-1} - 6c\cdot4^{n-2} + 42\cdot4^n$. We divide through by $4^{n-2}$, obtaining $16c = -20c - 6c + 42\cdot16$, whence with a little simple algebra $c = 16$. Therefore the particular solution we seek is $a_n^{(p)} = 16\cdot4^n = 4^{n+2}$. So the general solution is the sum of the homogeneous solution and this particular solution, namely $a_n = \answer{8.2.30a}{}$.
+        \item We plug the initial conditions into our solution from part (a) to obtain $56 = a_1 = -2\alpha - 3\beta + 64$ and $278 = a_2 = 4\alpha + 9\beta + 256$. A little algebra yields $\alpha = \answer{8.2.30b}{}$ and $\beta = \answer{8.2.30c}{}$. So the solution is $a_n = (-2)^n + 2(-3)^n + 4^{n+2}$.
+\end{enumerate}
+
+
+\subsection{page 552, chapter 8.2 Exercise 32}
+\begin{shaded}
+    Find the solution of the recurrence relation $a_n = 2a_{n-1} + 3 \cdot 2^n$.
+\end{shaded}
+The associated homogeneous recurrence relation is $a_n = 2a_{n-1}$. We easily solve it to obtain $a_n^{(h)} = \alpha2^n$. Next
+we need a particular solution to the given recurrence relation. By Theorem 6 we want to look for a function of the form $a_n = cn \cdot 2^n$. We plug this into our recurrence relation and obtain $cn \cdot 2^n = 2c(n - 1)2^{n-1} + 3 \cdot 2^n$. We divide through by $2^{n-1}$, obtaining $2cn = 2c(n - 1) + 6$, whence with a little simple algebra $c = 3$. Therefore the particular solution we seek is $a_n^{(p)} = 3n\cdot2^n$. So the general solution is the sum of the homogeneous solution and this particular solution, namely $a_n = \answer{8.2.32a}{}$.
+
+
+\subsection{page 575, chapter 8.4 Exercise 4}
+\begin{shaded}
+    Find a closed form for the generating function for each of these sequences. (Assume a general form for the terms of the sequence, using the most obvious choice of such a sequence.)
+    \begin{enumerate}[label=(\alph*)]
+        \item $-1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, ...$
+        \item $1, 3, 9, 27, 81, 243, 729, ...$
+        \item $0, 0, 3, -3, 3, -3, 3, -3, ...$
+        \item $1, 2, 1, 1, 1, 1, 1, 1, 1, ...$
+        \item $\dbinom{7}{0}, 2\dbinom{7}{1}, 2^2\dbinom{7}{2}, ..., 2^7\dbinom{7}{7}, 0, 0, 0, 0, ...$
+        \item $-3, 3, -3, 3, -3, 3, ...$
+        \item $0, 1, -2, 4, -8, 16, -32, 64, ...$
+        \item $1, 0, 1, 0, 1, 0, 1, 0, ...$
+    \end{enumerate}
+\end{shaded}
+We will use Table 1 in much of this solution.
+\begin{enumerate}[label=(\alph*)]
+        \item Apparently all the terms are 0 except for the seven -1’s shown. Thus $f(x) = -1 -x -x^2 -x^3 -x^4 -x^5 -x^6$. This is already in closed form, but we can also write it more compactly as $f(x) = \answer{8.4.4a}{}$, making use of the identity from Example 2.
+        \item This sequence fits the pattern in Table 1 for $1/(1 - ax)$ with $a = \answer{8.4.4b}{}$ . Therefore the generating function is $1/(1 - \answer{8.4.4c}{}x)$.
+        \item We can factor out $3x^2$ and write the generating function as $\answer{8.4.4d}{}$, again using the identity in Table 1.
+        \item Except for the extra x (the coefficient of x is 2 rather than 1), the generating function is just $1/(1 - x)$. Therefore the answer is $ \answer{8.4.4e}{} + (1/(1 - x))$.
+        \item From Table 1, we see that the binomial theorem applies and we can write this as $\answer{8.4.4f}{}$.
+        \item We can factor out -3 and write the generating function as $\answer{8.4.4g}{}$, using the identity in Table 1.
+        \item We can factor out x and write the generating function as $\answer{8.4.4h}{}$, using the sixth identity in Table 1 with $a = -2$.
+        \item From Table 1 we see that the generating function here is $\answer{8.4.4i}{}$.
+\end{enumerate}
+
+
+\subsection{page 576, chapter 8.4 Exercise 16}
+\begin{shaded}
+    Use generating functions to find the number of ways to choose a dozen bagels from three varieties—egg, salty, and plain—if at least two bagels of each kind but no more than three salty bagels are chosen.
+\end{shaded}
+The factors in the generating function for choosing the egg and plain bagels are both $x^2 + x^3 + x^4 + ...$. The factor for choosing the salty bagels is $x^2 + x^3$. Therefore the generating function for this problem is $(x^2 + x^ + x^4 + ...)^2(x^2 + x^3)$. We want to find the coefficient of $x^{12}$, since we want 12 bagels. This is equivalent to finding the coefficient of $x^6$ in $(1 + x + x^2 + ...)^2(1 + x)$. This function is $(1 + x)/(1 - x)^2$, so we want the coefficient of $x^6$ in $1/(1 - x)^2$, which is \answer{8.4.16a}{}, plus the coefficient of $x^5$ in $1/(1 - x)^2$ , which is \answer{8.4.16b}{}. Thus the answer is \answer{8.4.16c}{}.
+
+
+\subsection{page 576, chapter 8.4 Exercise 18}
+\begin{shaded}
+    Use generating functions to find the number of ways to select 14 balls from a jar containing 100 red balls, 100 blue balls, and 100 green balls so that no fewer than 3 and no more than 10 blue balls are selected. Assume that the order in which the balls are drawn does not matter.
+\end{shaded}
+Without changing the answer, we can assume that the jar has an infinite number of balls of each color; this will make the algebra easier. For the red and green balls the generating function is $1 + x + x^2 + ...$, but for the blue balls the generating function is $x^3 + x^4 + ...+ x^{10}$, so the generating function for the whole problem is $(1 + x + x^2 + ...)^2(x^3 + x^4 + ...+ x^{10})$. We seek the coefficient of $x^{14}$. This is the same as the coefficient
+of $x^{11}$ in
+    \begin{eqnarray*}
+    (1 + x + x^2 + ...)^2(1 + x + ...+ x^7) = \frac{1 - x^8}{(1-x)^3}
+    \end{eqnarray*}
+Since the coefficient of $x^n$ in $1/(1 - x)^3$ is $C(n + 2, 2)$, and we have two contributing terms determined by the numerator, our answer is $\answer{8.4.18a}{}$.
+
+
+\subsection{page 576, chapter 8.4 Exercise 24}
+\begin{shaded}
+    \begin{enumerate}[label=(\alph*)]
+        \item What is the generating function for {$a_k$}, where $a_k$ is the number of solutions of $x_1 + x_2 + x_3 + x_4 = k$ when $x_1$, $x_2$, $x_3$, and $x_4$ are integers with $x_1 \ge 3$, $1 \le x2 \le 5$, $0 \le x3 \le 4$, and $x4 \ge 1$?
+        \item Use your answer to part (a) to find $a_7$.
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+        \item The restriction on $x_1$ gives us the factor $x^3 + x^4 + x^5 + ...$. The restriction on $x_2$ gives us the factor $x + x^2 + x^3 + x^4 + x^5$. The restriction on $x_3$ gives us the factor $1 + x + x^2 + x^3 + x^4$ . And the restriction on $x_4$ gives us the factor $x + x^2 + x^3 + ...$. Thus the answer is the product of these:
+            \begin{eqnarray*}
+                \answer{8.4.24a}{}
+            \end{eqnarray*}
+        We can use algebra to rewrite this in closed form as $x^5(1 + x + x^2 + x^3 + x^4)^2/(1 - x)^2$.
+        \item We want the coefficient of $x^7$ in this series, which is the same as the coefficient of $x^2$ in the series for
+            \begin{eqnarray*}
+            \frac{(1 + x + x^2 + x^3 + x^4)^2}{(1 - x)^2} = \frac{1+2x+3x^2+higher\ order\ terms}{(1 - x)^2}
+            \end{eqnarray*}
+        Since the coefficient of $x^n$ in $1/(1 - x)^2$ is n + 1, our answer is $1 \cdot 3 + 2 \cdot 2 + 3 \cdot 1 = \answer{8.4.24b}{}$.
+\end{enumerate}
+
+
+\subsection{page 577, chapter 8.4 Exercise 34}
+\begin{shaded}
+    Use generating functions to solve the recurrence relation $a_k = 7a_{k-1}$ with the initial condition $a_0 = 5$.
+\end{shaded}
+This problem is like Example 16. First let $G(x) = \sum\limits_{k=0}^\infty a_kx^k$. Then $xG(x) = \sum\limits_{k=0}^\infty a_kx^{k+1} = \sum\limits_{k=1}^\infty a_{k-1}x^k$ (by changing the name of the variable from k to k + 1 ). Thus 
+    \begin{eqnarray*}
+    G(x) - 7xG(x) 
+    & = & \sum\limits_{k=0}^\infty a_kx^k - \sum\limits_{k=1}^\infty 7a_{k-1}x^k \\
+    ~ & = & a_0 + \sum\limits_{k=1}^\infty (a_k - 7a_{k-1})x^k \\
+    ~ & = & a_0 + 0 \\
+    ~ & = & 5,
+    \end{eqnarray*}
+because of the given recurrence relation and initial condition. Thus $G(x)(1 - 7x) = 5$, so $G(x) = \answer{8.4.34a}{}$. From Table 1 we know then that $a_k = \answer{8.4.34b}{}$.
+
+
+
+\subsection{page 577, chapter 8.4 Exercise 36}
+\begin{shaded}
+    Use generating functions to solve the recurrence relation $a_k = 3a_{k-1} + 4^{k-1}$ with the initial condition $a_0 = 1$.
+\end{shaded}
+Let $G(x) = \sum\limits_{k=0}^\infty a_kx^k$. Then $xG(x) = \sum\limits_{k=0}^\infty a_kx^{k+1} = \sum\limits_{k=1}^\infty a_{k-1}x^k$ (by changing the name of the variable from k to k + 1 ). Thus 
+    \begin{eqnarray*}
+    G(x) - 3xG(x) 
+    & = & \sum\limits_{k=0}^\infty a_kx^k - \sum\limits_{k=1}^\infty 3a_{k-1}x^k \\
+    ~ & = & a_0 + \sum\limits_{k=1}^\infty (a_k - 3a_{k-1})x^k \\
+    ~ & = & 1 + \sum\limits_{k=1}^\infty 4^{k-1}x^k \\
+    ~ & = & 1 + x\sum\limits_{k=1}^\infty 4^{k-1}x^{k-1} \\
+    ~ & = & 1 + x\sum\limits_{k=0}^\infty 4^kx^k \\
+    ~ & = & 1 + x \cdot \frac{1}{1-4x} \\
+    ~ & = & \frac{1-3x}{1-4x}.
+    \end{eqnarray*}
+Thus $G(x)(1 - 3x) = (1 - 3x)/(1 - 4x)$, so $G(x) = \answer{8.4.36a}{}$. Therefore $a_k = \answer{8.4.36b}{}$, from Table 1.
+
+
+
+
+\clearpage
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.

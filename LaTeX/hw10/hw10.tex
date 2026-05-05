@@ -1,0 +1,370 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage{xeCJK}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{algorithm,algorithmic}
+\usepackage{color}  
+%\definecolor{shadecolor}{named}{Gray}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+\usepackage{ulem}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usepackage{makecell}
+
+
+%% Font
+\CJKfontspec{Noto Serif CJK TC} %思源宋體
+
+%% ----------
+\newcommand{\answer}[2]{%
+  \if\relax\detokenize{#2}\relax
+    \underline{\mbox{請作答}}%
+  \else
+    \textcolor{blue}{#2}%
+  \fi
+}
+
+
+\begin{document}
+
+\title{114學年度第二學期~離散數學HW10}
+
+\author{班級：\underline{資工一}、學號：\underline{114590XXX}、姓名：\underline{蘇東坡}}
+\orcid{}
+\affiliation{%
+  \institution{}
+  \city{}
+  \country{}
+}
+
+
+%% 刪除ACM Reference Format信息
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\maketitle
+
+
+%% ----- 作業繳交說明 -----
+\section{題目}
+\subsection{作業繳交說明}
+\begin{shaded}
+\begin{itemize}
+    \item[-] 從 overleaf 下載 hw10.zip
+    \item[-] 從 overleaf 下載 hw10.pdf
+    \item[-] 建立一個新檔案夾，命名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW10\end{verbatim}
+    \item[-] \color{black}放入 hw10.zip
+    \item[-] 放入 hw10.pdf
+    \item[-] 將此檔案夾，壓縮成 zip 檔,檔名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW10.zip\end{verbatim}
+    \item[-] \color{black}將此壓縮檔，上傳到北科 i 學園 PLUS
+    \item[-] Do not share your homework with any living creatures.
+    \item[-] 作業遲交，一天內成績打五折，超過一天以零分計。
+    \item[-] 畫圖請使用latex指令，勿手寫。
+\end{itemize}
+\end{shaded}
+
+%% ----- Question -----
+\subsection{題號}
+\begin{shaded}
+    \begin{itemize}
+	\item[-] page 683, chapter 10.1 Exercise 2
+	\item[-] page 699, chapter 10.2 Exercise 8
+	\item[-] page 710, chapter 10.3 Exercise 8
+	\item[-] page 724, chapter 10.4 Exercise 2
+	\item[-] page 741, chapter 10.5 Exercise 54
+	\item[-] page 753, chapter 10.6 Exercise 26
+	\item[-] page 761, chapter 10.7 Exercise 14
+	\item[-] page 768, chapter 10.8 Exercise 6
+\end{itemize}
+\end{shaded}
+
+
+%% ----- Problem -----
+\section{作答}
+\subsection{page 683, chapter 10.1 Exercise 2}
+\begin{shaded}
+    What kind of graph (from Table 1) can be used to model a highway system between major cities where
+    \begin{enumerate}[label=(\alph*)]
+        \item there is an edge between the vertices representing cities if there is an interstate highway between them?
+        \item there is an edge between the vertices representing cities for each interstate highway between them?
+        \item there is an edge between the vertices representing cities for each interstate highway between them, and there is a loop at the vertex representing a city if there is an interstate highway that circles this city?
+    \end{enumerate}
+\end{shaded}
+\begin{table}[h]
+    \centering
+	\caption{Graph Terminology.}
+    \begin{tabular}{|p{2.8cm}|p{3.1cm}|p{1.8cm}|p{1.1cm}|}
+        \hline
+        $\textsl{Type}$ & $\textsl{Edges}$ & $\textsl{\makecell{Multiple Edges \\ Allowed?}}$ & $\textsl{\makecell{Loops \\Allowed?}}$ \\ 
+        \hline
+        Simple graph & Undirected & No & No \\ 
+        Multigraph & Undirected & Yes & No \\ 
+        Pseudograph & Undirected & Yes & Yes \\ 
+        Simple directed graph & Directed & No & No \\ 
+        Directed multigraph & Directed & Yes & Yes \\ 
+        Mixed graph & Directed and undirected & Yes & Yes \\ 
+        \hline
+    \end{tabular}
+\end{table}
+\begin{enumerate}[label=(\alph*)]
+    \item \answer{10.1.2a}{simple graph}. Since there are no parallel edges or loops, and the edges are undirected. 
+    \item \answer{10.1.2b}{}
+    \item \answer{10.1.2c}{}
+\end{enumerate}
+
+
+\subsection{page 699, chapter 10.2 Exercise 8}
+\begin{shaded}
+    Determine the number of vertices and edges and find the in-degree and out-degree of each vertex for the given directed multigraph.
+
+    %%2.2圖片
+    \begin{center}
+        \tikzstyle{point}=[circle,draw=black,fill=black,thick,inner sep=0pt,minimum size=2mm]
+        \tikzset{middlearrow/.style={
+            decoration={markings,
+            mark= at position 0.5 with {\arrow{#1}} ,
+            },
+            postaction={decorate}
+            }
+        }
+        \begin{tikzpicture}
+        \node at ( -1.2,1.2) [point,draw,label=above:\Large$a$] (a) {};
+        \node at ( 1.2,1.2) [point,draw,label={[xshift=-8pt]above:\Large$b$}] (b) {};
+        \node at ( 1.2,-1.2) [point,draw,label=below:\Large$c$] (c) {};
+        \node at ( -1.2,-1.2) [point,draw,label=below:\Large$d$] (d) {};
+        \draw[middlearrow={latex},very thick,bend right=20] (b) to (a);
+        \draw[middlearrow={latex},very thick,bend right=20] (a) to (b);
+        \draw[middlearrow={latex},very thick] (a) to (b);
+        \draw[middlearrow={latex},very thick,bend left=20] (b) to (c);
+        \draw[middlearrow={latex},very thick,bend right=20] (b) to (c);
+        \draw[middlearrow={latex},very thick] (c) to (a);
+        \draw[->,>= latex,very thick]  (b) edge [out=-20,in=80,distance=8mm]   (b);
+        \draw[->,>= latex,very thick]  (d) edge [out=-20,in=80,distance=8mm]   (d);
+        
+        \end{tikzpicture}
+    \end{center}
+    
+\end{shaded}
+
+\vspace{1cm}
+
+In this directed multigraph there are \answer{10.2.8a}{} vertices and \answer{10.2.8b}{} edges.\\ The degrees are:\\ 
+$\text{deg}^{-}(a) = 2$, $\text{deg}^{+}(a) = 2$, \\
+$\text{deg}^{-}(b) = \answer{10.2.8c}{}$, $\text{deg}^{+}(b) = \answer{10.2.8d}{}$, \\
+$\text{deg}^{-}(c) = \answer{10.2.8e}{}$, $\text{deg}^{+}(c) = \answer{10.2.8f}{}$, \\
+$\text{deg}^{-}(d) = \answer{10.2.8g}{}$, $\text{deg}^{+}(d) = \answer{10.2.8h}{}$.
+
+\clearpage
+
+
+
+\subsection{page 710, chapter 10.3 Exercise 8}
+\begin{shaded}
+    Represent the graph in Exercise 4 with an adjacency matrix.
+
+    %%圖片2.3
+    \begin{center}
+        \tikzstyle{point}=[circle,draw=black,fill=black,thick,
+        inner sep=0pt,minimum size=2mm]
+        \tikzset{middlearrow/.style={
+                decoration={markings,
+                    mark= at position 0.5 with {\arrow{#1}} ,
+                },
+                postaction={decorate}
+            }
+        }
+        \begin{tikzpicture}
+        \node at ( -2,1) [point,draw,label=above:\LARGE$a$] (a) {};
+        \node at ( 0,1) [point,draw,label=above:\LARGE$b$] (b) {};
+        \node at ( 2,1) [point,draw,label={[xshift=-6pt]above:\LARGE$c$}] (c) {};
+        \node at ( -2,-1) [point,draw,label=below:\LARGE$d$] (d) {};
+        \node at ( 0,-1) [point,draw,label={[xshift=-9pt]below:\LARGE$e$}] (e) {};
+        
+        \draw[middlearrow={latex},very thick,bend right=20] (a) to (b);
+        \draw[middlearrow={latex},very thick,bend right=20] (b) to (a);
+        \draw[middlearrow={latex},very thick,bend right=20] (b) to (c);
+        \draw[middlearrow={latex},very thick,bend right=20] (c) to (b);
+        \draw[middlearrow={latex},very thick,bend left=20] (a) to (d);
+        \draw[middlearrow={latex},very thick,bend left=20] (d) to (a);
+        \draw[middlearrow={latex},very thick] (b) to (d);
+        \draw[middlearrow={latex},very thick] (b) to (e);
+        \draw[middlearrow={latex},very thick] (d) to (e);
+        \draw[middlearrow={latex},very thick] (e) to (c);
+        \draw[->,>= latex,very thick]  (c) edge [out=-20,in=80,distance=8mm]   (c);
+        \draw[->,>= latex,very thick]  (e) edge [out=240,in=340,distance=8mm]   (e);
+        \end{tikzpicture}
+    \end{center}
+    
+\end{shaded}
+
+
+
+$\begin{bmatrix}
+	   0 & 1 & 0 & 1 & 0 \\
+       \answer{10.3.8a}{} & \answer{10.3.8b}{} & \answer{10.3.8c}{} & \answer{10.3.8d}{} & \answer{10.3.8e}{} \\
+       \answer{10.3.8f}{} & \answer{10.3.8g}{} & \answer{10.3.8h}{} & \answer{10.3.8i}{} & \answer{10.3.8j}{} \\
+       \answer{10.3.8k}{} & \answer{10.3.8l}{} & \answer{10.3.8m}{} & \answer{10.3.8n}{} & \answer{10.3.8o}{} \\
+       \answer{10.3.8p}{} & \answer{10.3.8q}{} & \answer{10.3.8r}{} & \answer{10.3.8s}{} & \answer{10.3.8t}{} \\
+\end{bmatrix}$
+
+\subsection{page 724, chapter 10.4 Exercise 2}
+\begin{shaded}
+    Does each of these lists of vertices form a path in the following graph? Which paths are simple? Which are circuits? What are the lengths of those that are paths
+    \begin{enumerate}[label=(\alph*)]
+        \item $a, b, e, c, b$
+        \item $a, d, a, d, a$
+        \item $a, d, b, e, a$
+        \item $a, b, e, c, b, d, a$
+    \end{enumerate}
+
+    \begin{center}
+        \tikzstyle{point}=[circle,draw=black,fill=black,thick,
+        inner sep=0pt,minimum size=2mm]
+        \tikzset{middlearrow/.style={
+                decoration={markings,
+                    mark= at position 0.5 with {\arrow{#1}} ,
+                },
+                postaction={decorate}
+            }
+        }
+        \begin{tikzpicture}
+        \node at ( -2,1) [point,draw,label=above:\LARGE$a$] (a) {};
+        \node at ( 0,1) [point,draw,label=above:\LARGE$b$] (b) {};
+        \node at ( 2,1) [point,draw,label={[xshift=-6pt]above:\LARGE$c$}] (c) {};
+        \node at ( -2,-1) [point,draw,label=below:\LARGE$d$] (d) {};
+        \node at ( 0,-1) [point,draw,label={[xshift=-9pt]below:\LARGE$e$}] (e) {};
+        
+        \draw[middlearrow={latex},very thick,bend left=20] (a) to (b);
+        \draw[middlearrow={latex},very thick,bend left=20] (b) to (a);
+        \draw[middlearrow={latex},very thick,bend left=20] (a) to (d);
+        \draw[middlearrow={latex},very thick,bend left=20] (d) to (a);
+        \draw[middlearrow={latex},very thick] (c) to (b);
+        \draw[middlearrow={latex},very thick] (b) to (e);
+        \draw[middlearrow={latex},very thick] (e) to (d);
+        \draw[middlearrow={latex},very thick] (e) to (c);
+        \end{tikzpicture}
+    \end{center}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+    \item This \uline{~~is~~} (is, is not) a path of length \uline{~~4~~} (if not a path fill 0), it \uline{~~is not~~} (is, is not) a circuit, it \uline{~~is~~} (is, is not) simple.
+	
+	\item This \answer{10.4.2a}{} (is, is not) a path of length \answer{10.4.2b}{} (if not a path fill 0), it \answer{10.4.2c}{} (is, is not) a circuit, it \answer{10.4.2d}{} (is, is not) simple.
+
+	\item This \answer{10.4.2e}{} (is, is not) a path of length \answer{10.4.2f}{} (if not a path fill 0), it \answer{10.4.2g}{} (is, is not) a circuit, it \answer{10.4.2h}{} (is, is not) simple.
+
+	\item This \answer{10.4.2i}{} (is, is not) a path of length \answer{10.4.2j}{} (if not a path fill 0), it \answer{10.4.2k}{} (is, is not) a circuit, it \answer{10.4.2l}{} (is, is not) simple.
+\end{enumerate}
+
+\subsection{page 741, chapter 10.5 Exercise 54}
+\begin{shaded}
+    A diagnostic message can be sent out over a computer network to perform tests over all links and in all devices. What sort of paths should be used to test all links? To test all devices?
+\end{shaded}
+\answer{10.5.54a}{} (An Euler, A Hamilton) path will cover every link, so it can be used to test the links.\\
+\answer{10.5.54b}{} (An Euler, A Hamilton) path will cover all the devices, so it can be used to test the devices.
+
+\subsection{page 753, chapter 10.6 Exercise 26}
+\begin{shaded}
+    Solve the traveling salesperson problem for this graph by finding the total weight of all Hamilton circuits and determining a circuit with minimum total weight.
+
+    %%圖片2.6
+    \begin{center}
+        \tikzstyle{point}=[circle,draw=black,fill=black,thick,inner sep=0pt,minimum size=2mm]
+        \begin{tikzpicture}
+        \node at ( -1.2,1.6) [point,draw,label=above:\LARGE$a$] (a) {};
+        \node at ( 1.2,1.6) [point,draw,label=above:\LARGE$b$] (b) {};
+        \node at ( 1.8,-0.4) [point,draw,label=right:\LARGE$c$] (c) {};
+        \node at ( 0,-1.6) [point,draw,label=below:\LARGE$d$] (d) {};
+        \node at ( -1.8,-0.4) [point,draw,label=left:\LARGE$e$] (e) {};
+        \path
+            (a) edge[very thick] node [above] {\LARGE 3} (b)
+            (b) edge[very thick] node [above,xshift=5pt] {\LARGE 10} (c)
+            (c) edge[very thick] node [below,xshift=3pt] {\LARGE 6} (d)
+            (d) edge[very thick] node [below,xshift=-3pt] {\LARGE 1} (e)
+            (a) edge[very thick] node [above,xshift=-5pt] {\LARGE 7} (e)
+            (b) edge[very thick] node [above,xshift=-3pt,yshift=-3pt] {\LARGE 2} (e)
+            (e) edge[very thick] node [above,yshift=-1pt] {\LARGE 5} (c)
+            (c) edge[very thick] node [above,xshift=3pt,yshift=-3pt] {\LARGE 8} (a)
+            (a) edge[very thick] node [above,xshift=3pt,yshift=-4pt] {\LARGE 4} (d)
+            (d) edge[very thick] node [above,xshift=-3pt,yshift=-4pt] {\LARGE 9} (b);
+        
+        \end{tikzpicture}
+    \end{center}
+    
+\end{shaded}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Circuit: a-b-c-d-e-a, Weight = 3 + 10 + 6 + 1 + 7 = 27
+	\item Circuit: a-b-c-e-d-a, Weight = \answer{10.6.26a}{}
+	\item Circuit: a-b-d-c-e-a, Weight = \answer{10.6.26b}{}
+	\item Circuit: a-b-d-e-c-a, Weight = \answer{10.6.26c}{}
+	
+	\item Circuit: a-b-e-c-d-a, Weight = \answer{10.6.26d}{}
+	\item Circuit: a-b-e-d-c-a, Weight = \answer{10.6.26e}{}
+	\item Circuit: a-c-b-d-e-a, Weight = \answer{10.6.26f}{}
+	\item Circuit: a-c-b-e-d-a, Weight = \answer{10.6.26g}{}
+	
+	\item Circuit: a-c-d-b-e-a, Weight = \answer{10.6.26h}{}
+	\item Circuit: a-c-e-b-d-a, Weight = \answer{10.6.26i}{}
+	\item Circuit: a-d-b-c-e-a, Weight = \answer{10.6.26j}{}
+	\item Circuit: a-d-c-b-e-a, Weight = \answer{10.6.26k}{}
+\end{enumerate}
+The circuits \answer{10.6.26l}{(start and end at $a$)} and \answer{10.6.26m}{(start and end at $a$)} are the ones with minimum total weight.
+
+\subsection{page 761, chapter 10.7 Exercise 14}
+\begin{shaded}
+    Suppose that a connected planar graph has 30 edges. If a planar representation of this graph divides the plane into 20 regions, how many vertices does this graph have?
+\end{shaded}
+Euler's formula says that $v - e + r = 2$.\\
+We are given $e = \answer{10.7.14a}{}$ and $r = \answer{10.7.14b}{}$. \\
+Therefore $v = 2 - r + e = \answer{10.7.14c}{}$.
+
+
+\subsection{page 768, chapter 10.8 Exercise 6}
+\begin{shaded}
+    Find the chromatic number of the given graph.
+    
+    %%圖片2.8
+    \begin{center}
+        \tikzstyle{point}=[circle,draw=black,fill=black,thick,
+        inner sep=0pt,minimum size=2mm]
+        \begin{tikzpicture}
+        \node at ( -2,0) [point,draw,label=left:\LARGE$a$] (a) {};
+        \node at ( -1,1) [point,draw,label=above:\LARGE$b$] (b) {};
+        \node at ( 1,1) [point,draw,label=above:\LARGE$c$] (c) {};
+        \node at ( 2,0) [point,draw,label=right:\LARGE$d$] (d) {};
+        \node at ( 1,-1) [point,draw,label=below:\LARGE$e$] (e) {};
+        \node at ( -1,-1) [point,draw,label=below:\LARGE$f$] (f) {};
+        \node at ( 0,0) [point,draw,label=above:\LARGE$g$] (g) {};
+        \path
+            (a) edge [very thick]  (b)
+            (b) edge [very thick]  (c)
+            (c) edge [very thick]  (d)
+            (d) edge [very thick]  (e)
+            (f) edge [very thick]  (a)
+            (a) edge [very thick]  (g)
+            (b) edge [very thick]  (g)
+            (f) edge [very thick]  (g)
+            (c) edge [very thick]  (g)
+            (d) edge [very thick]  (g)
+            (e) edge [very thick]  (g);
+        \end{tikzpicture}
+    \end{center}
+    
+\end{shaded}
+
+At least \answer{10.8.6a}{} colors are needed, since ...
+
+\vspace{15cm}
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.

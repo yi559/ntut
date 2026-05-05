@@ -86,16 +86,13 @@ gone. gone go? can't they going. go! go, Let's
 */
 
 #include <stdio.h>
-
-void subst(char *article, char *p, char *q, int *mark){
-
-}
+#include <string.h>
 
 int main(void){
     char article[200], p[50], q[50];
-    int mark[200];
     scanf("%s %s %s", article, p, q);
     
-    
+    char temp_article = article, *temp;
+    temp = strtok(temp_article, ' ');
     return 0;
 }

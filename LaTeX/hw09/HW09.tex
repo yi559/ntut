@@ -1,0 +1,330 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage{xeCJK}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{algorithm,algorithmic}
+\usepackage{color}  
+%\definecolor{shadecolor}{named}{Gray}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+\usepackage{ulem}
+
+%% Font
+\CJKfontspec{Noto Serif CJK TC} %思源宋體
+
+%% ----------
+\newcommand{\answer}[2]{%
+  \if\relax\detokenize{#2}\relax
+    \underline{\mbox{請作答}}%
+  \else
+    \textcolor{blue}{#2}%
+  \fi
+}
+
+
+\begin{document}
+
+\title{114學年度第二學期~離散數學HW09}
+
+\author{班級：\underline{資工一}、學號：\underline{114590XXX}、姓名：\underline{蘇東坡}}
+\orcid{}
+\affiliation{%
+  \institution{}
+  \city{}
+  \country{}
+}
+
+%% 刪除ACM Reference Format信息
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\maketitle
+
+
+%% ----- 作業繳交說明 -----
+\section{題目}
+\subsection{作業繳交說明}
+\begin{shaded}
+\begin{itemize}
+    \item[-] 從 overleaf 下載 hw09.zip
+    \item[-] 從 overleaf 下載 hw09.pdf
+    \item[-] 建立一個新檔案夾，命名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW09\end{verbatim}
+    \item[-] \color{black}放入 hw09.zip
+    \item[-] 放入 hw09.pdf
+    \item[-] 將此檔案夾，壓縮成 zip 檔,檔名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW09.zip\end{verbatim}
+    \item[-] \color{black}將此壓縮檔，上傳到北科 i 學園 PLUS
+    \item[-] Do not share your homework with any living creatures.
+    \item[-] 作業遲交，一天內成績打五折，超過一天以零分計。
+\end{itemize}
+\end{shaded}
+
+%% ----- Question -----
+\subsection{題號}
+\begin{shaded}
+\begin{itemize}
+	\item[-] page 608, chapter 9.1 Exercise 6
+	\item[-] page 619, chapter 9.2 Exercise 2
+	\item[-] page 627, chapter 9.3 Exercise 14
+	\item[-] page 638, chapter 9.4 Exercise 20
+	\item[-] page 647, chapter 9.5 Exercise 24
+	\item[-] page 662, chapter 9.6 Exercise 8
+\end{itemize}
+\end{shaded}
+
+
+%% ----- Problem -----
+\section{作答}
+\subsection{page 608, chapter 9.1 Exercise 6}
+\begin{shaded}
+    Determine whether the relation \textsl{R} on the set of all real numbers is reflexive, symmetric, antisymmetric, and/or transitive, where $(x, y) \in \textsl{R}$ if and only if
+    \begin{enumerate}[label=(\alph*)]
+        \item $x + y = 0$
+        \item $x = \pm y$
+        \item $x - y$ is a rational number.
+        \item $x = 2y$
+        \item $xy \geq 0$
+        \item $xy = 0$
+        \item $x = 1$
+        \item $x = 1$ or $y = 1$
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+    \item 
+    \begin{itemize}
+        \item not reflexive. Since $1 + 1 \neq 0$.
+        \item symmetric. Since $x + y = y + x$, it follows that $x + y = 0$ if and only if $y + x = 0$.
+        \item not antisymmetric. Since $(1, -1)$ and $(-1, 1)$ are both in \textsl{R}.
+        \item not transitive. For example, $(1, -1) \in \textsl{R}$ and $(-1, 1) \in \textsl{R}$, but $(1, 1) \notin \textsl{R}$.
+    \end{itemize}
+    \item 
+    \begin{itemize}
+        \item \answer{9.1.6b1}{}
+        \item \answer{9.1.6b2}{}
+        \item \answer{9.1.6b3}{}
+        \item \answer{9.1.6b4}{}
+    \end{itemize}
+    \item 
+    \begin{itemize}
+        \item \answer{9.1.6c1}{}
+        \item \answer{9.1.6c2}{}
+        \item \answer{9.1.6c3}{}
+        \item \answer{9.1.6c4}{}
+    \end{itemize}
+    \item 
+    \begin{itemize}
+        \item \answer{9.1.6d1}{}
+        \item \answer{9.1.6d2}{}
+        \item \answer{9.1.6d3}{}
+        \item \answer{9.1.6d4}{}
+    \end{itemize}
+    \item 
+    \begin{itemize}
+        \item \answer{9.1.6e1}{}
+        \item \answer{9.1.6e2}{}
+        \item \answer{9.1.6e3}{}
+        \item \answer{9.1.6e4}{}
+    \end{itemize}
+    \item
+    \begin{itemize}
+        \item \answer{9.1.6f1}{}
+        \item \answer{9.1.6f2}{}
+        \item \answer{9.1.6f3}{}
+        \item \answer{9.1.6f4}{}
+    \end{itemize}
+    \item
+    \begin{itemize}
+        \item \answer{9.1.6g1}{}
+        \item \answer{9.1.6g2}{}
+        \item \answer{9.1.6g3}{}
+        \item \answer{9.1.6g4}{}
+    \end{itemize}
+    \item
+    \begin{itemize}
+        \item \answer{9.1.6h1}{}
+        \item \answer{9.1.6h2}{}
+        \item \answer{9.1.6h3}{}
+        \item \answer{9.1.6h4}{}
+    \end{itemize}
+\end{enumerate}
+
+\subsection{page 619, chapter 9.2 Exercise 2}
+\begin{shaded}
+    Which 4-tuples are in the relation $\{ (a, b, c, d)~\vert~a, b, c$, and $d$ are positive integers with $abcd = 6 \}$?
+\end{shaded}
+\answer{9.2.2a}{(6, 1, 1, 1),(1, 6, 1, 1),(1, 1, 6, 1),(1, 1, 1, 6),還有其他tuples, 請繼續作答.}
+
+\subsection{page 627, chapter 9.3 Exercise 14}
+\begin{shaded}
+    Let $R_1$ and $R_2$ be relations on a set $A$ represented by the matrices\\
+    \begin{center}
+        $\textbf{M}_{R_1}$ = 
+        $
+    	\begin{bmatrix}
+    	   0 & 1 & 0 \\
+     	   1 & 1 & 1 \\
+     	   1 & 0 & 0
+    	\end{bmatrix}
+    	$
+    	and
+    	$\textbf{M}_{R_2}$ = 
+        $
+    	\begin{bmatrix}
+    	   0 & 1 & 0 \\
+     	   0 & 1 & 1 \\
+     	   1 & 1 & 1
+    	\end{bmatrix}
+    	$
+    \end{center}
+	Find the matrices that represent
+	\begin{enumerate}[label=(\alph*)]
+        \item $\textsl{R}_1 \cup \textsl{R}_2$
+        \item $\textsl{R}_1 \cap \textsl{R}_2$
+        \item $\textsl{R}_2 \circ \textsl{R}_1$
+        \item $\textsl{R}_1 \circ \textsl{R}_1$
+        \item $\textsl{R}_1 \oplus \textsl{R}_2$
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+\item
+	$
+	\begin{bmatrix}
+	   0 & 1 & 0 \\
+ 	   1 & 1 & 1 \\
+ 	   1 & 1 & 1
+	\end{bmatrix}
+	$
+	\item
+	$
+	\begin{bmatrix}
+        \answer{9.3.14a1}{}     & \answer{9.3.14a2}{} & \answer{9.3.14a3}{} \\
+ 	    \answer{9.3.14a4}{}     & \answer{9.3.14a5}{} & \answer{9.3.14a6}{} \\
+ 	    \answer{9.3.14a7}{}     & \answer{9.3.14a8}{} & \answer{9.3.14a9}{}
+	\end{bmatrix}
+	$
+	\item
+	$
+	\begin{bmatrix}
+        \answer{9.3.14b1}{}     & \answer{9.3.14b2}{} & \answer{9.3.14b3}{} \\
+        \answer{9.3.14b4}{}     & \answer{9.3.14b5}{} & \answer{9.3.14b6}{} \\
+        \answer{9.3.14b7}{}     & \answer{9.3.14b8}{} & \answer{9.3.14b9}{}
+	\end{bmatrix}
+	$
+	\item
+	$
+	\begin{bmatrix}
+        \answer{9.3.14c1}{}     & \answer{9.3.14c2}{} & \answer{9.3.14c3}{} \\
+        \answer{9.3.14c4}{}     & \answer{9.3.14c5}{} & \answer{9.3.14c6}{} \\
+        \answer{9.3.14c7}{}     & \answer{9.3.14c8}{} & \answer{9.3.14c9}{}
+	\end{bmatrix}
+	$
+	\item
+	$
+	\begin{bmatrix}
+        \answer{9.3.14d1}{}     & \answer{9.3.14d2}{} & \answer{9.3.14d3}{} \\
+        \answer{9.3.14d4}{}     & \answer{9.3.14d5}{} & \answer{9.3.14d6}{} \\
+        \answer{9.3.14d7}{}     & \answer{9.3.14d8}{} & \answer{9.3.14d9}{}
+	\end{bmatrix}
+	$
+\end{enumerate}
+
+\subsection{page 638, chapter 9.4 Exercise 20}
+\begin{shaded}
+    Let \textsl{R} be the relation that contains the pair $(a, b)$ if $a$ and $b$ are cities such that there is a direct nonstop airline flight from $a$ to $b$. When is $(a, b)$ in
+    \begin{enumerate}[label=(\alph*)]
+        \item $R^2$ ?
+    	\item $R^3$ ?
+    	\item $R^*$ ?
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+    \item The pair $(a,b)$ in $R^2$ precisely when there is a city $c$ such that there is a dierct flight from $a$ to $c$ and a dierct flight from $c$ to $b$ -- in other words,when it is possible to fly from $a$ to $b$ with a scheduled stop (and possibly a plane change) in some intermidiate city.
+	\item \answer{9.4.20a}{}
+	\item \answer{9.4.20b}{}
+\end{enumerate}
+
+\subsection{page 647, chapter 9.5 Exercise 24}
+\begin{shaded}
+    Determine whether the relations represented by these zero–one matrices are equivalence relations.
+    \begin{enumerate}[label=(\alph*)]
+        \item 
+        $
+    	\begin{bmatrix}
+    	   1 & 1 & 1 \\
+     	   0 & 1 & 1 \\
+     	   1 & 1 & 1
+    	\end{bmatrix}
+    	$
+    	\item 
+    	$
+    	\begin{bmatrix}
+    	   1 & 0 & 1 & 0 \\
+     	   0 & 1 & 0 & 1 \\
+           1 & 0 & 1 & 0 \\
+     	   0 & 1 & 0 & 1
+    	\end{bmatrix}
+    	$
+    	\item 
+    	$
+    	\begin{bmatrix}
+    	   1 & 1 & 1 & 0 \\
+     	   1 & 1 & 1 & 0 \\
+           1 & 1 & 1 & 0 \\
+     	   0 & 0 & 0 & 1
+    	\end{bmatrix}
+    	$
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+    \item \answer{9.5.24a}{No}, because it is not symmetric.
+    \item \answer{9.5.24b}{Yes or No}, because ...
+	\item \answer{9.5.24c}{Yes or No}, because ...
+\end{enumerate}
+
+\subsection{page 662, chapter 9.6 Exercise 8}
+\begin{shaded}
+     Determine whether the relations represented by these zero–one matrices are partial orders.
+    \begin{enumerate}[label=(\alph*)]
+        \item 
+        $
+    	\begin{bmatrix}
+    	   1 & 0 & 1 \\
+     	   1 & 1 & 0 \\
+     	   0 & 0 & 1
+    	\end{bmatrix}
+    	$
+    	\item 
+    	$
+    	\begin{bmatrix}
+    	   1 & 0 & 0 \\
+     	   0 & 1 & 0 \\
+           1 & 0 & 1 \\
+    	\end{bmatrix}
+    	$
+    	\item 
+    	$
+    	\begin{bmatrix}
+    	   1 & 0 & 1 & 0 \\
+     	   0 & 1 & 1 & 0 \\
+           0 & 0 & 1 & 1 \\
+     	   1 & 1 & 0 & 1
+    	\end{bmatrix}
+    	$
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+    \item \answer{9.6.8a}{No}, because this relation is $(1, 1), (1, 3), (2, 1), (2, 2), (3, 3)$. It is clearly reflexive and antisymmetric. The only one pairs that might present problems with transitivity are the nondiagonal pairs, $(2, 1)$ and $(1, 3)$. If the relation were to be transitive, then we would also need the pair $(2, 3)$ in the relation.
+ 	\item \answer{9.6.8b}{Yes or No}. Reasoning as ...
+	\item \answer{9.6.8c}{Yes or No}, A little trial and error shows that ...
+\end{enumerate}
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.

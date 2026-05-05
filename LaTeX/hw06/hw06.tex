@@ -1,0 +1,186 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage{xeCJK}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{algorithm,algorithmic}
+\usepackage{color}  
+%\definecolor{shadecolor}{named}{Gray}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+\usepackage{ulem}
+\usepackage{amsmath}
+
+%% Font
+\CJKfontspec{Noto Serif CJK TC} %思源宋體
+
+
+%% ---------- Structured Answer Macro ----------
+\usepackage{xcolor}
+\newcommand{\answer}[2]{%
+  \if\relax\detokenize{#2}\relax
+    \underline{\mbox{請作答}}%
+  \else
+    \textcolor{blue}{#2}%
+  \fi
+}
+
+%% ----------
+\begin{document}
+
+\title{114學年度第二學期~離散數學HW06}
+
+\author{班級：\underline{資工一}、學號：\underline{114590XXX}、姓名：\underline{蘇東坡}}
+\orcid{}
+\affiliation{%
+  \institution{}
+  \city{}
+  \country{}
+}
+
+%% 刪除ACM Reference Format信息
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\maketitle
+
+
+%% ----- 作業繳交說明 -----
+\section{題目}
+\subsection{作業繳交說明}
+\begin{shaded}
+\begin{itemize}
+    \item[-] 從 overleaf 下載 hw06.zip
+    \item[-] 從 overleaf 下載 hw06.pdf
+    \item[-] 建立一個新檔案夾，命名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW06\end{verbatim}
+    \item[-] \color{black}放入 hw06.zip
+    \item[-] 放入 hw06.pdf
+    \item[-] 將此檔案夾，壓縮成 zip 檔,檔名如下
+    \item[-] \color{red}\begin{verbatim}離散數學_114590xxx_姓名_HW06.zip\end{verbatim}
+    \item[-] \color{black}將此壓縮檔，上傳到北科 i 學園 PLUS
+    \item[-] Do not share your homework with any living creatures.
+    \item[-] 作業遲交以零分計。
+\end{itemize}
+\end{shaded}
+
+%% ----- Question -----
+\subsection{題號}
+\begin{shaded}
+\begin{itemize}
+    \item[-] page 418, chapter 6.1 Exercise 36
+    \item[-] page 444, chapter 6.4 Exercise 10
+    \item[-] page 455, chapter 6.5 Exercise 14
+    \item[-] page 455, chapter 6.5 Exercise 16
+    \item[-] page 455, chapter 6.5 Exercise 20
+    \item[-] page 457, chapter 6.5 Exercise 64
+    \item[-] page 457, chapter 6.5 Exercise 68
+\end{itemize}
+\end{shaded}
+
+%% ----- Problem -----
+\section{作答}
+
+\subsection{page 418, chapter 6.1 Exercise 36}
+\begin{shaded}
+    How many functions are there from the set \{1, 2, ... , n\},
+where n is a positive integer, to the set \{0, 1\}?
+\end{shaded}  
+There are \answer{6.1.36}{} such functions, since there is a choice of 2 function values for each element of the domain.
+
+
+\subsection{page 444, chapter 6.4 Exercise 10}
+\begin{shaded}
+    Use the binomial theorem to expand $(3x - y^2)^4$ into a sum
+of terms of the form $cx^ay^b$, where c is a real number and
+a and b are nonnegative integers.
+\end{shaded}
+\begin{eqnarray*}
+(3x - y^2)^4
+& = & \sum\limits_{j=0}^4 \dbinom{4}{j} (3x)^{4-j}(-y^2)^j \\
+& = & \answer{6.4.10a}{}x^4 + \answer{6.4.10b}{}x^3y^2 + \answer{6.4.10c}{}x^2y^4 +\\ \answer{6.4.10d}{}x y^6 + y^8
+\end{eqnarray*}
+
+
+\subsection{page 455, chapter 6.5 Exercise 14}
+\begin{shaded}
+    How many solutions are there to the equation
+    \begin{eqnarray*}
+        x_1 + x_2 + x_3 + x_4 = 17,
+    \end{eqnarray*}
+    where $x_1$, $x_2$, $x_3$, and $x_4$ are nonnegative integers?
+\end{shaded}
+\begin{eqnarray*}
+C(\answer{6.5.14a}{} + \answer{6.5.14b}{} - 1, \answer{6.5.14c}{}) = C(20, \answer{6.5.14d}{}) = \answer{6.5.14e}{}
+\end{eqnarray*}
+
+
+\subsection{page 455, chapter 6.5 Exercise 16}
+\begin{shaded}
+    How many solutions are there to the equation
+    \begin{eqnarray*}
+        x_1 + x_2 + x_3 + x_4 + x_5+ x_6= 29,
+    \end{eqnarray*}
+    where $x_i$, $i$ = 1, 2, 3, 4, 5, 6, is a nonnegative integer such that
+    \begin{enumerate}[label=(\alph*)]
+        \item $x_i > 1$ for $i$ = 1, 2, 3, 4, 5, 6 ?
+        \item $x_1 \ge 1$, $x_2 \ge 2$, $x_3 \ge 3$, $x_4 \ge 4$, $x_5 > 5$, and $x_6 \ge 6$ ?
+        \item $x_1 \le 5$ ?
+        \item $x_1 < 8$ and $x_2 > 8$ ?
+    \end{enumerate}
+\end{shaded}
+\begin{enumerate}[label=(\alph*)]
+	\item $C(6 + 17 - 1, 17) = C(22, 17) = 26334$
+	\item C(\answer{6.5.16.1a}{} + \answer{6.5.16.1b}{}-1, \answer{6.5.16.1c}{}) = C(\answer{6.5.16.1d}{}, \answer{6.5.16.1e}{}) = \answer{6.5.16.1f}{}
+	\item \answer{6.5.16.2}{}
+    \item \answer{6.5.16.3}{} 
+\end{enumerate}
+
+
+\subsection{page 455, chapter 6.5 Exercise 20}
+\begin{shaded}
+    How many solutions are there to the inequality
+    \begin{eqnarray*}
+        x_1 + x_2 + x_3 \le 11,
+    \end{eqnarray*}
+    where $x_1$, $x_2$, and $x_3$ are nonnegative integers?
+    [Hint: Introduce an auxiliary variable $x_4$ such that $x_1 + x_2 + x_3 + x_4 = 11$.]
+\end{shaded}
+\begin{eqnarray*}
+C(\answer{6.5.20a}{} + \answer{6.5.20b}{} - 1, \answer{6.5.20c}{}) = C(14, \answer{6.5.20d}{}) = \answer{6.5.20e}{}
+\end{eqnarray*}
+
+
+\subsection{page 457, chapter 6.5 Exercise 64}
+\begin{shaded}
+    How many different terms are there in the expansion of
+    \begin{eqnarray*}
+        (x_1 + x_2 + ... + x_m)^n
+    \end{eqnarray*}
+    after all terms with identical sets of exponents are added?
+\end{shaded}  
+Each term must be of the form $Cx_1^{n_1} x_2^{n_2} ... x_m^{n_m}$, where the $n_i$'s are nonnegative integers whose sum is n. The number of ways to specify a term, then, is the number of nonnegative integer solutions to $n_1 +n_2 + ... +n_m = n$, which by Theorem 2 is $C(\answer{6.5.64a}{} + \answer{6.5.64b}{} - 1, \answer{6.5.64c}{})$.. Note that the coefficients C for these terms can be computed using Theorem 3—see Exercise 65.
+
+
+\subsection{page 457, chapter 6.5 Exercise 68}
+\begin{shaded}
+    How many terms are there in the expansion of
+    \begin{eqnarray*}
+        (x + y + z)^{100} ?
+    \end{eqnarray*}
+\end{shaded}
+By Exercise 64, the answer is 
+\begin{eqnarray*}
+C(\answer{6.5.68a}{} + \answer{6.5.68b}{} - 1, \answer{6.5.68c}{}) = C(102, \answer{6.5.68d}{}) = \answer{6.5.68e}{}
+\end{eqnarray*}
+
+\clearpage
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.
