@@ -88,11 +88,85 @@ gone. gone go? can't they going. go! go, Let's
 #include <stdio.h>
 #include <string.h>
 
-int main(void){
-    char article[200], p[50], q[50];
-    scanf("%s %s %s", article, p, q);
+#define MAX_WORDS 500
+#define MAX_WORD_LEN 100
+
+char words[MAX_WORDS][MAX_WORD_LEN];
+int count = 0;
+char P[MAX_WORD_LEN], Q[MAX_WORD_LEN];
+char puncs[] = ".,!?;:";
+
+int check_match(char *word, char *target) {
+    int wlen = strlen(word);
+    int tlen = strlen(target);
     
-    char temp_article = article, *temp;
-    temp = strtok(temp_article, ' ');
+    if (strcmp(word, target) == 0) return 1; 
+    
+    if (wlen == tlen + 1 && strncmp(word, target, tlen) == 0) {
+        for (int i = 0; i < 6; i++) {
+            if (word[wlen - 1] == puncs[i]) return 2;
+        }
+    }
+    return 0;
+}
+
+int main() {
+    char line[5000];
+    if (!fgets(line, sizeof(line), stdin)) return 0;
+    line[strcspn(line, "\r\n")] = 0;
+
+    char *token = strtok(line, " ");
+    while (token) {
+        strcpy(words[count++], token);
+        token = strtok(NULL, " ");
+    }
+    
+    if (scanf("%s", P) != 1) return 0;
+    if (scanf("%s", Q) != 1) return 0;
+
+    int tlen = strlen(P);
+
+    for (int i = 0; i < count; i++) {
+        if (check_match(words[i], P)) {
+            printf("%s", Q);
+            if (strlen(words[i]) > tlen) printf("%c", words[i][tlen]);
+        } else {
+            printf("%s", words[i]);
+        }
+        printf("%c", (i == count - 1 ? '\n' : ' '));
+    }
+
+    for (int i = 0; i < count; i++) {
+        if (check_match(words[i], P)) {
+            printf("%s %s", Q, words[i]);
+        } else {
+            printf("%s", words[i]);
+        }
+        printf("%c", (i == count - 1 ? '\n' : ' '));
+    }
+
+    for (int i = 0; i < count; i++) {
+        if (check_match(words[i], P)) {
+            printf("%s %s", words[i], Q);
+        } else {
+            printf("%s", words[i]);
+        }
+        printf("%c", (i == count - 1 ? '\n' : ' '));
+    }
+
+    int first = 1;
+    for (int i = 0; i < count; i++) {
+        if (!check_match(words[i], P)) {
+            if (!first) printf(" ");
+            printf("%s", words[i]);
+            first = 0;
+        }
+    }
+    printf("\n");
+
+    for (int i = count - 1; i >= 0; i--) {
+        printf("%s%c", words[i], (i == 0 ? '\n' : ' '));
+    }
+
     return 0;
 }
