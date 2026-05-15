@@ -93,8 +93,8 @@ Inductive hypothesis, assume $ P(k) $ holds for an arbitrary positive integer $k
 Add $ (k + 1) \cdot (k + 1)!$ to both sides of the equation in $ P(k) $, we obtain
 \begin{eqnarray*}
 1 \cdot 1!  + ... + k \cdot k! + (k + 1) · (k + 1)!  & = & (k + 1)! - 1 + (k + 1) · (k + 1)!\\
-~ & = & (k + 1)!(\answer{5.1.6a}{}) - 1 \\
-~ & = & \answer{5.1.6b}{}
+~ & = & (k + 1)!(\answer{5.1.6a}{1+k+1}) - 1 \\
+~ & = & \answer{5.1.6b}{(k+2)!-1}
 \end{eqnarray*}
 By mathematical induction, $ P(n) $ is true for all integer $n$ with $n \geq 1 $.
 
@@ -111,11 +111,11 @@ By mathematical induction, $ P(n) $ is true for all integer $n$ with $n \geq 1 $
     \end{enumerate}
 \end{shaded}  
 \begin{enumerate}[label=(\alph*)]
-	\item Plugging in $n = \answer{5.1.18a}{}$, we see that $P(2)$ is the statement $2! < 2^2$.
-	\item Since $2! = \answer{5.1.18a}{}$, this is the true statement $2 < 4$.
-	\item The inductive hypothesis is the statement that \answer{5.1.18c}{}.
-    \item For the inductive step, we want to show for each $k \ge 2$ that $P(k)$ implies \answer{5.1.18d}{}. In other words, we want to show that assuming the inductive hypothesis (see part (c)) we can prove that \answer{5.1.18e}{}.
-    \item $(k+1)! = \answer{5.1.18f}{} < \answer{5.1.18g}{} < \answer{5.1.18h}{} = (k + 1)^{k+1}$
+	\item Plugging in $n = \answer{5.1.18a}{2}$, we see that $P(2)$ is the statement $2! < 2^2$.
+	\item Since $2! = \answer{5.1.18a}{2}$, this is the true statement $2 < 4$.
+	\item The inductive hypothesis is the statement that \answer{5.1.18c}{$k!<k^k$}.
+    \item For the inductive step, we want to show for each $k \ge 2$ that $P(k)$ implies \answer{5.1.18d}{$P(k+1)$}. In other words, we want to show that assuming the inductive hypothesis (see part (c)) we can prove that \answer{5.1.18e}{$(k+1)!<(k+1)^{k+1}$}.
+    \item $(k+1)! = \answer{5.1.18f}{(k+1)\cdot k!} < \answer{5.1.18g}{(k+1)\cdot k^k} < \answer{5.1.18h}{(k+1)\cdot (k+1)^k} = (k + 1)^{k+1}$
     \item We have completed both the basis step and the inductive step, so by the principle of mathematical induction, the statement is true for every positive integer $n$ greater than 1.
 \end{enumerate}
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  5 MAY 2026 12:41
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  15 MAY 2026 22:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2011,10 +2011,6 @@ Overfull \hbox (31.41006pt too wide) in alignment at lines 94--98
  [][][] []
  []
 
-
-Overfull \vbox (1.45807pt too high) detected at line 112
- []
-
 (C:\Users\hsuyi\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (C:\Users\hsuyi\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-utf32be.def
@@ -2032,10 +2028,10 @@ Package rerunfilecheck Info: File `hw05.out' has not changed.
 Here is how much of TeX's memory you used:
  34886 strings out of 402983
  684883 string characters out of 5448482
- 1246461 words of memory out of 5000000
+ 1246771 words of memory out of 5000000
  63039 multiletter control sequences out of 15000+600000
  637585 words of font info for 161 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
  105i,11n,131p,1035b,32888s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw05.xdv (1 page, 50504 bytes).
+Output written on hw05.xdv (1 page, 51440 bytes).
