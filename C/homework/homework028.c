@@ -101,133 +101,132 @@ grade_t grade;
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+typedef enum gradingMode_e { MODE_LETTER, MODE_NUMERIC } gradingMode_t;
 
-typedef enum scoreType_s {G,S} scoreType_t;
+typedef enum letterRank_e {
+    RANK_AP,
+    RANK_A,
+    RANK_AM,
+    RANK_BP,
+    RANK_B,
+    RANK_BM,
+    RANK_CP,
+    RANK_C,
+    RANK_CM,
+    RANK_F,
+    RANK_X
+} letterRank_t;
 
-typedef enum grade_s {
-    GRADE_AP,
-    GRADE_A,
-    GRADE_AM,
-    GRADE_BP,
-    GRADE_B,
-    GRADE_BM,
-    GRADE_CP,
-    GRADE_C,
-    GRADE_CM,
-    GRADE_F,
-    GRADE_X
-} grade_t;
-
-typedef union score_s {
-    int score;
-    grade_t grade;
-} score_t;
+typedef union marks_u {
+    int raw_points;
+    letterRank_t rank_code;
+} marks_t;
 
 typedef struct {
-    char id[50];
-    int avg_score;
-    int input_order;
-} Student;
+    char serial_num[50];
+    int final_rating;
+    int arrival_index;
+} Learner;
 
-grade_t parse_grade(const char *str) {
-    if (strcmp(str, "A+") == 0) return GRADE_AP;
-    if (strcmp(str, "A") == 0)  return GRADE_A;
-    if (strcmp(str, "A-") == 0) return GRADE_AM;
-    if (strcmp(str, "B+") == 0) return GRADE_BP;
-    if (strcmp(str, "B") == 0)  return GRADE_B;
-    if (strcmp(str, "B-") == 0) return GRADE_BM;
-    if (strcmp(str, "C+") == 0) return GRADE_CP;
-    if (strcmp(str, "C") == 0)  return GRADE_C;
-    if (strcmp(str, "C-") == 0) return GRADE_CM;
-    if (strcmp(str, "F") == 0)  return GRADE_F;
-    return GRADE_X;
+letterRank_t convert_to_rank(const char *input_str) {
+    if (strcmp(input_str, "A+") == 0) return RANK_AP;
+    if (strcmp(input_str, "A") == 0)  return RANK_A;
+    if (strcmp(input_str, "A-") == 0) return RANK_AM;
+    if (strcmp(input_str, "B+") == 0) return RANK_BP;
+    if (strcmp(input_str, "B") == 0)  return RANK_B;
+    if (strcmp(input_str, "B-") == 0) return RANK_BM;
+    if (strcmp(input_str, "C+") == 0) return RANK_CP;
+    if (strcmp(input_str, "C") == 0)  return RANK_C;
+    if (strcmp(input_str, "C-") == 0) return RANK_CM;
+    if (strcmp(input_str, "F") == 0)  return RANK_F;
+    return RANK_X;
 }
 
-int grade_to_value(grade_t g) {
-    switch (g) {
-        case GRADE_AP: return 95;
-        case GRADE_A:  return 87;
-        case GRADE_AM: return 82;
-        case GRADE_BP: return 78;
-        case GRADE_B:  return 75;
-        case GRADE_BM: return 70;
-        case GRADE_CP: return 68;
-        case GRADE_C:  return 65;
-        case GRADE_CM: return 60;
-        case GRADE_F:  return 50;
-        case GRADE_X:  return 0;
+int map_rank_to_weight(letterRank_t r) {
+    switch (r) {
+        case RANK_AP: return 95;
+        case RANK_A:  return 87;
+        case RANK_AM: return 82;
+        case RANK_BP: return 78;
+        case RANK_B:  return 75;
+        case RANK_BM: return 70;
+        case RANK_CP: return 68;
+        case RANK_C:  return 65;
+        case RANK_CM: return 60;
+        case RANK_F:  return 50;
+        case RANK_X:  return 0;
     }
     return 0;
 }
 
-int score_to_value(int score) {
-    if (score >= 90 && score <= 100) return 95;
-    if (score >= 85 && score <= 89)  return 87;
-    if (score >= 80 && score <= 84)  return 82;
-    if (score >= 77 && score <= 79)  return 78;
-    if (score >= 73 && score <= 76)  return 75;
-    if (score >= 70 && score <= 72)  return 70;
-    if (score >= 67 && score <= 69)  return 68;
-    if (score >= 63 && score <= 66)  return 65;
-    if (score >= 60 && score <= 62)  return 60;
-    if (score > 0 && score <= 59)    return 50;
+int map_points_to_weight(int pts) {
+    if (pts >= 90 && pts <= 100) return 95;
+    if (pts >= 85 && pts <= 89)  return 87;
+    if (pts >= 80 && pts <= 84)  return 82;
+    if (pts >= 77 && pts <= 79)  return 78;
+    if (pts >= 73 && pts <= 76)  return 75;
+    if (pts >= 70 && pts <= 72)  return 70;
+    if (pts >= 67 && pts <= 69)  return 68;
+    if (pts >= 63 && pts <= 66)  return 65;
+    if (pts >= 60 && pts <= 62)  return 60;
+    if (pts > 0 && pts <= 59)    return 50;
     return 0;
 }
 
-int compare_students(const void *a, const void *b) {
-    Student *s1 = (Student *)a;
-    Student *s2 = (Student *)b;
-    if (s2->avg_score != s1->avg_score) {
-        return s2->avg_score - s1->avg_score;
+int sort_by_performance(const void *p1, const void *p2) {
+    Learner *l1 = (Learner *)p1;
+    Learner *l2 = (Learner *)p2;
+    if (l2->final_rating != l1->final_rating) {
+        return l2->final_rating - l1->final_rating;
     }
-    return s1->input_order - s2->input_order;
+    return l1->arrival_index - l2->arrival_index;
 }
 
 int main() {
-    int N, M;
-    if (scanf("%d %d", &N, &M) != 2) return 0;
+    int total_recints, total_subjects;
+    if (scanf("%d %d", &total_recints, &total_subjects) != 2) return 0;
 
-    scoreType_t *course_types = (scoreType_t *)malloc(M * sizeof(scoreType_t));
-    for (int i = 0; i < M; i++) {
-        int type;
-        scanf("%d", &type);
-        course_types[i] = (scoreType_t)type;
+    gradingMode_t *subject_modes = (gradingMode_t *)malloc(total_subjects * sizeof(gradingMode_t));
+    for (int idx = 0; idx < total_subjects; idx++) {
+        int temp_mode;
+        scanf("%d", &temp_mode);
+        subject_modes[idx] = (gradingMode_t)temp_mode;
     }
 
-    Student *students = (Student *)malloc(N * sizeof(Student));
+    Learner *roster = (Learner *)malloc(total_recints * sizeof(Learner));
 
-    for (int i = 0; i < N; i++) {
-        scanf("%s", students[i].id);
-        students[i].input_order = i;
-        int converted_sum = 0;
+    for (int i = 0; i < total_recints; i++) {
+        scanf("%s", roster[i].serial_num);
+        roster[i].arrival_index = i;
+        int accumulated_weights = 0;
 
-        for (int j = 0; j < M; j++) {
-            score_t current_score;
-            if (course_types[j] == G) {
-                char grade_str[10];
-                scanf("%s", grade_str);
-                current_score.grade = parse_grade(grade_str);
-                converted_sum += grade_to_value(current_score.grade);
+        for (int j = 0; j < total_subjects; j++) {
+            marks_t current_mark;
+            if (subject_modes[j] == MODE_LETTER) {
+                char text_buffer[10];
+                scanf("%s", text_buffer);
+                current_mark.rank_code = convert_to_rank(text_buffer);
+                accumulated_weights += map_rank_to_weight(current_mark.rank_code);
             } else {
-                int raw_score;
-                scanf("%d", &raw_score);
-                current_score.score = raw_score;
-                converted_sum += score_to_value(current_score.score);
+                int numeric_val;
+                scanf("%d", &numeric_val);
+                current_mark.raw_points = numeric_val;
+                accumulated_weights += map_points_to_weight(current_mark.raw_points);
             }
         }
-        double avg = (double)converted_sum / M;
-        students[i].avg_score = (int)(avg + 0.5);
+        double calculated_avg = (double)accumulated_weights / total_subjects;
+        roster[i].final_rating = (int)(calculated_avg + 0.5);
     }
 
-    qsort(students, N, sizeof(Student), compare_students);
+    qsort(roster, total_recints, sizeof(Learner), sort_by_performance);
 
-    int top_k = (N < 3) ? N : 3;
-    for (int i = 0; i < top_k; i++) {
-        printf("%s - %d\n", students[i].id, students[i].avg_score);
+    int display_count = (total_recints < 3) ? total_recints : 3;
+    for (int i = 0; i < display_count; i++) {
+        printf("%s - %d\n", roster[i].serial_num, roster[i].final_rating);
     }
 
-    free(course_types);
-    free(students);
+    free(subject_modes);
+    free(roster);
 
     return 0;
 }

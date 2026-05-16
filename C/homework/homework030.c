@@ -20,7 +20,12 @@ typedef struct {
 } basePlayer_t;
 
 
-球場上有四個壘包，稱為本壘、一、二和三壘。在本壘握球棒打的稱「擊球員」，站在另外三個壘包稱「跑員」。擊球員打擊結果為「安打」時，場上擊球員與跑壘員可移動。「出局」時,跑壘員不動，擊球員離場換下一位。球隊共九位球員，依序排列。比賽開始由第一位打擊，當第i位球員打擊完，由第(i+1)位球員打擊。當第九位球員完後,輪回第一位球員。當打出 K 壘打時，場上球員（擊球員和跑壘員）會前進 K 個壘包。從本壘前進 一個壘包會移動到一壘，接著是二壘、三壘，最後回到本壘。每位球員回到本壘時可得 1 分。每達到三個出局數時，一、二和三壘就會清空（跑壘員都得離開）。
+球場上有四個壘包，稱為本壘、一、二和三壘。在本壘握球棒打的稱「擊球員」，站在另外三個壘包稱「跑員」。
+擊球員打擊結果為「安打」時，場上擊球員與跑壘員可移動。「出局」時,跑壘員不動，擊球員離場換下一位。
+球隊共九位球員，依序排列。比賽開始由第一位打擊，當第i位球員打擊完，由第(i+1)位球員打擊。
+當第九位球員完後,輪回第一位球員。當打出 K 壘打時，場上球員（擊球員和跑壘員）會前進 K 個壘包。
+從本壘前進 一個壘包會移動到一壘，接著是二壘、三壘，最後回到本壘。每位球員回到本壘時可得 1 分。
+每達到三個出局數時，一、二和三壘就會清空（跑壘員都得離開）。
 
 假設擊球員的打擊結果只有以下情況：
 (1) 安打：以 1B，2B，3B 和 HR 分別代表一壘、二壘、三壘和全(四)壘打。
@@ -132,9 +137,100 @@ typedef struct {
 6
 */
 
+typedef enum { OUT, BASE_HIT } play_type_t;
+
+typedef union {
+    int base_hit; // 1~4: number of bases
+    char out_kind; // 'F', 'S', 'G'
+} play_result_t;
+
+typedef struct {
+    play_type_t type;
+    play_result_t result;
+} play_t;
+
+typedef struct {
+    int no; // 擊球員的打擊次數
+    play_t data[5]; // 擊球員的打擊結果
+} basePlayer_t;
+
 #include <stdio.h>
 
 int main(void){
+    basePlayer_t player[9];
+    int b = 0;
+
+    for (int i=0 ; i<9 ; i++){
+        int hit_times = 0;
+        scanf("%d", &hit_times);
+        player[i].no = hit_times;
+        char now_result[5];
+
+        for (int j=0 ; j<hit_times ; j++){
+            scanf("%s", now_result);
+
+            if (now_result[0] == 'F' || now_result[0] == 'G' || now_result[0] == 'S'){
+                player[i].data[j].type = OUT;
+                player[i].data[j].result.out_kind = now_result[0]; 
+            } else {
+                player[i].data[j].type = BASE_HIT;
+                
+                if (now_result[0] == 'H'){
+                    player[i].data[j].result.base_hit = 4;
+                } else {
+                    player[i].data[j].result.base_hit = now_result[0] - '0';
+                }
+            }
+        }
+    }
+    scanf("%d", &b);
+    int score = 0, out = 0;
     
+    int bases[4] = {0, 0, 0, 0}; 
+    
+    int i = 0;
+    int player_bat_count[9] = {0};
+
+    while (out < b) {
+        int j = player_bat_count[i];
+        play_t current_play = player[i].data[j];
+
+        if (current_play.type == OUT) {
+            out += 1;
+            if (out % 3 == 0) {
+                bases[1] = 0;
+                bases[2] = 0;
+                bases[3] = 0;
+            }
+        } else {
+            int k = current_play.result.base_hit;
+            int next_bases[4] = {0, 0, 0, 0};
+
+            for (int r = 1; r <= 3; r++) {
+                if (bases[r] == 1) {
+                    if (r + k >= 4) {
+                        score += 1;
+                    } else {
+                        next_bases[r + k] = 1;
+                    }
+                }
+            }
+
+            if (k >= 4) {
+                score += 1;
+            } else {
+                next_bases[k] = 1;
+            }
+
+            bases[1] = next_bases[1];
+            bases[2] = next_bases[2];
+            bases[3] = next_bases[3];
+        }
+
+        player_bat_count[i]++;
+        i = (i + 1) % 9;
+    }
+
+    printf("%d\n", score);
     return 0;
 }
