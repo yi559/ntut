@@ -97,3 +97,137 @@ grade_t grade;
 003 - 71
 002 - 58
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef enum scoreType_s {G,S} scoreType_t;
+
+typedef enum grade_s {
+    GRADE_AP,
+    GRADE_A,
+    GRADE_AM,
+    GRADE_BP,
+    GRADE_B,
+    GRADE_BM,
+    GRADE_CP,
+    GRADE_C,
+    GRADE_CM,
+    GRADE_F,
+    GRADE_X
+} grade_t;
+
+typedef union score_s {
+    int score;
+    grade_t grade;
+} score_t;
+
+typedef struct {
+    char id[50];
+    int avg_score;
+    int input_order;
+} Student;
+
+grade_t parse_grade(const char *str) {
+    if (strcmp(str, "A+") == 0) return GRADE_AP;
+    if (strcmp(str, "A") == 0)  return GRADE_A;
+    if (strcmp(str, "A-") == 0) return GRADE_AM;
+    if (strcmp(str, "B+") == 0) return GRADE_BP;
+    if (strcmp(str, "B") == 0)  return GRADE_B;
+    if (strcmp(str, "B-") == 0) return GRADE_BM;
+    if (strcmp(str, "C+") == 0) return GRADE_CP;
+    if (strcmp(str, "C") == 0)  return GRADE_C;
+    if (strcmp(str, "C-") == 0) return GRADE_CM;
+    if (strcmp(str, "F") == 0)  return GRADE_F;
+    return GRADE_X;
+}
+
+int grade_to_value(grade_t g) {
+    switch (g) {
+        case GRADE_AP: return 95;
+        case GRADE_A:  return 87;
+        case GRADE_AM: return 82;
+        case GRADE_BP: return 78;
+        case GRADE_B:  return 75;
+        case GRADE_BM: return 70;
+        case GRADE_CP: return 68;
+        case GRADE_C:  return 65;
+        case GRADE_CM: return 60;
+        case GRADE_F:  return 50;
+        case GRADE_X:  return 0;
+    }
+    return 0;
+}
+
+int score_to_value(int score) {
+    if (score >= 90 && score <= 100) return 95;
+    if (score >= 85 && score <= 89)  return 87;
+    if (score >= 80 && score <= 84)  return 82;
+    if (score >= 77 && score <= 79)  return 78;
+    if (score >= 73 && score <= 76)  return 75;
+    if (score >= 70 && score <= 72)  return 70;
+    if (score >= 67 && score <= 69)  return 68;
+    if (score >= 63 && score <= 66)  return 65;
+    if (score >= 60 && score <= 62)  return 60;
+    if (score > 0 && score <= 59)    return 50;
+    return 0;
+}
+
+int compare_students(const void *a, const void *b) {
+    Student *s1 = (Student *)a;
+    Student *s2 = (Student *)b;
+    if (s2->avg_score != s1->avg_score) {
+        return s2->avg_score - s1->avg_score;
+    }
+    return s1->input_order - s2->input_order;
+}
+
+int main() {
+    int N, M;
+    if (scanf("%d %d", &N, &M) != 2) return 0;
+
+    scoreType_t *course_types = (scoreType_t *)malloc(M * sizeof(scoreType_t));
+    for (int i = 0; i < M; i++) {
+        int type;
+        scanf("%d", &type);
+        course_types[i] = (scoreType_t)type;
+    }
+
+    Student *students = (Student *)malloc(N * sizeof(Student));
+
+    for (int i = 0; i < N; i++) {
+        scanf("%s", students[i].id);
+        students[i].input_order = i;
+        int converted_sum = 0;
+
+        for (int j = 0; j < M; j++) {
+            score_t current_score;
+            if (course_types[j] == G) {
+                char grade_str[10];
+                scanf("%s", grade_str);
+                current_score.grade = parse_grade(grade_str);
+                converted_sum += grade_to_value(current_score.grade);
+            } else {
+                int raw_score;
+                scanf("%d", &raw_score);
+                current_score.score = raw_score;
+                converted_sum += score_to_value(current_score.score);
+            }
+        }
+        double avg = (double)converted_sum / M;
+        students[i].avg_score = (int)(avg + 0.5);
+    }
+
+    qsort(students, N, sizeof(Student), compare_students);
+
+    int top_k = (N < 3) ? N : 3;
+    for (int i = 0; i < top_k; i++) {
+        printf("%s - %d\n", students[i].id, students[i].avg_score);
+    }
+
+    free(course_types);
+    free(students);
+
+    return 0;
+}

@@ -33,7 +33,7 @@
 
 \title{114學年度第二學期~離散數學HW06}
 
-\author{班級：\underline{資工一}、學號：\underline{114590XXX}、姓名：\underline{蘇東坡}}
+\author{班級：\underline{資工一}、學號：\underline{114590007}、姓名：\underline{徐羿}}
 \orcid{}
 \affiliation{%
   \institution{}
@@ -90,7 +90,7 @@
     How many functions are there from the set \{1, 2, ... , n\},
 where n is a positive integer, to the set \{0, 1\}?
 \end{shaded}  
-There are \answer{6.1.36}{} such functions, since there is a choice of 2 function values for each element of the domain.
+There are \answer{6.1.36}{$2^n$} such functions, since there is a choice of 2 function values for each element of the domain.
 
 
 \subsection{page 444, chapter 6.4 Exercise 10}
@@ -102,7 +102,7 @@ a and b are nonnegative integers.
 \begin{eqnarray*}
 (3x - y^2)^4
 & = & \sum\limits_{j=0}^4 \dbinom{4}{j} (3x)^{4-j}(-y^2)^j \\
-& = & \answer{6.4.10a}{}x^4 + \answer{6.4.10b}{}x^3y^2 + \answer{6.4.10c}{}x^2y^4 +\\ \answer{6.4.10d}{}x y^6 + y^8
+& = & \answer{6.4.10a}{81}x^4 + \answer{6.4.10b}{-108}x^3y^2 + \answer{6.4.10c}{54}x^2y^4 +\\ \answer{6.4.10d}{-12}x y^6 + y^8
 \end{eqnarray*}
 
 
@@ -115,7 +115,7 @@ a and b are nonnegative integers.
     where $x_1$, $x_2$, $x_3$, and $x_4$ are nonnegative integers?
 \end{shaded}
 \begin{eqnarray*}
-C(\answer{6.5.14a}{} + \answer{6.5.14b}{} - 1, \answer{6.5.14c}{}) = C(20, \answer{6.5.14d}{}) = \answer{6.5.14e}{}
+C(\answer{6.5.14a}{4} + \answer{6.5.14b}{17} - 1, \answer{6.5.14c}{17}) = C(20, \answer{6.5.14d}{17}) = \answer{6.5.14e}{1140}
 \end{eqnarray*}
 
 
@@ -135,9 +135,9 @@ C(\answer{6.5.14a}{} + \answer{6.5.14b}{} - 1, \answer{6.5.14c}{}) = C(20, \answ
 \end{shaded}
 \begin{enumerate}[label=(\alph*)]
 	\item $C(6 + 17 - 1, 17) = C(22, 17) = 26334$
-	\item C(\answer{6.5.16.1a}{} + \answer{6.5.16.1b}{}-1, \answer{6.5.16.1c}{}) = C(\answer{6.5.16.1d}{}, \answer{6.5.16.1e}{}) = \answer{6.5.16.1f}{}
-	\item \answer{6.5.16.2}{}
-    \item \answer{6.5.16.3}{} 
+	\item C(\answer{6.5.16.1a}{6} + \answer{6.5.16.1b}{7}-1, \answer{6.5.16.1c}{7}) = C(\answer{6.5.16.1d}{12}, \answer{6.5.16.1e}{7}) = \answer{6.5.16.1f}{7922}
+	\item \answer{6.5.16.2}{179976}
+    \item \answer{6.5.16.3}{46942} 
 \end{enumerate}
 
 
@@ -151,7 +151,7 @@ C(\answer{6.5.14a}{} + \answer{6.5.14b}{} - 1, \answer{6.5.14c}{}) = C(20, \answ
     [Hint: Introduce an auxiliary variable $x_4$ such that $x_1 + x_2 + x_3 + x_4 = 11$.]
 \end{shaded}
 \begin{eqnarray*}
-C(\answer{6.5.20a}{} + \answer{6.5.20b}{} - 1, \answer{6.5.20c}{}) = C(14, \answer{6.5.20d}{}) = \answer{6.5.20e}{}
+C(\answer{6.5.20a}{4} + \answer{6.5.20b}{11} - 1, \answer{6.5.20c}{11}) = C(14, \answer{6.5.20d}{11}) = \answer{6.5.20e}{364}
 \end{eqnarray*}
 
 
@@ -163,7 +163,7 @@ C(\answer{6.5.20a}{} + \answer{6.5.20b}{} - 1, \answer{6.5.20c}{}) = C(14, \answ
     \end{eqnarray*}
     after all terms with identical sets of exponents are added?
 \end{shaded}  
-Each term must be of the form $Cx_1^{n_1} x_2^{n_2} ... x_m^{n_m}$, where the $n_i$'s are nonnegative integers whose sum is n. The number of ways to specify a term, then, is the number of nonnegative integer solutions to $n_1 +n_2 + ... +n_m = n$, which by Theorem 2 is $C(\answer{6.5.64a}{} + \answer{6.5.64b}{} - 1, \answer{6.5.64c}{})$.. Note that the coefficients C for these terms can be computed using Theorem 3—see Exercise 65.
+Each term must be of the form $Cx_1^{n_1} x_2^{n_2} ... x_m^{n_m}$, where the $n_i$'s are nonnegative integers whose sum is n. The number of ways to specify a term, then, is the number of nonnegative integer solutions to $n_1 +n_2 + ... +n_m = n$, which by Theorem 2 is $C(\answer{6.5.64a}{m} + \answer{6.5.64b}{n} - 1, \answer{6.5.64c}{n})$.. Note that the coefficients C for these terms can be computed using Theorem 3—see Exercise 65.
 
 
 \subsection{page 457, chapter 6.5 Exercise 68}
@@ -175,7 +175,7 @@ Each term must be of the form $Cx_1^{n_1} x_2^{n_2} ... x_m^{n_m}$, where the $n
 \end{shaded}
 By Exercise 64, the answer is 
 \begin{eqnarray*}
-C(\answer{6.5.68a}{} + \answer{6.5.68b}{} - 1, \answer{6.5.68c}{}) = C(102, \answer{6.5.68d}{}) = \answer{6.5.68e}{}
+C(\answer{6.5.68a}{3} + \answer{6.5.68b}{100} - 1, \answer{6.5.68c}{100}) = C(102, \answer{6.5.68d}{100}) = \answer{6.5.68e}{5151}
 \end{eqnarray*}
 
 \clearpage

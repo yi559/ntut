@@ -131,3 +131,10 @@ typedef struct {
 輸出：
 6
 */
+
+#include <stdio.h>
+
+int main(void){
+    
+    return 0;
+}

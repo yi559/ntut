@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  5 MAY 2026 12:23
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  15 MAY 2026 22:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2007,38 +2007,14 @@ LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular.otf(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular.otf(3)/m/n' will be
 (Font)              scaled to size 5.60458pt on input line 93.
 
-Overfull \hbox (1.95085pt too wide) in alignment at lines 102--106
- [][][] []
- []
+Underfull \vbox (badness 2269) has occurred while \output is active []
 
-
-Underfull \vbox (badness 1997) has occurred while \output is active []
-
-
-Overfull \hbox (1.91475pt too wide) in alignment at lines 117--119
- [][][] []
- []
-
-
-Overfull \hbox (5.74704pt too wide) in paragraph at lines 138--139
-[]\TU/LinLibertine(0)/m/n/9 C($[]$ + $[]$-1, $[]$) = C($[]$, $[]$) = $[]$ 
- []
-
-
-Overfull \hbox (1.91475pt too wide) in alignment at lines 153--155
- [][][] []
- []
-
-[1.1
+ [1.1
 
 ]
-Overfull \hbox (6.25876pt too wide) in alignment at lines 177--179
- [][][] []
- []
-
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 181.
-(C:\Users\hsuyi\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
+ (C:\Users\hsuyi\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (C:\Users\hsuyi\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-utf32be.def
 File: se-utf32be.def 2019/11/29 v1.12 stringenc: UTF-32BE
@@ -2062,10 +2038,10 @@ Package rerunfilecheck Info: File `hw06.out' has not changed.
 Here is how much of TeX's memory you used:
  34910 strings out of 402983
  686457 string characters out of 5448482
- 1252459 words of memory out of 5000000
+ 1249582 words of memory out of 5000000
  63062 multiletter control sequences out of 15000+600000
  637650 words of font info for 162 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
  105i,12n,131p,1035b,32884s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw06.xdv (2 pages, 58028 bytes).
+Output written on hw06.xdv (2 pages, 57892 bytes).
