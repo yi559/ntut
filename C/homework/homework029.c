@@ -88,13 +88,88 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-int main(void){
-    int n;
-    scanf("%d", n);
-    
-    for(int i=0 ; i<n ; i++){
-        
+#define INF 1e9
+
+int N, C, blocked_u, blocked_v;
+int graph[11][11];
+
+int current_path[11];
+int best_path[11];
+int min_distance;
+
+void dfs(int step, int current_city, int current_dist, bool visited[]) {
+    if (step == N + 1) {
+        if (current_dist < min_distance) {
+            min_distance = current_dist;
+            for (int i = 1; i <= N; i++) {
+                best_path[i] = current_path[i];
+            }
+        }
+        return;
     }
+
+    if (current_dist >= min_distance) return;
+
+    for (int next_city = 1; next_city <= N; next_city++) {
+        if (!visited[next_city] && graph[current_city][next_city] > 0) {
+            visited[next_city] = true;
+            current_path[step] = next_city;
+            
+            dfs(step + 1, next_city, current_dist + graph[current_city][next_city], visited);
+            
+            visited[next_city] = false;
+        }
+    }
+}
+
+int main(void) {
+    if (scanf("%d", &N) != 1) return 0;
+
+    for (int i = 1; i <= N; i++) {
+        for (int j = 1; j <= N; j++) {
+            scanf("%d", &graph[i][j]);
+        }
+    }
+
+    scanf("%d", &C);
+    scanf("%d %d", &blocked_u, &blocked_v);
+
+    bool visited[11] = {false};
+    min_distance = INF;
+    
+    visited[1] = true;
+    current_path[1] = 1;
+    dfs(2, 1, 0, visited);
+
+    int fixed_path[11];
+    bool fixed_visited[11] = {false};
+    int fixed_dist = 0;
+
+    for (int i = 1; i <= C; i++) {
+        fixed_path[i] = best_path[i];
+        fixed_visited[best_path[i]] = true;
+        if (i > 1) {
+            fixed_dist += graph[best_path[i-1]][best_path[i]];
+        }
+    }
+
+    graph[blocked_u][blocked_v] = 0;
+    graph[blocked_v][blocked_u] = 0;
+
+    min_distance = INF;
+    for (int i = 1; i <= C; i++) {
+        current_path[i] = fixed_path[i];
+    }
+
+    dfs(C + 1, fixed_path[C], fixed_dist, fixed_visited);
+
+    for (int i = 1; i <= N; i++) {
+        printf("%d%c", best_path[i], (i == N) ? '\n' : ' ');
+    }
+    printf("%d\n", min_distance);
+
     return 0;
 }
