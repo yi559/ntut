@@ -150,3 +150,89 @@
 輸出 :
 39
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_NODES 105
+
+typedef struct {
+    int days;
+    int k;
+    int next[MAX_NODES];
+    int indegree;
+    int earliest_end;
+} JobNode;
+
+void solve() {
+    int M;
+    if (scanf("%d", &M) != 1) return;
+
+    JobNode nodes[MAX_NODES];
+    
+    for (int i = 1; i <= M; i++) {
+        nodes[i].indegree = 0;
+        nodes[i].earliest_end = 0;
+    }
+
+    for (int i = 1; i <= M; i++) {
+        scanf("%d %d", &nodes[i].days, &nodes[i].k);
+        for (int j = 0; j < nodes[i].k; j++) {
+            scanf("%d", &nodes[i].next[j]);
+        }
+    }
+
+    for (int i = 1; i <= M; i++) {
+        for (int j = 0; j < nodes[i].k; j++) {
+            int target = nodes[i].next[j];
+            nodes[target].indegree++;
+        }
+    }
+
+    int queue[MAX_NODES];
+    int head = 0, tail = 0;
+
+    for (int i = 1; i <= M; i++) {
+        if (nodes[i].indegree == 0) {
+            queue[tail++] = i;
+            nodes[i].earliest_end = nodes[i].days;
+        }
+    }
+
+    while (head < tail) {
+        int u = queue[head++];
+        
+        for (int i = 0; i < nodes[u].k; i++) {
+            int v = nodes[u].next[i];
+            
+            int candidate_end = nodes[u].earliest_end + nodes[v].days;
+            if (candidate_end > nodes[v].earliest_end) {
+                nodes[v].earliest_end = candidate_end;
+            }
+            
+            nodes[v].indegree--;
+            if (nodes[v].indegree == 0) {
+                queue[tail++] = v;
+            }
+        }
+    }
+
+    int project_duration = 0;
+    for (int i = 1; i <= M; i++) {
+        if (nodes[i].earliest_end > project_duration) {
+            project_duration = nodes[i].earliest_end;
+        }
+    }
+
+    printf("%d\n", project_duration);
+}
+
+int main() {
+    int N;
+    if (scanf("%d", &N) == 1) {
+        while (N--) {
+            solve();
+        }
+    }
+    return 0;
+}

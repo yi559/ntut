@@ -25,22 +25,27 @@ NOT(5) = ~101 = 010 = 2
 
 #define GATEVALUE(Gate) int(*GateValue)()
 typedef struct _Gate {
-int input1;
-int input2;
-GATEVALUE(Gate);
+    int input1;
+    int input2;
+    GATEVALUE(Gate);
 }Gate;
+
 int GateORValue(Gate *gate) {
 ...
 }
+
 int GateANDValue(Gate *gate) {
 ...
 }
+
 int GateNOTValue(Gate *gate) {
 ...
 }
+
 int GateBUFFERValue(Gate *gate) {
 ...
 }
+
 void CreateGate(Gate *obj, char type, int input1, int input2) {
 ...
 }
@@ -112,3 +117,90 @@ B N N NO A
 輸出：
 100
 */
+
+#include <stdio.h>
+#include <string.h>
+
+#define GATEVALUE(Gate) int (*GateValue)(struct _Gate *gate)
+
+typedef struct _Gate {
+    int input1;
+    int input2;
+    GATEVALUE(Gate);
+} Gate;
+
+int GateNOTValue(Gate *gate) {
+    return (~gate->input1) & 7;
+}
+
+int GateBUFFERValue(Gate *gate) {
+    return (gate->input1) & 7;
+}
+
+int GateANDValue(Gate *gate) {
+    return (gate->input1 & gate->input2) & 7;
+}
+
+int GateORValue(Gate *gate) {
+    return (gate->input1 | gate->input2) & 7;
+}
+
+int GateNANDValue(Gate *gate) {
+    return (~(gate->input1 & gate->input2)) & 7;
+}
+
+int GateNORValue(Gate *gate) {
+    return (~(gate->input1 | gate->input2)) & 7;
+}
+
+void CreateGate(Gate *obj, char *type, int input1, int input2) {
+    obj->input1 = input1;
+    obj->input2 = input2;
+    
+    if (strcmp(type, "N") == 0) {
+        obj->GateValue = GateNOTValue;
+    } else if (strcmp(type, "B") == 0) {
+        obj->GateValue = GateBUFFERValue;
+    } else if (strcmp(type, "A") == 0) {
+        obj->GateValue = GateANDValue;
+    } else if (strcmp(type, "O") == 0) {
+        obj->GateValue = GateORValue;
+    } else if (strcmp(type, "NA") == 0) {
+        obj->GateValue = GateNANDValue;
+    } else if (strcmp(type, "NO") == 0) {
+        obj->GateValue = GateNORValue;
+    }
+}
+
+void printBinary3Bit(int num) {
+    printf("%d%d%d\n", (num >> 2) & 1, (num >> 1) & 1, num & 1);
+}
+
+int main() {
+    int x1, x2, x3;
+    char opX1[5], opX2[5], opX3[5], opG1[5], opG2[5];
+    
+    if (scanf("%d %d %d", &x1, &x2, &x3) != 3) return 0;
+    if (scanf("%s %s %s %s %s", opX1, opX2, opX3, opG1, opG2) != 5) return 0;
+    
+    Gate gateX1, gateX2, gateX3, gateG1, gateG2;
+    
+    CreateGate(&gateX1, opX1, x1, 0);
+    int resX1 = gateX1.GateValue(&gateX1);
+    
+    CreateGate(&gateX2, opX2, x2, 0);
+    int resX2 = gateX2.GateValue(&gateX2);
+    
+    CreateGate(&gateX3, opX3, x3, 0);
+    int resX3 = gateX3.GateValue(&gateX3);
+    
+    CreateGate(&gateG1, opG1, resX1, resX2);
+    int Y = gateG1.GateValue(&gateG1);
+    
+    CreateGate(&gateG2, opG2, Y, resX3);
+    int finalOutput = gateG2.GateValue(&gateG2);
+    
+    printBinary3Bit(finalOutput);
+    
+    return 0;
+}

@@ -147,3 +147,94 @@
 輸出:
 23
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_MACHINES 10
+#define MAX_JOBS 10
+#define MAX_OPERATIONS 10
+#define INF 2e9
+
+typedef struct {
+    int machine_id;
+    int duration;
+} Operation;
+
+typedef struct {
+    int num_ops;
+    int current_op_idx;
+    int last_op_completion_time;
+    int final_completion_time;
+    Operation ops[MAX_OPERATIONS];
+} Job;
+
+int main() {
+    int N, M;
+    if (scanf("%d %d", &N, &M) != 2) return 0;
+
+    Job jobs[MAX_JOBS];
+    int machine_available_time[MAX_MACHINES] = {0};
+    int total_operations = 0;
+
+    for (int i = 0; i < M; i++) {
+        scanf("%d", &jobs[i].num_ops);
+        jobs[i].current_op_idx = 0;
+        jobs[i].last_op_completion_time = 0;
+        jobs[i].final_completion_time = 0;
+        
+        total_operations += jobs[i].num_ops;
+        
+        for (int j = 0; j < jobs[i].num_ops; j++) {
+            scanf("%d %d", &jobs[i].ops[j].machine_id, &jobs[i].ops[j].duration);
+        }
+    }
+
+    for (int step = 0; step < total_operations; step++) {
+        int best_job_idx = -1;
+        int min_completion_time = INF;
+
+        for (int i = 0; i < M; i++) {
+            if (jobs[i].current_op_idx >= jobs[i].num_ops) {
+                continue;
+            }
+
+            int op_idx = jobs[i].current_op_idx;
+            int m_id = jobs[i].ops[op_idx].machine_id;
+            int duration = jobs[i].ops[op_idx].duration;
+
+            int start_time = machine_available_time[m_id];
+            if (jobs[i].last_op_completion_time > start_time) {
+                start_time = jobs[i].last_op_completion_time;
+            }
+
+            int completion_time = start_time + duration;
+
+            if (completion_time < min_completion_time) {
+                min_completion_time = completion_time;
+                best_job_idx = i;
+            }
+        }
+
+        if (best_job_idx != -1) {
+            int i = best_job_idx;
+            int op_idx = jobs[i].current_op_idx;
+            int m_id = jobs[i].ops[op_idx].machine_id;
+
+            machine_available_time[m_id] = min_completion_time;
+            jobs[i].last_op_completion_time = min_completion_time;
+            jobs[i].final_completion_time = min_completion_time;
+
+            jobs[i].current_op_idx++;
+        }
+    }
+
+    int total_completion_time_sum = 0;
+    for (int i = 0; i < M; i++) {
+        total_completion_time_sum += jobs[i].final_completion_time;
+    }
+
+    printf("%d\n", total_completion_time_sum);
+
+    return 0;
+}
