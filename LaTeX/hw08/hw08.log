@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  5 MAY 2026 12:24
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  19 JUN 2026 19:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2014,18 +2014,17 @@ Overfull \hbox (2.94426pt too wide) in paragraph at lines 111--112
 \TU/LinLibertine(0)/m/n/9 associated homogeneous recurrence relation, Theorem 6 tells
  []
 
-
-Underfull \vbox (badness 3668) has occurred while \output is active []
-
- [1.1
+[1.1
 
 ]
-Overfull \vbox (1.666pt too high) detected at line 189
- []
-
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 189.
-[2.2]
+ [2.2]
+Overfull \hbox (93.30637pt too wide) in alignment at lines 207--209
+ [][][] []
+ []
+
+
 Overfull \hbox (8.05832pt too wide) in alignment at lines 212--214
  [][][] []
  []
@@ -2056,12 +2055,12 @@ Package rerunfilecheck Info: File `hw08.out' has not changed.
 (rerunfilecheck)             Checksum: 5B1DF5A2251C76242444003F8C8541A4;2974.
  ) 
 Here is how much of TeX's memory you used:
- 34922 strings out of 402983
- 687269 string characters out of 5448482
- 1255213 words of memory out of 5000000
- 63074 multiletter control sequences out of 15000+600000
+ 34924 strings out of 402983
+ 687329 string characters out of 5448482
+ 1256886 words of memory out of 5000000
+ 63076 multiletter control sequences out of 15000+600000
  637650 words of font info for 162 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
  105i,11n,131p,1035b,32884s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw08.xdv (3 pages, 157976 bytes).
+Output written on hw08.xdv (3 pages, 163360 bytes).

@@ -15,7 +15,7 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.markings}
 \usepackage{makecell}
-
+\usepackage{amsmath}
 
 %% Font
 \CJKfontspec{Noto Serif CJK TC} %思源宋體
@@ -34,7 +34,7 @@
 
 \title{114學年度第二學期~離散數學HW10}
 
-\author{班級：\underline{資工一}、學號：\underline{114590XXX}、姓名：\underline{蘇東坡}}
+\author{班級：\underline{資工一}、學號：\underline{114590007}、姓名：\underline{徐羿}}
 \orcid{}
 \affiliation{%
   \institution{}
@@ -75,14 +75,14 @@
 \subsection{題號}
 \begin{shaded}
     \begin{itemize}
-	\item[-] page 683, chapter 10.1 Exercise 2
-	\item[-] page 699, chapter 10.2 Exercise 8
-	\item[-] page 710, chapter 10.3 Exercise 8
-	\item[-] page 724, chapter 10.4 Exercise 2
-	\item[-] page 741, chapter 10.5 Exercise 54
-	\item[-] page 753, chapter 10.6 Exercise 26
-	\item[-] page 761, chapter 10.7 Exercise 14
-	\item[-] page 768, chapter 10.8 Exercise 6
+    \item[-] page 683, chapter 10.1 Exercise 2
+    \item[-] page 699, chapter 10.2 Exercise 8
+    \item[-] page 710, chapter 10.3 Exercise 8
+    \item[-] page 724, chapter 10.4 Exercise 2
+    \item[-] page 741, chapter 10.5 Exercise 54
+    \item[-] page 753, chapter 10.6 Exercise 26
+    \item[-] page 761, chapter 10.7 Exercise 14
+    \item[-] page 768, chapter 10.8 Exercise 6
 \end{itemize}
 \end{shaded}
 
@@ -100,24 +100,29 @@
 \end{shaded}
 \begin{table}[h]
     \centering
-	\caption{Graph Terminology.}
+    \caption{Graph Terminology.}
     \begin{tabular}{|p{2.8cm}|p{3.1cm}|p{1.8cm}|p{1.1cm}|}
         \hline
         $\textsl{Type}$ & $\textsl{Edges}$ & $\textsl{\makecell{Multiple Edges \\ Allowed?}}$ & $\textsl{\makecell{Loops \\Allowed?}}$ \\ 
         \hline
         Simple graph & Undirected & No & No \\ 
+        \hline
         Multigraph & Undirected & Yes & No \\ 
+        \hline
         Pseudograph & Undirected & Yes & Yes \\ 
+        \hline
         Simple directed graph & Directed & No & No \\ 
+        \hline
         Directed multigraph & Directed & Yes & Yes \\ 
+        \hline
         Mixed graph & Directed and undirected & Yes & Yes \\ 
         \hline
     \end{tabular}
 \end{table}
 \begin{enumerate}[label=(\alph*)]
     \item \answer{10.1.2a}{simple graph}. Since there are no parallel edges or loops, and the edges are undirected. 
-    \item \answer{10.1.2b}{}
-    \item \answer{10.1.2c}{}
+    \item \answer{10.1.2b}{multigraph}. Since multiple undirected edges are allowed between the same pair of vertices, but no loops exist.
+    \item \answer{10.1.2c}{pseudograph}. Since multiple undirected edges and loops are both allowed.
 \end{enumerate}
 
 
@@ -148,7 +153,6 @@
         \draw[middlearrow={latex},very thick] (c) to (a);
         \draw[->,>= latex,very thick]  (b) edge [out=-20,in=80,distance=8mm]   (b);
         \draw[->,>= latex,very thick]  (d) edge [out=-20,in=80,distance=8mm]   (d);
-        
         \end{tikzpicture}
     \end{center}
     
@@ -156,11 +160,11 @@
 
 \vspace{1cm}
 
-In this directed multigraph there are \answer{10.2.8a}{} vertices and \answer{10.2.8b}{} edges.\\ The degrees are:\\ 
+In this directed multigraph there are \answer{10.2.8a}{4} vertices and \answer{10.2.8b}{8} edges.\\ The degrees are:\\ 
 $\text{deg}^{-}(a) = 2$, $\text{deg}^{+}(a) = 2$, \\
-$\text{deg}^{-}(b) = \answer{10.2.8c}{}$, $\text{deg}^{+}(b) = \answer{10.2.8d}{}$, \\
-$\text{deg}^{-}(c) = \answer{10.2.8e}{}$, $\text{deg}^{+}(c) = \answer{10.2.8f}{}$, \\
-$\text{deg}^{-}(d) = \answer{10.2.8g}{}$, $\text{deg}^{+}(d) = \answer{10.2.8h}{}$.
+$\text{deg}^{-}(b) = \answer{10.2.8c}{3}$, $\text{deg}^{+}(b) = \answer{10.2.8d}{4}$, \\
+$\text{deg}^{-}(c) = \answer{10.2.8e}{2}$, $\text{deg}^{+}(c) = \answer{10.2.8f}{1}$, \\
+$\text{deg}^{-}(d) = \answer{10.2.8g}{1}$, $\text{deg}^{+}(d) = \answer{10.2.8h}{1}$.
 
 \clearpage
 
@@ -208,11 +212,11 @@ $\text{deg}^{-}(d) = \answer{10.2.8g}{}$, $\text{deg}^{+}(d) = \answer{10.2.8h}{
 
 
 $\begin{bmatrix}
-	   0 & 1 & 0 & 1 & 0 \\
-       \answer{10.3.8a}{} & \answer{10.3.8b}{} & \answer{10.3.8c}{} & \answer{10.3.8d}{} & \answer{10.3.8e}{} \\
-       \answer{10.3.8f}{} & \answer{10.3.8g}{} & \answer{10.3.8h}{} & \answer{10.3.8i}{} & \answer{10.3.8j}{} \\
-       \answer{10.3.8k}{} & \answer{10.3.8l}{} & \answer{10.3.8m}{} & \answer{10.3.8n}{} & \answer{10.3.8o}{} \\
-       \answer{10.3.8p}{} & \answer{10.3.8q}{} & \answer{10.3.8r}{} & \answer{10.3.8s}{} & \answer{10.3.8t}{} \\
+       0 & 1 & 0 & 1 & 0 \\
+       \answer{10.3.8a}{1} & \answer{10.3.8b}{0} & \answer{10.3.8c}{1} & \answer{10.3.8d}{1} & \answer{10.3.8e}{1} \\
+       \answer{10.3.8f}{0} & \answer{10.3.8g}{1} & \answer{10.3.8h}{1} & \answer{10.3.8i}{0} & \answer{10.3.8j}{0} \\
+       \answer{10.3.8k}{1} & \answer{10.3.8l}{0} & \answer{10.3.8m}{0} & \answer{10.3.8n}{0} & \answer{10.3.8o}{1} \\
+       \answer{10.3.8p}{0} & \answer{10.3.8q}{0} & \answer{10.3.8r}{1} & \answer{10.3.8s}{0} & \answer{10.3.8t}{1} \\
 \end{bmatrix}$
 
 \subsection{page 724, chapter 10.4 Exercise 2}
@@ -255,20 +259,20 @@ $\begin{bmatrix}
 \end{shaded}
 \begin{enumerate}[label=(\alph*)]
     \item This \uline{~~is~~} (is, is not) a path of length \uline{~~4~~} (if not a path fill 0), it \uline{~~is not~~} (is, is not) a circuit, it \uline{~~is~~} (is, is not) simple.
-	
-	\item This \answer{10.4.2a}{} (is, is not) a path of length \answer{10.4.2b}{} (if not a path fill 0), it \answer{10.4.2c}{} (is, is not) a circuit, it \answer{10.4.2d}{} (is, is not) simple.
+    
+    \item This \answer{10.4.2a}{is} (is, is not) a path of length \answer{10.4.2b}{4} (if not a path fill 0), it \answer{10.4.2c}{is} (is, is not) a circuit, it \answer{10.4.2d}{is not} (is, is not) simple.
 
-	\item This \answer{10.4.2e}{} (is, is not) a path of length \answer{10.4.2f}{} (if not a path fill 0), it \answer{10.4.2g}{} (is, is not) a circuit, it \answer{10.4.2h}{} (is, is not) simple.
+    \item This \answer{10.4.2e}{is not} (is, is not) a path of length \answer{10.4.2f}{0} (if not a path fill 0), it \answer{10.4.2g}{is not} (is, is not) a circuit, it \answer{10.4.2h}{is not} (is, is not) simple.
 
-	\item This \answer{10.4.2i}{} (is, is not) a path of length \answer{10.4.2j}{} (if not a path fill 0), it \answer{10.4.2k}{} (is, is not) a circuit, it \answer{10.4.2l}{} (is, is not) simple.
+    \item This \answer{10.4.2i}{is not} (is, is not) a path of length \answer{10.4.2j}{0} (if not a path fill 0), it \answer{10.4.2k}{is not} (is, is not) a circuit, it \answer{10.4.2l}{is not} (is, is not) simple.
 \end{enumerate}
 
 \subsection{page 741, chapter 10.5 Exercise 54}
 \begin{shaded}
     A diagnostic message can be sent out over a computer network to perform tests over all links and in all devices. What sort of paths should be used to test all links? To test all devices?
 \end{shaded}
-\answer{10.5.54a}{} (An Euler, A Hamilton) path will cover every link, so it can be used to test the links.\\
-\answer{10.5.54b}{} (An Euler, A Hamilton) path will cover all the devices, so it can be used to test the devices.
+\answer{10.5.54a}{An Euler} (An Euler, A Hamilton) path will cover every link, so it can be used to test the links.\\
+\answer{10.5.54b}{A Hamilton} (An Euler, A Hamilton) path will cover all the devices, so it can be used to test the devices.
 
 \subsection{page 753, chapter 10.6 Exercise 26}
 \begin{shaded}
@@ -302,29 +306,29 @@ $\begin{bmatrix}
 
 \begin{enumerate}[label=(\alph*)]
     \item Circuit: a-b-c-d-e-a, Weight = 3 + 10 + 6 + 1 + 7 = 27
-	\item Circuit: a-b-c-e-d-a, Weight = \answer{10.6.26a}{}
-	\item Circuit: a-b-d-c-e-a, Weight = \answer{10.6.26b}{}
-	\item Circuit: a-b-d-e-c-a, Weight = \answer{10.6.26c}{}
-	
-	\item Circuit: a-b-e-c-d-a, Weight = \answer{10.6.26d}{}
-	\item Circuit: a-b-e-d-c-a, Weight = \answer{10.6.26e}{}
-	\item Circuit: a-c-b-d-e-a, Weight = \answer{10.6.26f}{}
-	\item Circuit: a-c-b-e-d-a, Weight = \answer{10.6.26g}{}
-	
-	\item Circuit: a-c-d-b-e-a, Weight = \answer{10.6.26h}{}
-	\item Circuit: a-c-e-b-d-a, Weight = \answer{10.6.26i}{}
-	\item Circuit: a-d-b-c-e-a, Weight = \answer{10.6.26j}{}
-	\item Circuit: a-d-c-b-e-a, Weight = \answer{10.6.26k}{}
+    \item Circuit: a-b-c-e-d-a, Weight = \answer{10.6.26a}{3 + 10 + 5 + 1 + 4 = 23}
+    \item Circuit: a-b-d-c-e-a, Weight = \answer{10.6.26b}{3 + 9 + 6 + 5 + 7 = 30}
+    \item Circuit: a-b-d-e-c-a, Weight = \answer{10.6.26c}{3 + 9 + 1 + 5 + 8 = 26}
+    
+    \item Circuit: a-b-e-c-d-a, Weight = \answer{10.6.26d}{3 + 2 + 5 + 6 + 4 = 20}
+    \item Circuit: a-b-e-d-c-a, Weight = \answer{10.6.26e}{3 + 2 + 1 + 6 + 8 = 20}
+    \item Circuit: a-c-b-d-e-a, Weight = \answer{10.6.26f}{8 + 10 + 9 + 1 + 7 = 35}
+    \item Circuit: a-c-b-e-d-a, Weight = \answer{10.6.26g}{8 + 10 + 2 + 1 + 4 = 25}
+    
+    \item Circuit: a-c-d-b-e-a, Weight = \answer{10.6.26h}{8 + 6 + 9 + 2 + 7 = 32}
+    \item Circuit: a-c-e-b-d-a, Weight = \answer{10.6.26i}{8 + 5 + 2 + 9 + 4 = 28}
+    \item Circuit: a-d-b-c-e-a, Weight = \answer{10.6.26j}{4 + 9 + 10 + 5 + 7 = 35}
+    \item Circuit: a-d-c-b-e-a, Weight = \answer{10.6.26k}{4 + 6 + 10 + 2 + 7 = 29}
 \end{enumerate}
-The circuits \answer{10.6.26l}{(start and end at $a$)} and \answer{10.6.26m}{(start and end at $a$)} are the ones with minimum total weight.
+The circuits \answer{10.6.26l}{a-b-e-c-d-a} and \answer{10.6.26m}{a-b-e-d-c-a} are the ones with minimum total weight.
 
 \subsection{page 761, chapter 10.7 Exercise 14}
 \begin{shaded}
     Suppose that a connected planar graph has 30 edges. If a planar representation of this graph divides the plane into 20 regions, how many vertices does this graph have?
 \end{shaded}
 Euler's formula says that $v - e + r = 2$.\\
-We are given $e = \answer{10.7.14a}{}$ and $r = \answer{10.7.14b}{}$. \\
-Therefore $v = 2 - r + e = \answer{10.7.14c}{}$.
+We are given $e = \answer{10.7.14a}{30}$ and $r = \answer{10.7.14b}{20}$. \\
+Therefore $v = 2 - r + e = \answer{10.7.14c}{12}$.
 
 
 \subsection{page 768, chapter 10.8 Exercise 6}
@@ -360,7 +364,7 @@ Therefore $v = 2 - r + e = \answer{10.7.14c}{}$.
     
 \end{shaded}
 
-At least \answer{10.8.6a}{} colors are needed, since ...
+At least \answer{10.8.6a}{3} colors are needed, since vertex $g$ is connected to all outer vertices ($a, b, c, d, e, f$), which form a simple path of length 5 requiring 2 colors. Therefore, vertex $g$ must be assigned a 3rd distinct color, making the chromatic number $\chi(G) = 3$.
 
 \vspace{15cm}
 

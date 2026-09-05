@@ -80,3 +80,81 @@ aaAABBBBcccc 2
 6
 4
 */
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX_LEN 100
+
+void solve() {
+    char S[MAX_LEN];
+    int k;
+    
+    // 讀取字串與 k 值
+    if (scanf("%s %d", S, &k) != 2) return;
+    
+    int len = strlen(S);
+    int runs[MAX_LEN];
+    int run_count = 0;
+    
+    // 步驟 1: 計算連續相同大小寫的字母片段長度
+    int current_run = 1;
+    for (int i = 1; i < len; i++) {
+        // 如果當前字元與前一個字元同為大寫，或同為小寫
+        if ((isupper(S[i]) && isupper(S[i-1])) || (islower(S[i]) && islower(S[i-1]))) {
+            current_run++;
+        } else {
+            runs[run_count++] = current_run;
+            current_run = 1;
+        }
+    }
+    runs[run_count++] = current_run; // 放入最後一個片段
+    
+    // 步驟 2: 根據 k 值計算最長連續符合條件的區塊數
+    int current_blocks = 0;
+    int max_blocks = 0;
+    
+    for (int i = 0; i < run_count; i++) {
+        int L = runs[i];
+        
+        if (L < k) {
+            // 長度不足，交錯中斷
+            current_blocks = 0;
+        } else if (L == k) {
+            // 長度剛好，交錯長度加 1
+            current_blocks++;
+            if (current_blocks > max_blocks) {
+                max_blocks = current_blocks;
+            }
+        } else { // L > k
+            // 長度大於 k，可以提供一個 k 作為目前交錯的結尾
+            current_blocks++;
+            if (current_blocks > max_blocks) {
+                max_blocks = current_blocks;
+            }
+            // 同時也可以留下尾端的 k 作為新交錯字串的開頭
+            current_blocks = 1;
+        }
+    }
+    
+    // 步驟 3: 計算並輸出總長度
+    // 交錯字串必須至少由大寫、小寫各一個區塊組成，因此區塊數必須 >= 2
+    int ans = 0;
+    if (max_blocks >= 2) {
+        ans = max_blocks * k;
+    }
+    
+    printf("%d\n", ans);
+}
+
+int main() {
+    int n;
+    // 讀取測資筆數
+    if (scanf("%d", &n) == 1) {
+        while (n--) {
+            solve();
+        }
+    }
+    return 0;
+}

@@ -75,3 +75,57 @@ AQPEDCVFYBRTZAZDLEPMKHUYTFDEWAXCFSTHKLQDEA
 輸出：
 4
 */
+#include <stdio.h>
+#include <string.h>
+
+// 函式：將一個字串（或字串片段）轉換成二進位位元集合
+int get_char_set_mask(const char *str, int start, int length) {
+    int mask = 0;
+    for (int i = 0; i < length; i++) {
+        char ch = str[start + i];
+        // 假設字元主要為大寫 A-Z（若有小寫亦可適用，減去固定基準點即可）
+        // 這裡以 ASCII 碼作為位元偏移量
+        int bit_pos = ch - 'A'; 
+        mask |= (1 << bit_pos);
+    }
+    return mask;
+}
+
+int main() {
+    char S[105];
+    int n;
+    char P[105];
+
+    // 讀取輸入資料
+    if (scanf("%s", S) != 1) return 0;
+    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%s", P) != 1) return 0;
+
+    // 1. 計算 set(S) 的位元遮罩
+    int target_mask = get_char_set_mask(S, 0, strlen(S));
+
+    int len_P = strlen(P);
+    int num_parts = len_P / n;
+    int part_masks[105];
+
+    // 2. 將字串 P 切割成若干子字串，並計算各自的位元遮罩
+    for (int i = 0; i < num_parts; i++) {
+        part_masks[i] = get_char_set_mask(P, i * n, n);
+    }
+
+    // 3. 雙重迴圈比較所有 (i, j) 配對，其中 i < j
+    int valid_pairs = 0;
+    for (int i = 0; i < num_parts; i++) {
+        for (int j = i + 1; j < num_parts; j++) {
+            // 位元 AND 運算代表集合交集
+            if ((part_masks[i] & part_masks[j]) == target_mask) {
+                valid_pairs++;
+            }
+        }
+    }
+
+    // 輸出答案
+    printf("%d\n", valid_pairs);
+
+    return 0;
+}

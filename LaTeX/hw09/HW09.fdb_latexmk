@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1777955065.56911 "HW09.xdv" "HW09.pdf" "HW09" 1777955065.95128 0
-  "HW09.xdv" 1777955065 72876 b7162156a93ea3f006b1f816f5308c1a "xelatex"
+["xdvipdfmx"] 1781868533.42235 "HW09.xdv" "HW09.pdf" "HW09" 1781868533.82339 0
+  "HW09.xdv" 1781868533 101696 52b0427b902917b476246429860ae8a0 "xelatex"
   (generated)
   "HW09.pdf"
   (rewritten before read)
-["xelatex"] 1777955063.10617 "c:/Users/hsuyi/Program/LaTeX/hw09/HW09.tex" "HW09.xdv" "HW09" 1777955065.94754 0
+["xelatex"] 1781868530.87954 "c:/Users/hsuyi/Program/LaTeX/hw09/HW09.tex" "HW09.xdv" "HW09" 1781868533.81947 0
   "C:/Users/hsuyi/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1774606397 27177068 26a6eec27171298b08ccf3e3a4b8124c ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136743454 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -141,11 +141,11 @@
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJK.cfg" 1659726270 408 7369c27beaa819c5f46de3795b22ee3e ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJK.sty" 1659726270 183137 ed372550124703b2b73cbcc0b47cb20f ""
   "C:/Users/hsuyi/AppData/Local/Programs/MiKTeX/tex/xelatex/xecjk/xeCJKfntef.sty" 1659726270 39577 b470f8a1dbecc9c45c9bf05ca7db9188 ""
-  "HW09.aux" 1777955065 1647 1738c9dcb54a6d01da2fa4c034327e90 "xelatex"
-  "HW09.log" 1777955065 98197 289c564a935c7237ec80458597cdbbea "xelatex"
-  "HW09.out" 1777955065 1914 aa74808e096785c921dccd8dea547266 "xelatex"
-  "HW09.tex" 1777954988 9912 ff04772c5d2421d0a27fbe3873f988f7 ""
-  "c:/Users/hsuyi/Program/LaTeX/hw09/HW09.tex" 1777954988 9912 ff04772c5d2421d0a27fbe3873f988f7 ""
+  "HW09.aux" 1781868533 1647 ee2522db72182a3d2f89fb18059170f3 "xelatex"
+  "HW09.log" 1781868533 98347 8ce94b4c4aa7fa19f818179f612b8bf4 "xelatex"
+  "HW09.out" 1781868533 1914 aa74808e096785c921dccd8dea547266 "xelatex"
+  "HW09.tex" 1781868530 13746 8913b4aba5aec421ad0d860a39646854 ""
+  "c:/Users/hsuyi/Program/LaTeX/hw09/HW09.tex" 1781868530 13746 8913b4aba5aec421ad0d860a39646854 ""
   (generated)
   "HW09.aux"
   "HW09.log"

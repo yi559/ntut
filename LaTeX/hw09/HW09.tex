@@ -12,6 +12,7 @@
 \definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
 \usepackage{framed}
 \usepackage{ulem}
+\usepackage{amsmath}
 
 %% Font
 \CJKfontspec{Noto Serif CJK TC} %思源宋體
@@ -30,7 +31,7 @@
 
 \title{114學年度第二學期~離散數學HW09}
 
-\author{班級：\underline{資工一}、學號：\underline{114590XXX}、姓名：\underline{蘇東坡}}
+\author{班級：\underline{資工一}、學號：\underline{114590007}、姓名：\underline{徐羿}}
 \orcid{}
 \affiliation{%
   \institution{}
@@ -69,12 +70,12 @@
 \subsection{題號}
 \begin{shaded}
 \begin{itemize}
-	\item[-] page 608, chapter 9.1 Exercise 6
-	\item[-] page 619, chapter 9.2 Exercise 2
-	\item[-] page 627, chapter 9.3 Exercise 14
-	\item[-] page 638, chapter 9.4 Exercise 20
-	\item[-] page 647, chapter 9.5 Exercise 24
-	\item[-] page 662, chapter 9.6 Exercise 8
+    \item[-] page 608, chapter 9.1 Exercise 6
+    \item[-] page 619, chapter 9.2 Exercise 2
+    \item[-] page 627, chapter 9.3 Exercise 14
+    \item[-] page 638, chapter 9.4 Exercise 20
+    \item[-] page 647, chapter 9.5 Exercise 24
+    \item[-] page 662, chapter 9.6 Exercise 8
 \end{itemize}
 \end{shaded}
 
@@ -105,52 +106,52 @@
     \end{itemize}
     \item 
     \begin{itemize}
-        \item \answer{9.1.6b1}{}
-        \item \answer{9.1.6b2}{}
-        \item \answer{9.1.6b3}{}
-        \item \answer{9.1.6b4}{}
+        \item \answer{9.1.6b1}{reflexive. Since $x = x$ or $x = -x$ is true for all $x$.}
+        \item \answer{9.1.6b2}{symmetric. Since $x = \pm y$ implies $y = \pm x$.}
+        \item \answer{9.1.6b3}{not antisymmetric. Since $(1, -1)$ and $(-1, 1)$ are both in \textsl{R}, but $1 \neq -1$.}
+        \item \answer{9.1.6b4}{transitive. If $x = \pm y$ and $y = \pm z$, then $x = \pm z$.}
     \end{itemize}
     \item 
     \begin{itemize}
-        \item \answer{9.1.6c1}{}
-        \item \answer{9.1.6c2}{}
-        \item \answer{9.1.6c3}{}
-        \item \answer{9.1.6c4}{}
+        \item \answer{9.1.6c1}{reflexive. Since $x - x = 0$ is a rational number for all $x$.}
+        \item \answer{9.1.6c2}{symmetric. If $x - y$ is rational, then $y - x = -(x - y)$ is also rational.}
+        \item \answer{9.1.6c3}{not antisymmetric. For example, $(1, 2)$ and $(2, 1)$ are both in \textsl{R}, but $1 \neq 2$.}
+        \item \answer{9.1.6c4}{transitive. If $x - y$ and $y - z$ are rational, then $x - z = (x - y) + (y - z)$ is rational.}
     \end{itemize}
     \item 
     \begin{itemize}
-        \item \answer{9.1.6d1}{}
-        \item \answer{9.1.6d2}{}
-        \item \answer{9.1.6d3}{}
-        \item \answer{9.1.6d4}{}
+        \item \answer{9.1.6d1}{not reflexive. Since $1 \neq 2(1)$.}
+        \item \answer{9.1.6d2}{not symmetric. For example, $(2, 1) \in \textsl{R}$ but $(1, 2) \notin \textsl{R}$.}
+        \item \answer{9.1.6d3}{antisymmetric. If $x = 2y$ and $y = 2x$, then $x = 4x \implies x = 0$, which means $y = 0$, so $x = y$.}
+        \item \answer{9.1.6d4}{not transitive. For example, $(4, 2) \in \textsl{R}$ and $(2, 1) \in \textsl{R}$, but $(4, 1) \notin \textsl{R}$.}
     \end{itemize}
     \item 
     \begin{itemize}
-        \item \answer{9.1.6e1}{}
-        \item \answer{9.1.6e2}{}
-        \item \answer{9.1.6e3}{}
-        \item \answer{9.1.6e4}{}
+        \item \answer{9.1.6e1}{reflexive. Since $x^2 \geq 0$ for all real numbers $x$.}
+        \item \answer{9.1.6e2}{symmetric. Since $xy = yx$, it follows that $xy \geq 0$ if and only if $yx \geq 0$.}
+        \item \answer{9.1.6e3}{not antisymmetric. For example, $(1, 2) \in \textsl{R}$ and $(2, 1) \in \textsl{R}$, but $1 \neq 2$.}
+        \item \answer{9.1.6e4}{not transitive. For example, $(1, 0) \in \textsl{R}$ and $(0, -1) \in \textsl{R}$, but $(1, -1) \notin \textsl{R}$.}
     \end{itemize}
     \item
     \begin{itemize}
-        \item \answer{9.1.6f1}{}
-        \item \answer{9.1.6f2}{}
-        \item \answer{9.1.6f3}{}
-        \item \answer{9.1.6f4}{}
+        \item \answer{9.1.6f1}{not reflexive. Since $1 \cdot 1 = 1 \neq 0$.}
+        \item \answer{9.1.6f2}{symmetric. Since $xy = yx$, it follows that $xy = 0$ if and only if $yx = 0$.}
+        \item \answer{9.1.6f3}{not antisymmetric. For example, $(1, 0) \in \textsl{R}$ and $(0, 1) \in \textsl{R}$, but $1 \neq 0$.}
+        \item \answer{9.1.6f4}{not transitive. For example, $(1, 0) \in \textsl{R}$ and $(0, 1) \in \textsl{R}$, but $(1, 1) \notin \textsl{R}$.}
     \end{itemize}
     \item
     \begin{itemize}
-        \item \answer{9.1.6g1}{}
-        \item \answer{9.1.6g2}{}
-        \item \answer{9.1.6g3}{}
-        \item \answer{9.1.6g4}{}
+        \item \answer{9.1.6g1}{not reflexive. Since $2 \neq 1$, so $(2, 2) \notin \textsl{R}$.}
+        \item \answer{9.1.6g2}{not symmetric. Since $(1, 2) \in \textsl{R}$ but $(2, 1) \notin \textsl{R}$.}
+        \item \answer{9.1.6g3}{antisymmetric. If $(x, y) \in \textsl{R}$ and $(y, x) \in \textsl{R}$, then $x = 1$ and $y = 1$, so $x = y$.}
+        \item \answer{9.1.6g4}{transitive. If $(x, y) \in \textsl{R}$ and $(y, z) \in \textsl{R}$, then $x = 1$, so $(x, z) \in \textsl{R}$.}
     \end{itemize}
     \item
     \begin{itemize}
-        \item \answer{9.1.6h1}{}
-        \item \answer{9.1.6h2}{}
-        \item \answer{9.1.6h3}{}
-        \item \answer{9.1.6h4}{}
+        \item \answer{9.1.6h1}{not reflexive. Since $2 \neq 1$, so $(2, 2) \notin \textsl{R}$.}
+        \item \answer{9.1.6h2}{symmetric. Since the condition is symmetric with respect to $x$ and $y$.}
+        \item \answer{9.1.6h3}{not antisymmetric. For example, $(1, 2) \in \textsl{R}$ and $(2, 1) \in \textsl{R}$, but $1 \neq 2$.}
+        \item \answer{9.1.6h4}{not transitive. For example, $(2, 1) \in \textsl{R}$ and $(1, 3) \in \textsl{R}$, but $(2, 3) \notin \textsl{R}$.}
     \end{itemize}
 \end{enumerate}
 
@@ -158,7 +159,7 @@
 \begin{shaded}
     Which 4-tuples are in the relation $\{ (a, b, c, d)~\vert~a, b, c$, and $d$ are positive integers with $abcd = 6 \}$?
 \end{shaded}
-\answer{9.2.2a}{(6, 1, 1, 1),(1, 6, 1, 1),(1, 1, 6, 1),(1, 1, 1, 6),還有其他tuples, 請繼續作答.}
+\answer{9.2.2a}{(6, 1, 1, 1), (1, 6, 1, 1), (1, 1, 6, 1), (1, 1, 1, 6), (2, 3, 1, 1), (2, 1, 3, 1), (2, 1, 1, 3), (3, 2, 1, 1), (3, 1, 2, 1), (3, 1, 1, 2), (1, 2, 3, 1), (1, 2, 1, 3), (1, 3, 2, 1), (1, 3, 1, 2), (1, 1, 2, 3), (1, 1, 3, 2)}
 
 \subsection{page 627, chapter 9.3 Exercise 14}
 \begin{shaded}
@@ -166,24 +167,24 @@
     \begin{center}
         $\textbf{M}_{R_1}$ = 
         $
-    	\begin{bmatrix}
-    	   0 & 1 & 0 \\
-     	   1 & 1 & 1 \\
-     	   1 & 0 & 0
-    	\end{bmatrix}
-    	$
-    	and
-    	$\textbf{M}_{R_2}$ = 
+        \begin{bmatrix}
+           0 & 1 & 0 \\
+           1 & 1 & 1 \\
+           1 & 0 & 0
+        \end{bmatrix}
         $
-    	\begin{bmatrix}
-    	   0 & 1 & 0 \\
-     	   0 & 1 & 1 \\
-     	   1 & 1 & 1
-    	\end{bmatrix}
-    	$
+        and
+        $\textbf{M}_{R_2}$ = 
+        $
+        \begin{bmatrix}
+           0 & 1 & 0 \\
+           0 & 1 & 1 \\
+           1 & 1 & 1
+        \end{bmatrix}
+        $
     \end{center}
-	Find the matrices that represent
-	\begin{enumerate}[label=(\alph*)]
+    Find the matrices that represent
+    \begin{enumerate}[label=(\alph*)]
         \item $\textsl{R}_1 \cup \textsl{R}_2$
         \item $\textsl{R}_1 \cap \textsl{R}_2$
         \item $\textsl{R}_2 \circ \textsl{R}_1$
@@ -193,45 +194,45 @@
 \end{shaded}
 \begin{enumerate}[label=(\alph*)]
 \item
-	$
-	\begin{bmatrix}
-	   0 & 1 & 0 \\
- 	   1 & 1 & 1 \\
- 	   1 & 1 & 1
-	\end{bmatrix}
-	$
-	\item
-	$
-	\begin{bmatrix}
-        \answer{9.3.14a1}{}     & \answer{9.3.14a2}{} & \answer{9.3.14a3}{} \\
- 	    \answer{9.3.14a4}{}     & \answer{9.3.14a5}{} & \answer{9.3.14a6}{} \\
- 	    \answer{9.3.14a7}{}     & \answer{9.3.14a8}{} & \answer{9.3.14a9}{}
-	\end{bmatrix}
-	$
-	\item
-	$
-	\begin{bmatrix}
-        \answer{9.3.14b1}{}     & \answer{9.3.14b2}{} & \answer{9.3.14b3}{} \\
-        \answer{9.3.14b4}{}     & \answer{9.3.14b5}{} & \answer{9.3.14b6}{} \\
-        \answer{9.3.14b7}{}     & \answer{9.3.14b8}{} & \answer{9.3.14b9}{}
-	\end{bmatrix}
-	$
-	\item
-	$
-	\begin{bmatrix}
-        \answer{9.3.14c1}{}     & \answer{9.3.14c2}{} & \answer{9.3.14c3}{} \\
-        \answer{9.3.14c4}{}     & \answer{9.3.14c5}{} & \answer{9.3.14c6}{} \\
-        \answer{9.3.14c7}{}     & \answer{9.3.14c8}{} & \answer{9.3.14c9}{}
-	\end{bmatrix}
-	$
-	\item
-	$
-	\begin{bmatrix}
-        \answer{9.3.14d1}{}     & \answer{9.3.14d2}{} & \answer{9.3.14d3}{} \\
-        \answer{9.3.14d4}{}     & \answer{9.3.14d5}{} & \answer{9.3.14d6}{} \\
-        \answer{9.3.14d7}{}     & \answer{9.3.14d8}{} & \answer{9.3.14d9}{}
-	\end{bmatrix}
-	$
+    $
+    \begin{bmatrix}
+       0 & 1 & 0 \\
+       1 & 1 & 1 \\
+       1 & 1 & 1
+    \end{bmatrix}
+    $
+    \item
+    $
+    \begin{bmatrix}
+        \answer{9.3.14a1}{0}     & \answer{9.3.14a2}{1} & \answer{9.3.14a3}{0} \\
+        \answer{9.3.14a4}{0}     & \answer{9.3.14a5}{1} & \answer{9.3.14a6}{1} \\
+        \answer{9.3.14a7}{1}     & \answer{9.3.14a8}{0} & \answer{9.3.14a9}{0}
+    \end{bmatrix}
+    $
+    \item
+    $
+    \begin{bmatrix}
+        \answer{9.3.14b1}{0}     & \answer{9.3.14b2}{1} & \answer{9.3.14b3}{1} \\
+        \answer{9.3.14b4}{1}     & \answer{9.3.14b5}{1} & \answer{9.3.14b6}{1} \\
+        \answer{9.3.14b7}{0}     & \answer{9.3.14b8}{1} & \answer{9.3.14b9}{0}
+    \end{bmatrix}
+    $
+    \item
+    $
+    \begin{bmatrix}
+        \answer{9.3.14c1}{1}     & \answer{9.3.14c2}{1} & \answer{9.3.14c3}{1} \\
+        \answer{9.3.14c4}{1}     & \answer{9.3.14c5}{1} & \answer{9.3.14c6}{1} \\
+        \answer{9.3.14c7}{0}     & \answer{9.3.14c8}{1} & \answer{9.3.14c9}{0}
+    \end{bmatrix}
+    $
+    \item
+    $
+    \begin{bmatrix}
+        \answer{9.3.14d1}{0}     & \answer{9.3.14d2}{0} & \answer{9.3.14d3}{0} \\
+        \answer{9.3.14d4}{1}     & \answer{9.3.14d5}{0} & \answer{9.3.14d6}{0} \\
+        \answer{9.3.14d7}{0}     & \answer{9.3.14d8}{1} & \answer{9.3.14d9}{1}
+    \end{bmatrix}
+    $
 \end{enumerate}
 
 \subsection{page 638, chapter 9.4 Exercise 20}
@@ -239,14 +240,14 @@
     Let \textsl{R} be the relation that contains the pair $(a, b)$ if $a$ and $b$ are cities such that there is a direct nonstop airline flight from $a$ to $b$. When is $(a, b)$ in
     \begin{enumerate}[label=(\alph*)]
         \item $R^2$ ?
-    	\item $R^3$ ?
-    	\item $R^*$ ?
+        \item $R^3$ ?
+        \item $R^*$ ?
     \end{enumerate}
 \end{shaded}
 \begin{enumerate}[label=(\alph*)]
     \item The pair $(a,b)$ in $R^2$ precisely when there is a city $c$ such that there is a dierct flight from $a$ to $c$ and a dierct flight from $c$ to $b$ -- in other words,when it is possible to fly from $a$ to $b$ with a scheduled stop (and possibly a plane change) in some intermidiate city.
-	\item \answer{9.4.20a}{}
-	\item \answer{9.4.20b}{}
+    \item \answer{9.4.20a}{The pair $(a, b)$ is in $R^3$ precisely when there exist cities $c$ and $d$ such that there are direct flights from $a$ to $c$, from $c$ to $d$, and from $d$ to $b$ -- in other words, when it is possible to fly from $a$ to $b$ with exactly two intermediate stops.}
+    \item \answer{9.4.20b}{The pair $(a, b)$ is in $R^*$ precisely when there is a sequence of flights leading from $a$ to $b$ -- in other words, when it is possible to fly from $a$ to $b$ using any number of intermediate stops.}
 \end{enumerate}
 
 \subsection{page 647, chapter 9.5 Exercise 24}
@@ -255,36 +256,36 @@
     \begin{enumerate}[label=(\alph*)]
         \item 
         $
-    	\begin{bmatrix}
-    	   1 & 1 & 1 \\
-     	   0 & 1 & 1 \\
-     	   1 & 1 & 1
-    	\end{bmatrix}
-    	$
-    	\item 
-    	$
-    	\begin{bmatrix}
-    	   1 & 0 & 1 & 0 \\
-     	   0 & 1 & 0 & 1 \\
+        \begin{bmatrix}
+           1 & 1 & 1 \\
+           0 & 1 & 1 \\
+           1 & 1 & 1
+        \end{bmatrix}
+        $
+        \item 
+        $
+        \begin{bmatrix}
            1 & 0 & 1 & 0 \\
-     	   0 & 1 & 0 & 1
-    	\end{bmatrix}
-    	$
-    	\item 
-    	$
-    	\begin{bmatrix}
-    	   1 & 1 & 1 & 0 \\
-     	   1 & 1 & 1 & 0 \\
+           0 & 1 & 0 & 1 \\
+           1 & 0 & 1 & 0 \\
+           0 & 1 & 0 & 1
+        \end{bmatrix}
+        $
+        \item 
+        $
+        \begin{bmatrix}
            1 & 1 & 1 & 0 \\
-     	   0 & 0 & 0 & 1
-    	\end{bmatrix}
-    	$
+           1 & 1 & 1 & 0 \\
+           1 & 1 & 1 & 0 \\
+           0 & 0 & 0 & 1
+        \end{bmatrix}
+        $
     \end{enumerate}
 \end{shaded}
 \begin{enumerate}[label=(\alph*)]
     \item \answer{9.5.24a}{No}, because it is not symmetric.
-    \item \answer{9.5.24b}{Yes or No}, because ...
-	\item \answer{9.5.24c}{Yes or No}, because ...
+    \item \answer{9.5.24b}{Yes}, because it is reflexive (all diagonal entries are 1), symmetric (the matrix is symmetric with respect to the main diagonal), and transitive.
+    \item \answer{9.5.24c}{Yes}, because it is reflexive (all diagonal entries are 1), symmetric (the matrix is symmetric with respect to the main diagonal), and transitive.
 \end{enumerate}
 
 \subsection{page 662, chapter 9.6 Exercise 8}
@@ -293,35 +294,35 @@
     \begin{enumerate}[label=(\alph*)]
         \item 
         $
-    	\begin{bmatrix}
-    	   1 & 0 & 1 \\
-     	   1 & 1 & 0 \\
-     	   0 & 0 & 1
-    	\end{bmatrix}
-    	$
-    	\item 
-    	$
-    	\begin{bmatrix}
-    	   1 & 0 & 0 \\
-     	   0 & 1 & 0 \\
+        \begin{bmatrix}
            1 & 0 & 1 \\
-    	\end{bmatrix}
-    	$
-    	\item 
-    	$
-    	\begin{bmatrix}
-    	   1 & 0 & 1 & 0 \\
-     	   0 & 1 & 1 & 0 \\
+           1 & 1 & 0 \\
+           0 & 0 & 1
+        \end{bmatrix}
+        $
+        \item 
+        $
+        \begin{bmatrix}
+           1 & 0 & 0 \\
+           0 & 1 & 0 \\
+           1 & 0 & 1 \\
+        \end{bmatrix}
+        $
+        \item 
+        $
+        \begin{bmatrix}
+           1 & 0 & 1 & 0 \\
+           0 & 1 & 1 & 0 \\
            0 & 0 & 1 & 1 \\
-     	   1 & 1 & 0 & 1
-    	\end{bmatrix}
-    	$
+           1 & 1 & 0 & 1
+        \end{bmatrix}
+        $
     \end{enumerate}
 \end{shaded}
 \begin{enumerate}[label=(\alph*)]
     \item \answer{9.6.8a}{No}, because this relation is $(1, 1), (1, 3), (2, 1), (2, 2), (3, 3)$. It is clearly reflexive and antisymmetric. The only one pairs that might present problems with transitivity are the nondiagonal pairs, $(2, 1)$ and $(1, 3)$. If the relation were to be transitive, then we would also need the pair $(2, 3)$ in the relation.
- 	\item \answer{9.6.8b}{Yes or No}. Reasoning as ...
-	\item \answer{9.6.8c}{Yes or No}, A little trial and error shows that ...
+    \item \answer{9.6.8b}{Yes}. Reasoning as it is reflexive (all diagonal entries are 1), antisymmetric (no two symmetric entries off the diagonal are both 1), and transitive (the only non-trivial composition path is $(3,1)$ and $(1,1)$, which yields $(3,1)$, which is in the relation).
+    \item \answer{9.6.8c}{No}, because it is not transitive; for instance, $(1, 3)$ and $(3, 4)$ are in the relation (represented by 1s in the matrix), but $(1, 4)$ is not (represented by 0).
 \end{enumerate}
 
 \end{document}

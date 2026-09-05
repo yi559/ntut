@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  5 MAY 2026 12:24
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.27)  19 JUN 2026 19:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2222,7 +2222,7 @@ Overfull \hbox (1.29082pt too wide) in paragraph at lines 106--107
  []
 
 
-Overfull \hbox (51.23723pt too wide) in paragraph at lines 104--116
+Overfull \hbox (51.23723pt too wide) in paragraph at lines 104--121
  [][] 
  []
 
@@ -2230,39 +2230,36 @@ Overfull \hbox (51.23723pt too wide) in paragraph at lines 104--116
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 7362) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 139.
+(Font)              scaled to size 10.95pt on input line 144.
 LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular.otf(1)/m/n' will be
-(Font)              scaled to size 11.36603pt on input line 139.
+(Font)              scaled to size 11.36603pt on input line 144.
 LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular.otf(2)/m/n' will be
-(Font)              scaled to size 11.36703pt on input line 139.
+(Font)              scaled to size 11.36703pt on input line 144.
 LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 11.36485pt on input line 139.
+(Font)              scaled to size 11.36485pt on input line 144.
 
 
-Class acmart Warning: \vspace should only be used to provide space above/below surrounding objects on input line 157.
+Class acmart Warning: \vspace should only be used to provide space above/below surrounding objects on input line 161.
 
 [1.1
 
 ]
-Underfull \vbox (badness 1533) detected at line 269
+Underfull \vbox (badness 10000) detected at line 365
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \vbox (badness 2521) has occurred while \output is active []
-
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 331.
+(Font)              scaled to size 6.0pt on input line 365.
  [2.2
 
 ]
 
-Class acmart Warning: \vspace should only be used to provide space above/below surrounding objects on input line 365.
+Class acmart Warning: \vspace should only be used to provide space above/below surrounding objects on input line 369.
 
 
 Class acmart Warning: ACM keywords are mandatory for papers over two pages.
@@ -2291,10 +2288,10 @@ Package rerunfilecheck Info: File `hw10.out' has not changed.
 Here is how much of TeX's memory you used:
  45809 strings out of 402983
  926907 string characters out of 5448482
- 1455820 words of memory out of 5000000
+ 1460203 words of memory out of 5000000
  73729 multiletter control sequences out of 15000+600000
  643024 words of font info for 203 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
  105i,21n,131p,1035b,32894s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw10.xdv (3 pages, 135320 bytes).
+Output written on hw10.xdv (3 pages, 140680 bytes).

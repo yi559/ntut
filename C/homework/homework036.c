@@ -112,3 +112,90 @@ likes by dinner
 輸出：
 0
 */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+#define MAX_WORDS 15
+#define MAX_WORD_LEN 15
+#define MAX_N 15
+#define MAX_LINE_LEN 200
+
+// 儲存主字串 S 的單字字典
+char dict[MAX_WORDS][MAX_WORD_LEN];
+int dict_size = 0;
+
+// 尋找單字在字典中的編號，若不存在則加入字典
+int get_word_id(char *word, bool add_if_not_exist) {
+    for (int i = 0; i < dict_size; i++) {
+        if (strcmp(dict[i], word) == 0) {
+            return i;
+        }
+    }
+    if (add_if_not_exist && dict_size < MAX_WORDS) {
+        strcpy(dict[dict_size], word);
+        return dict_size++;
+    }
+    return -1; // 不在主字串中的無效單字
+}
+
+// 將一行包含多個單字的字串，轉換為位元遮罩
+int get_line_mask(char *line, bool is_main_string) {
+    int mask = 0;
+    char *word = strtok(line, " \n\r");
+    
+    while (word != NULL) {
+        int id = get_word_id(word, is_main_string);
+        if (id != -1) {
+            mask |= (1 << id);
+        } else {
+            // 如果待比對字串包含了主字串 S 所沒有的單字，
+            // 設置一個特殊位元（例如第 30 位），讓它永遠無法匹配成功
+            mask |= (1 << 30);
+        }
+        word = strtok(NULL, " \n\r");
+    }
+    return mask;
+}
+
+int main() {
+    char line[MAX_LINE_LEN];
+    int n;
+    
+    // 1. 讀取主字串 S 
+    if (fgets(line, sizeof(line), stdin) == NULL) return 0;
+    dict_size = 0; // 初始化字典
+    int target_mask = get_line_mask(line, true);
+    
+    // 2. 讀取待比對字串數量 n
+    if (fgets(line, sizeof(line), stdin) == NULL) return 0;
+    sscanf(line, "%d", &n);
+    
+    // 3. 讀取 n 個待比對字串並轉換成 mask
+    int masks[MAX_N];
+    for (int i = 0; i < n; i++) {
+        if (fgets(line, sizeof(line), stdin) != NULL) {
+            masks[i] = get_line_mask(line, false);
+        } else {
+            masks[i] = 0;
+        }
+    }
+    
+    // 4. 雙重迴圈配對檢查
+    int complement_pairs = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            // 條件 1: 兩者交集為空 (沒有重複單字)
+            // 條件 2: 兩者聯集剛好等於主字串 S 的單字集合
+            if ((masks[i] & masks[j]) == 0 && (masks[i] | masks[j]) == target_mask) {
+                complement_pairs++;
+            }
+        }
+    }
+    
+    // 輸出結果
+    printf("%d\n", complement_pairs);
+    
+    return 0;
+}
